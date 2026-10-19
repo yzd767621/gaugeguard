@@ -1,0 +1,2248 @@
+{
+ "clean": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7079,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "d4b2e3a6b642",
+   "ts": 1791877271.0607677
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 1093.5,
+     "brightness": 159.2,
+     "contrast": 201.0,
+     "noise": 1.47,
+     "glare_fraction": 0.0,
+     "issues": [],
+     "scope": "frame"
+    },
+    "ms": 6.1
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 10.1
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7079,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 29.6
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 773.4
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 9.0
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7078,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 27.8
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7079,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "roll": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.706,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "37040fedc05e",
+   "ts": 1791877305.089878
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 825.3,
+     "brightness": 155.9,
+     "contrast": 201.0,
+     "noise": 1.19,
+     "glare_fraction": 0.0,
+     "issues": [],
+     "scope": "frame"
+    },
+    "ms": 4.3
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 9.3
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.706,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 24.1
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 546.0
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 8.4
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7063,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 26.0
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.706,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "tilt": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7059,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "5cd566aab0b9",
+   "ts": 1791877332.929713
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 802.7,
+     "brightness": 155.0,
+     "contrast": 200.0,
+     "noise": 1.13,
+     "glare_fraction": 0.0,
+     "issues": [],
+     "scope": "frame"
+    },
+    "ms": 4.8
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.995,
+     "centre": [
+      398,
+      258
+     ],
+     "axis_ratio": 0.876
+    },
+    "ms": 7.7
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7059,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 26.2
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 516.2
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.995,
+     "centre": [
+      398,
+      258
+     ],
+     "axis_ratio": 0.876
+    },
+    "ms": 7.6
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7059,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 27.7
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7059,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "blur": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7096,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "4ce2e11de679",
+   "ts": 1791877361.3698218
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 22.9,
+     "brightness": 159.2,
+     "contrast": 183.0,
+     "noise": 0.16,
+     "glare_fraction": 0.0,
+     "issues": [
+      "blurry"
+     ],
+     "scope": "frame"
+    },
+    "ms": 4.2
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.996,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.5
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7096,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.996,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 21.8
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 514.2
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.996,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 7.4
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7096,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.996,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 27.2
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7096,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "motion": {
+  "seed": 5000,
+  "truth": 35.547339438481984,
+  "outcome": {
+   "status": "recapture_requested",
+   "reason": "Could not obtain a trustworthy reading (best confidence 0.03 is below the minimum).",
+   "guidance": "The photo is blurred. Hold the camera steady, tap to focus on the dial, then retake."
+  },
+  "recorded": null,
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
+      "vmin": 0,
+      "vmax": 100,
+      "units": "C",
+      "sweep_deg": 270,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
+      "crit_low": null,
+      "max_step": 30
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 80.8,
+     "brightness": 131.6,
+     "contrast": 158.0,
+     "noise": 0.61,
+     "glare_fraction": 0.0,
+     "issues": [
+      "blurry"
+     ],
+     "scope": "frame"
+    },
+    "ms": 4.8
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.993,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.988
+    },
+    "ms": 5.4
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 37.4405,
+     "units": "C",
+     "confidence": 0.031,
+     "flags": [],
+     "components": {
+      "locate": 0.993,
+      "scale": 1.0,
+      "needle": 0.031
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 23.8
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "sharpen"
+    },
+    "reason": "Quality check reported 'blurry', so apply sharpen and look again.",
+    "result": {
+     "image": "v1:sharpen",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 2.2
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:sharpen",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.992,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.987
+    },
+    "ms": 6.7
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:sharpen",
+     "method": "contour#0",
+     "value": 37.6118,
+     "units": "C",
+     "confidence": 0.004,
+     "flags": [],
+     "components": {
+      "locate": 0.992,
+      "scale": 1.0,
+      "needle": 0.004
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 23.3
+   },
+   {
+    "step": 8,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "No specific defect explains the low confidence; try denoise and look again.",
+    "result": {
+     "image": "v2:denoise",
+     "derived_from": "v1:sharpen",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 537.6
+   },
+   {
+    "step": 9,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v2:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.991,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.987
+    },
+    "ms": 6.5
+   },
+   {
+    "step": 10,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r3",
+     "image": "v2:denoise",
+     "method": "contour#0",
+     "value": 33.4375,
+     "units": "C",
+     "confidence": 0.033,
+     "flags": [],
+     "components": {
+      "locate": 0.991,
+      "scale": 1.0,
+      "needle": 0.033
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 24.3
+   },
+   {
+    "step": 11,
+    "tool": "request_recapture",
+    "args": {
+     "reason": "Could not obtain a trustworthy reading (best confidence 0.03 is below the minimum).",
+     "guidance": "The photo is blurred. Hold the camera steady, tap to focus on the dial, then retake."
+    },
+    "reason": "Remedies exhausted.",
+    "result": {
+     "ok": true
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "low_light": {
+  "seed": 5000,
+  "truth": 35.547339438481984,
+  "outcome": {
+   "status": "recorded"
+  },
+  "recorded": {
+   "asset_id": "TG-303",
+   "value": 35.5359,
+   "units": "C",
+   "confidence": 0.805,
+   "limit_status": "normal",
+   "reading_id": "r2",
+   "verified_by": null,
+   "run_id": "3d03e1d6aaaf",
+   "ts": 1791877425.0014572
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
+      "vmin": 0,
+      "vmax": 100,
+      "units": "C",
+      "sweep_deg": 270,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
+      "crit_low": null,
+      "max_step": 30
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 100.6,
+     "brightness": 25.3,
+     "contrast": 37.0,
+     "noise": 1.83,
+     "glare_fraction": 0.0,
+     "issues": [
+      "dark",
+      "noisy"
+     ],
+     "scope": "frame"
+    },
+    "ms": 5.6
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.992,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.3
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 30.918,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_sweep_mismatch"
+     ],
+     "components": {
+      "locate": 0.992,
+      "scale": 0.0,
+      "needle": 0.807
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 25.0
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "Quality check reported 'dark', so apply denoise and look again.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 583.1
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.993,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.3
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 35.5359,
+     "units": "C",
+     "confidence": 0.805,
+     "flags": [
+      "scale_partially_hidden"
+     ],
+     "components": {
+      "locate": 0.993,
+      "scale": 0.85,
+      "needle": 0.95
+     },
+     "acceptable": true,
+     "limit_status": "normal"
+    },
+    "ms": 29.1
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r2"
+    },
+    "reason": "Confidence 0.81 meets the minimum and the value is in range.",
+    "result": {
+     "recorded": true,
+     "value": 35.5359,
+     "units": "C",
+     "limit_status": "normal",
+     "verified_by": null,
+     "next": "finished"
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "noise": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7089,
+   "units": "bar",
+   "confidence": 0.982,
+   "limit_status": "warn_high",
+   "reading_id": "r2",
+   "verified_by": "r1",
+   "run_id": "2943b7d55239",
+   "ts": 1791877476.9342296
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 1615.3,
+     "brightness": 158.2,
+     "contrast": 200.0,
+     "noise": 5.61,
+     "glare_fraction": 0.0123,
+     "issues": [
+      "noisy"
+     ],
+     "scope": "frame"
+    },
+    "ms": 4.6
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 4,
+     "score": 0.994,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 8.6
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7092,
+     "units": "bar",
+     "confidence": 0.898,
+     "flags": [],
+     "components": {
+      "locate": 0.994,
+      "scale": 1.0,
+      "needle": 0.9
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 23.6
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 485.4
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.9
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7089,
+     "units": "bar",
+     "confidence": 0.982,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 0.984
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 25.1
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r2"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7089,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r1",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "glare": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7079,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "e50612f1cef6",
+   "ts": 1791877509.868715
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 1059.5,
+     "brightness": 159.6,
+     "contrast": 201.0,
+     "noise": 1.46,
+     "glare_fraction": 0.0122,
+     "issues": [
+      "glare"
+     ],
+     "scope": "frame"
+    },
+    "ms": 3.9
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 7.2
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7079,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 23.6
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 490.3
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.996,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 8.3
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7075,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.996,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 27.0
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7079,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "occlusion": {
+  "seed": 5000,
+  "truth": 35.547339438481984,
+  "outcome": {
+   "status": "recorded"
+  },
+  "recorded": {
+   "asset_id": "TG-303",
+   "value": 35.5319,
+   "units": "C",
+   "confidence": 0.714,
+   "limit_status": "normal",
+   "reading_id": "r2",
+   "verified_by": null,
+   "run_id": "1eb390f8883f",
+   "ts": 1791877548.5942733
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
+      "vmin": 0,
+      "vmax": 100,
+      "units": "C",
+      "sweep_deg": 270,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
+      "crit_low": null,
+      "max_step": 30
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.1
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 756.6,
+     "brightness": 127.1,
+     "contrast": 175.0,
+     "noise": 1.19,
+     "glare_fraction": 0.0,
+     "issues": [],
+     "scope": "frame"
+    },
+    "ms": 3.6
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.31,
+     "centre": [
+      318,
+      277
+     ],
+     "axis_ratio": 0.862
+    },
+    "ms": 6.4
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 37.4042,
+     "units": "C",
+     "confidence": 0.54,
+     "flags": [
+      "scale_partially_hidden",
+      "scale_sweep_mismatch"
+     ],
+     "components": {
+      "locate": 0.31,
+      "scale": 0.746,
+      "needle": 1.0
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 21.4
+   },
+   {
+    "step": 5,
+    "tool": "locate_dial",
+    "args": {
+     "method": "hough"
+    },
+    "reason": "Geometry looks wrong (scale_sweep_mismatch), so re-locate the rim by circle voting.",
+    "result": {
+     "image": "original",
+     "method": "hough",
+     "found": true,
+     "candidates": 2,
+     "score": 0.6,
+     "centre": [
+      322,
+      256
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 12.4
+   },
+   {
+    "step": 6,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "original",
+     "method": "hough#0",
+     "value": 35.5319,
+     "units": "C",
+     "confidence": 0.714,
+     "flags": [
+      "scale_partially_hidden"
+     ],
+     "components": {
+      "locate": 0.6,
+      "scale": 0.85,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "normal"
+    },
+    "ms": 23.7
+   },
+   {
+    "step": 7,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r2"
+    },
+    "reason": "Confidence 0.71 meets the minimum and the value is in range.",
+    "result": {
+     "recorded": true,
+     "value": 35.5319,
+     "units": "C",
+     "limit_status": "normal",
+     "verified_by": null,
+     "next": "finished"
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "jpeg": {
+  "seed": 5001,
+  "truth": 7.7137446928774285,
+  "outcome": {
+   "status": "alert_raised",
+   "severity": "warning"
+  },
+  "recorded": {
+   "asset_id": "PG-101",
+   "value": 7.7088,
+   "units": "bar",
+   "confidence": 0.998,
+   "limit_status": "warn_high",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "ad96b467e6fd",
+   "ts": 1791877582.6511865
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "PG-101",
+      "name": "Compressor discharge pressure",
+      "vmin": 0,
+      "vmax": 10,
+      "units": "bar",
+      "sweep_deg": 270,
+      "warn_high": 7.5,
+      "crit_high": 9.0,
+      "warn_low": 1.0,
+      "crit_low": null,
+      "max_step": 3.0
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 1031.3,
+     "brightness": 159.5,
+     "contrast": 201.0,
+     "noise": 1.19,
+     "glare_fraction": 0.0007,
+     "issues": [],
+     "scope": "frame"
+    },
+    "ms": 3.5
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.5
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 7.7088,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 22.2
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 524.6
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.995,
+     "centre": [
+      391,
+      243
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 7.8
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 7.7088,
+     "units": "bar",
+     "confidence": 0.998,
+     "flags": [],
+     "components": {
+      "locate": 0.995,
+      "scale": 1.0,
+      "needle": 1.0
+     },
+     "acceptable": true,
+     "limit_status": "warn_high"
+    },
+    "ms": 26.3
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r1"
+    },
+    "reason": "A second, independent reading agrees.",
+    "result": {
+     "recorded": true,
+     "value": 7.7088,
+     "units": "bar",
+     "limit_status": "warn_high",
+     "verified_by": "r2",
+     "next": "raise_alert"
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 9,
+    "tool": "raise_alert",
+    "args": {
+     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+    },
+    "reason": "Recorded value is outside its limits.",
+    "result": {
+     "alert": "dispatched",
+     "severity": "warning",
+     "delivery": {
+      "delivered": "memory"
+     }
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "combined": {
+  "seed": 5000,
+  "truth": 35.547339438481984,
+  "outcome": {
+   "status": "recorded"
+  },
+  "recorded": {
+   "asset_id": "TG-303",
+   "value": 35.4966,
+   "units": "C",
+   "confidence": 0.974,
+   "limit_status": "normal",
+   "reading_id": "r2",
+   "verified_by": null,
+   "run_id": "5de966d11e52",
+   "ts": 1791877609.5373433
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
+      "vmin": 0,
+      "vmax": 100,
+      "units": "C",
+      "sweep_deg": 270,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
+      "crit_low": null,
+      "max_step": 30
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
+     "sharpness": 86.5,
+     "brightness": 27.6,
+     "contrast": 38.0,
+     "noise": 1.7,
+     "glare_fraction": 0.0,
+     "issues": [
+      "dark",
+      "noisy"
+     ],
+     "scope": "frame"
+    },
+    "ms": 5.2
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.993,
+     "centre": [
+      328,
+      253
+     ],
+     "axis_ratio": 0.945
+    },
+    "ms": 6.0
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 35.9257,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_sweep_mismatch"
+     ],
+     "components": {
+      "locate": 0.993,
+      "scale": 0.0,
+      "needle": 0.821
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 28.8
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "Quality check reported 'dark', so apply denoise and look again.",
+    "result": {
+     "image": "v1:denoise",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 483.3
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 3,
+     "score": 0.994,
+     "centre": [
+      328,
+      253
+     ],
+     "axis_ratio": 0.945
+    },
+    "ms": 6.3
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:denoise",
+     "method": "contour#0",
+     "value": 35.4966,
+     "units": "C",
+     "confidence": 0.974,
+     "flags": [],
+     "components": {
+      "locate": 0.994,
+      "scale": 1.0,
+      "needle": 0.977
+     },
+     "acceptable": true,
+     "limit_status": "normal"
+    },
+    "ms": 27.3
+   },
+   {
+    "step": 8,
+    "tool": "record_reading",
+    "args": {
+     "reading_id": "r2"
+    },
+    "reason": "Confidence 0.97 meets the minimum and the value is in range.",
+    "result": {
+     "recorded": true,
+     "value": 35.4966,
+     "units": "C",
+     "limit_status": "normal",
+     "verified_by": null,
+     "next": "finished"
+    },
+    "ms": 0.1
+   }
+  ]
+ }
+}

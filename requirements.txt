@@ -1,0 +1,6 @@
+# Runtime dependencies, pinned. Versions verified locally on Python 3.14 (Windows) on 2026-10-13.
+opencv-python-headless==5.0.0.93
+numpy==2.5.4
+# Needed only for the Bedrock planner and AWS storage; the rule planner and local store run without them.
+anthropic[bedrock]==1.13.0
+boto3==1.43.112

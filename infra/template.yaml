@@ -1,0 +1,147 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: GaugeGuard - agentic analog-gauge inspection with OpenCV 5 on AWS Lambda (Graviton).
+
+Parameters:
+  Planner:
+    Type: String
+    Default: bedrock
+    AllowedValues: [bedrock, rules]
+    Description: Which planner drives the agent. "rules" needs no model access.
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-opus-5-5
+  BedrockRegion:
+    Type: String
+    Default: ""
+    Description: Region for Bedrock calls when the model is not offered in the deploy region. Empty means the deploy region.
+  DemoToken:
+    Type: String
+    NoEcho: true
+    Default: ""
+    Description: Optional bearer token required for inspect and decision requests. Recommended for a public URL.
+  AlertEmail:
+    Type: String
+    Default: ""
+    Description: Optional e-mail address subscribed to alerts.
+
+Conditions:
+  HasAlertEmail: !Not [!Equals [!Ref AlertEmail, ""]]
+
+Globals:
+  Function:
+    Timeout: 120
+    MemorySize: 2048
+
+Resources:
+  ImageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - {Id: expire-inspection-photos, Status: Enabled, ExpirationInDays: 30}
+
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - {AttributeName: pk, AttributeType: S}
+        - {AttributeName: sk, AttributeType: S}
+      KeySchema:
+        - {AttributeName: pk, KeyType: HASH}
+        - {AttributeName: sk, KeyType: RANGE}
+      TimeToLiveSpecification: {AttributeName: expires_at, Enabled: true}
+      SSESpecification: {SSEEnabled: true}
+
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      KmsMasterKeyId: alias/aws/sns
+
+  AlertSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasAlertEmail
+    Properties:
+      TopicArn: !Ref AlertTopic
+      Protocol: email
+      Endpoint: !Ref AlertEmail
+
+  InspectFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/                   # made by infra/build_lambda.py (Linux arm64 wheels + gaugeguard)
+      Handler: gaugeguard.lambda_handler.handler
+      Runtime: python3.13
+      Architectures: [arm64]
+      ReservedConcurrentExecutions: 5   # caps cost and abuse of the public demo URL
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins: ["*"]
+          AllowMethods: [GET, POST]
+          AllowHeaders: [content-type, authorization]
+      Environment:
+        Variables:
+          GG_PLANNER: !Ref Planner
+          GG_BEDROCK_MODEL: !Ref BedrockModelId
+          GG_BEDROCK_REGION: !Ref BedrockRegion
+          GG_TABLE: !Ref Table
+          GG_BUCKET: !Ref ImageBucket
+          GG_ALERT_TOPIC: !Ref AlertTopic
+          GG_DEMO_TOKEN: !Ref DemoToken
+      Policies:
+        - DynamoDBCrudPolicy: {TableName: !Ref Table}
+        - S3CrudPolicy: {BucketName: !Ref ImageBucket}
+        - SNSPublishMessagePolicy: {TopicName: !GetAtt AlertTopic.TopicName}
+        - Statement:
+            - Effect: Allow             # Claude in Amazon Bedrock (Messages API on bedrock-mantle)
+              Action: bedrock-mantle:CreateInference
+              Resource: "*"
+
+  ErrorAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: GaugeGuard function errors
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions: [{Name: FunctionName, Value: !Ref InspectFunction}]
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+
+  EscalationAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Many runs are ending in human escalation - check camera placement or the model.
+      Namespace: GaugeGuard
+      MetricName: Runs
+      Dimensions: [{Name: Outcome, Value: escalated}]
+      Statistic: Sum
+      Period: 3600
+      EvaluationPeriods: 1
+      Threshold: 10
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+
+Outputs:
+  Url:
+    Description: Web UI and API endpoint
+    Value: !GetAtt InspectFunctionUrl.FunctionUrl
+  Bucket:
+    Value: !Ref ImageBucket
+  TableName:
+    Value: !Ref Table
+  AlertTopicArn:
+    Value: !Ref AlertTopic

@@ -1,0 +1,12 @@
+[
+  {"asset_id": "PG-101", "name": "Compressor discharge pressure", "vmin": 0, "vmax": 10, "units": "bar",
+   "sweep_deg": 270, "warn_high": 7.5, "crit_high": 9.0, "warn_low": 1.0, "crit_low": null, "max_step": 3.0},
+  {"asset_id": "PG-202", "name": "Steam header pressure", "vmin": 0, "vmax": 160, "units": "psi",
+   "sweep_deg": 270, "warn_high": 120, "crit_high": 145, "warn_low": null, "crit_low": null, "max_step": 50},
+  {"asset_id": "TG-303", "name": "Cooling water return temperature", "vmin": 0, "vmax": 100, "units": "C",
+   "sweep_deg": 270, "warn_high": 70, "crit_high": 85, "warn_low": 5, "crit_low": null, "max_step": 30},
+  {"asset_id": "PG-404", "name": "Hydraulic supply pressure", "vmin": 0, "vmax": 6, "units": "bar",
+   "sweep_deg": 270, "warn_high": 5.0, "crit_high": 5.6, "warn_low": 1.5, "crit_low": 0.8, "max_step": 2.0},
+  {"asset_id": "VG-505", "name": "Vacuum / compound gauge", "vmin": -1, "vmax": 3, "units": "bar",
+   "sweep_deg": 270, "warn_high": 2.2, "crit_high": 2.7, "warn_low": null, "crit_low": null, "max_step": 1.5}
+]
