@@ -6,6 +6,8 @@ import pytest
 
 from gaugeguard.agent import RulePlanner, Session, call_tool, decide_alert, run_inspection
 from gaugeguard.agent.bedrock import BedrockPlanner, PlannerUnavailable
+from gaugeguard.agent.converse import ConversePlanner
+from gaugeguard.agent.tools import TOOLS
 from gaugeguard.synth import degrade
 
 
@@ -134,7 +136,7 @@ def test_model_planner_drives_the_same_tools(store, gauge):
         {"say": "Confident and in range; record.", "calls": [("record_reading", {"reading_id": "r1"})]},
     ])
     run = run_inspection(gauge("PG-101", 4.0)[0], "PG-101", store, BedrockPlanner(client=client))
-    assert run["outcome"]["status"] == "recorded" and run["planner"] == "bedrock"
+    assert run["outcome"]["status"] == "recorded" and run["planner"] == "claude"
     assert run["trace"][2]["reason"] == "Quality is fine; find the dial."
     # both results of the parallel first turn go back in a single user message
     results = client.calls[1]["messages"][-1]["content"]
@@ -159,7 +161,7 @@ def test_model_cannot_talk_its_way_past_a_guardrail(store, gauge):
 def test_rules_take_over_when_the_model_is_unavailable(store, gauge):
     client = _FakeClient([{"calls": [("get_asset_context", {})]}, RuntimeError("throttled")])
     run = run_inspection(gauge("PG-101", 4.0)[0], "PG-101", store, BedrockPlanner(client=client))
-    assert run["planner"] == "bedrock+rules" and run["outcome"]["status"] == "recorded"
+    assert run["planner"] == "claude+rules" and run["outcome"]["status"] == "recorded"
     assert any(t["tool"] == "planner_fallback" for t in run["trace"])
 
 
@@ -174,3 +176,60 @@ def test_refusal_makes_the_planner_unavailable():
     client.messages.create = lambda **k: SimpleNamespace(stop_reason="refusal", content=[], usage=None)
     with pytest.raises(PlannerUnavailable):
         BedrockPlanner(client=client)._ask()
+
+
+# ------------------------------------------------------------ Converse planner (Nova, GLM, Kimi, ...)
+
+class _FakeConverse:
+    """Stands in for the bedrock-runtime client and scripts the model's tool calls in the Converse format."""
+
+    def __init__(self, script):
+        self.script, self.calls = list(script), []
+
+    def converse(self, **kwargs):
+        self.calls.append({**kwargs, "messages": list(kwargs["messages"])})
+        step = self.script.pop(0)
+        if isinstance(step, Exception):
+            raise step
+        content = [{"text": f"<thinking>{step.get('say', '')}</thinking>"}]
+        content += [{"toolUse": {"toolUseId": f"tu{len(self.calls)}_{i}", "name": n, "input": a}}
+                    for i, (n, a) in enumerate(step.get("calls", []))]
+        return {"output": {"message": {"role": "assistant", "content": content}},
+                "stopReason": "tool_use" if step.get("calls") else "end_turn",
+                "usage": {"inputTokens": 10, "outputTokens": 5}}
+
+
+def test_converse_planner_drives_the_same_tools(store, gauge):
+    client = _FakeConverse([
+        {"say": "Load context and check quality.", "calls": [("get_asset_context", {}), ("assess_quality", {})]},
+        {"say": "Quality is fine; find the dial.", "calls": [("locate_dial", {"method": "contour"})]},
+        {"say": "Dial found; read it.", "calls": [("read_gauge", {"candidate": 0})]},
+        {"say": "Confident and in range; record.", "calls": [("record_reading", {"reading_id": "r1"})]},
+    ])
+    run = run_inspection(gauge("PG-101", 4.0)[0], "PG-101", store, ConversePlanner(model="amazon.nova-pro-v1:0", client=client))
+    assert run["outcome"]["status"] == "recorded" and run["planner"] == "bedrock:amazon.nova-pro-v1:0"
+    assert run["trace"][2]["reason"] == "Quality is fine; find the dial."  # <thinking> tags stripped
+    results = client.calls[1]["messages"][-1]["content"]
+    assert [r["toolResult"]["status"] for r in results] == ["success", "success"]
+    assert results[0]["toolResult"]["content"][0]["json"]["asset"]["asset_id"] == "PG-101"
+    assert {t["toolSpec"]["name"] for t in client.calls[0]["toolConfig"]["tools"]} == set(TOOLS)
+
+
+def test_converse_cannot_talk_its_way_past_a_guardrail(store, gauge):
+    client = _FakeConverse([
+        {"calls": [("locate_dial", {"method": "contour"})]},
+        {"calls": [("read_gauge", {"candidate": 0})]},
+        {"say": "Looks high, recording anyway.", "calls": [("record_reading", {"reading_id": "r1"})]},
+        {"say": "Refused; escalate.", "calls": [("escalate_to_human", {"reason": "could not verify high value"})]},
+    ])
+    run = run_inspection(gauge("PG-101", 8.0)[0], "PG-101", store, ConversePlanner(model="amazon.nova-pro-v1:0", client=client))
+    assert run["outcome"]["status"] == "escalated" and run["recorded"] is None
+    refused = client.calls[3]["messages"][-1]["content"][0]["toolResult"]
+    assert refused["status"] == "error" and "verification required" in refused["content"][0]["json"]["error"]
+
+
+def test_rules_take_over_when_the_converse_model_is_unavailable(store, gauge):
+    client = _FakeConverse([{"calls": [("get_asset_context", {})]}, RuntimeError("AccessDeniedException")])
+    run = run_inspection(gauge("PG-101", 4.0)[0], "PG-101", store, ConversePlanner(model="amazon.nova-pro-v1:0", client=client))
+    assert run["planner"] == "bedrock:amazon.nova-pro-v1:0+rules" and run["outcome"]["status"] == "recorded"
+    assert any(t["tool"] == "planner_fallback" for t in run["trace"])

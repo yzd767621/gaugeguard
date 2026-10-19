@@ -11,8 +11,9 @@ MAX_STEPS = int(os.environ.get("GG_MAX_STEPS", "20"))
 MAX_IMAGE_BYTES = int(os.environ.get("GG_MAX_IMAGE_BYTES", str(6 * 1024 * 1024)))
 MAX_IMAGE_SIDE = int(os.environ.get("GG_MAX_IMAGE_SIDE", "960"))
 
-PLANNER = os.environ.get("GG_PLANNER", "rules")  # "rules" or "bedrock"
-BEDROCK_MODEL = os.environ.get("GG_BEDROCK_MODEL", "anthropic.claude-opus-5-5")
+PLANNER = os.environ.get("GG_PLANNER", "rules")  # "rules", "bedrock" (Converse API) or "claude"
+PLANNER_MODEL = os.environ.get("GG_PLANNER_MODEL", "zai.glm-5")  # model for the "bedrock" planner
+BEDROCK_MODEL = os.environ.get("GG_BEDROCK_MODEL", "anthropic.claude-opus-5-5")  # Claude planner
 AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
 # Bedrock may not offer the model in the region the function runs in; this sends model calls elsewhere.
 BEDROCK_REGION = os.environ.get("GG_BEDROCK_REGION") or AWS_REGION

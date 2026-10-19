@@ -11,6 +11,7 @@ import numpy as np
 from .. import config
 from ..vision import annotate
 from .bedrock import BedrockPlanner, PlannerUnavailable
+from .converse import ConversePlanner
 from .policy import RulePlanner
 from .tools import Session, call_tool, limit_status
 
@@ -18,6 +19,8 @@ from .tools import Session, call_tool, limit_status
 def make_planner(name: str | None = None):
     name = name or config.PLANNER
     if name == "bedrock":
+        return ConversePlanner()
+    if name == "claude":
         return BedrockPlanner()
     if name == "rules":
         return RulePlanner()

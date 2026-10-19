@@ -37,7 +37,7 @@ class PlannerUnavailable(Exception):
 
 
 class BedrockPlanner:
-    name = "bedrock"
+    name = "claude"
 
     def __init__(self, model: str | None = None, region: str | None = None, client=None):
         if client is None:

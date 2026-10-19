@@ -14,7 +14,8 @@ being reported.
 
 1. **Perceive (OpenCV 5).** Measure image quality, find the dial rim as an ellipse, undo camera tilt and
    roll, find the tick scale and the needle, and convert the needle angle to a value with a confidence.
-2. **Decide (planner).** Claude on Amazon Bedrock, or a deterministic rule planner, picks the next tool
+2. **Decide (planner).** A model on Amazon Bedrock (GLM-5 by default, through the Converse API), or a
+   deterministic rule planner, picks the next tool
    call from the last measurement: denoise a dark frame, re-locate the rim another way, take a second
    reading to confirm an out-of-limit value, or stop.
 3. **Act (guarded).** Record the reading, send a warning, hold a critical alert for operator approval,
@@ -34,15 +35,20 @@ On 14 openly licensed real photographs (`python eval/run_real.py`), the reader i
 agent withheld every value and asked for a new photo, so it reported no wrong values, while always
 reporting would have given a wrong value on 5 of the 9 readable photos. See section 6.1 of the report.
 
+Five Bedrock models were compared as planners on 14 gauges with live calls
+([eval/results/planner_comparison.md](eval/results/planner_comparison.md)): none recorded a wrong value,
+and GLM-5 was chosen. A live run on the deployed site, where the model adapts after a guardrail refuses its
+first attempt, is in [eval/results/live_trace_glm5.json](eval/results/live_trace_glm5.json).
+
 ## Architecture
 
 ```mermaid
 flowchart LR
   U[Operator browser<br/>or MCP client] -->|HTTPS| F[Lambda Function URL]
   subgraph AWS
-    F --> L[Lambda container, arm64 Graviton<br/>GaugeGuard API + agent loop]
+    F --> L[Lambda, arm64 Graviton<br/>GaugeGuard API + agent loop]
     L -->|tool calls| CV[OpenCV 5 tools<br/>quality, locate, rectify, read, enhance]
-    L <-->|Messages API, tool use| B[Amazon Bedrock<br/>Claude planner]
+    L <-->|Converse API, tool use| B[Amazon Bedrock<br/>model planner, GLM-5]
     L --> D[(DynamoDB<br/>runs, readings)]
     L --> S[(S3<br/>photos, annotated evidence)]
     L -->|warning / approved critical| N[SNS alerts]
@@ -93,8 +99,9 @@ python eval/run_eval.py --n 60    # writes eval/results/
 python bench/bench_ops.py         # per-operation timings for this OpenCV build
 ```
 
-To use the Bedrock planner locally, configure AWS credentials with access to the model, then
-`set GG_PLANNER=bedrock` (PowerShell: `$env:GG_PLANNER="bedrock"`). If Bedrock cannot be reached the run
+To use the model planner locally, configure AWS credentials with Bedrock access, then
+`set GG_PLANNER=bedrock` (PowerShell: `$env:GG_PLANNER="bedrock"`). `GG_PLANNER_MODEL` picks the model
+(default `zai.glm-5`); `GG_PLANNER=claude` uses Claude through the Anthropic SDK instead. If Bedrock cannot be reached the run
 continues with the rule planner and the trace records the fallback.
 
 ## Deploy to AWS
@@ -134,7 +141,7 @@ A stdio MCP server exposing `load_image` plus the same nine tools and guardrails
 | Path | Contents |
 |---|---|
 | `gaugeguard/vision/` | OpenCV 5 perception: `quality`, `locate`, `reader`, `enhance`, `annotate` |
-| `gaugeguard/agent/` | `tools` (tools + guardrails), `policy` (rule planner), `bedrock` (Claude planner), `loop` |
+| `gaugeguard/agent/` | `tools` (tools + guardrails), `policy` (rule planner), `converse` (model planner, any Bedrock model), `bedrock` (Claude planner), `loop` |
 | `gaugeguard/api.py`, `serve.py`, `lambda_handler.py` | HTTP API, local server, Lambda entry point |
 | `gaugeguard/web/index.html` | Single-page UI, no external dependencies |
 | `gaugeguard/synth.py` | Synthetic gauge renderer with ground truth |
@@ -147,5 +154,5 @@ A stdio MCP server exposing `load_image` plus the same nine tools and guardrails
 
 Stated in full in the technical report. The main ones: the reader works on synthetic images but not
 yet on real photographs; it expects a single-needle circular dial with a tick scale and a visible gap; the
-asset's range and limits come from a registry, not from reading the digits; and the Bedrock planner has
-not yet been run against a live model (the deployed site runs on the rule planner).
+asset's range and limits come from a registry, not from reading the digits; and the model-planner
+comparison is small (14 gauges, one run per model).

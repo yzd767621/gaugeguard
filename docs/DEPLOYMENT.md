@@ -7,7 +7,7 @@
 | Code, tests, evaluation, local web endpoint | Run and verified on Windows 11, Python 3.14, OpenCV 5.0.0 |
 | `infra/build_lambda.py` | Run: builds a 171 MiB arm64 package (limit 250 MiB) on Windows without Docker |
 | `infra/template.yaml` | **Deployed** to ap-southeast-2 (Sydney) on 15 October 2026. Health, sample, token check, a full rule-planner inspection, DynamoDB run storage and S3 evidence images verified through the live URL. |
-| Bedrock planner | Message plumbing is covered by tests with a scripted client. **Not yet run against a live model**: the AWS account is not yet entitled to Claude models ("is not available for this account"). Live runs fall back to the rule planner and the trace records why. |
+| Model planner | **Verified live** on 20 October 2026 with GLM-5 (`zai.glm-5`) through the Converse API, the deployed default. Claude is not available on the account (AWS Free plan). |
 | COOL on Graviton | Not attempted. See "COOL path" below. |
 
 ## Prerequisites
@@ -15,9 +15,10 @@
 - AWS account and the AWS CLI with credentials (`aws login` or `aws configure`) and a default region.
   Docker and the SAM CLI are not needed; CloudFormation expands the SAM transform server-side.
 - Bedrock model access for the model in `BedrockModelId` in the deploy region.
-- The planner uses the Anthropic SDK's `AnthropicBedrockMantle` client (Claude in Amazon Bedrock, the
-  Messages API on `bedrock-mantle`). The function role is granted `bedrock-mantle:CreateInference`. If a
-  Bedrock call fails, the run still completes with the rule planner and the trace shows the error.
+- The default planner calls `PlannerModel` (GLM-5) through the Bedrock Converse API; the function role
+  is granted `bedrock:InvokeModel`. The optional Claude planner uses the Anthropic SDK's
+  `AnthropicBedrockMantle` client and `bedrock-mantle:CreateInference`; it needs an account that may use
+  Anthropic models (not the AWS Free plan). If a Bedrock call fails, the run still completes with the rule planner and the trace shows the error.
 - If your organisation uses service control policies, deploy to a region they allow. On the development
   account, S3 bucket creation was denied in ap-southeast-1 and allowed in ap-southeast-2.
 
@@ -48,7 +49,8 @@ curl <Url>api/health
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `GG_PLANNER` | `rules` locally, `bedrock` in the template | Planner that drives the agent |
+| `GG_PLANNER` | `rules` locally, `bedrock` in the template | Planner: `rules`, `bedrock` (Converse API) or `claude` |
+| `GG_PLANNER_MODEL` | `zai.glm-5` | Bedrock model for the `bedrock` planner (template parameter `PlannerModel`) |
 | `GG_BEDROCK_MODEL` | `anthropic.claude-opus-5-5` | Bedrock model id |
 | `GG_BEDROCK_REGION` | the function's region | Region for Bedrock calls (template parameter `BedrockRegion`), for deploy regions where the model is not offered |
 | `GG_MIN_CONFIDENCE` | `0.6` | Minimum confidence to record a reading |

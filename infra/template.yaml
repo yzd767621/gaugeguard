@@ -6,11 +6,16 @@ Parameters:
   Planner:
     Type: String
     Default: bedrock
-    AllowedValues: [bedrock, rules]
-    Description: Which planner drives the agent. "rules" needs no model access.
+    AllowedValues: [bedrock, claude, rules]
+    Description: Default planner. "bedrock" uses PlannerModel through the Converse API; "claude" needs the Anthropic model agreement; "rules" needs no model.
+  PlannerModel:
+    Type: String
+    Default: zai.glm-5
+    Description: Bedrock model id (or inference profile) for the "bedrock" planner.
   BedrockModelId:
     Type: String
     Default: anthropic.claude-opus-5-5
+    Description: Claude model id for the "claude" planner.
   BedrockRegion:
     Type: String
     Default: ""
@@ -92,6 +97,7 @@ Resources:
       Environment:
         Variables:
           GG_PLANNER: !Ref Planner
+          GG_PLANNER_MODEL: !Ref PlannerModel
           GG_BEDROCK_MODEL: !Ref BedrockModelId
           GG_BEDROCK_REGION: !Ref BedrockRegion
           GG_TABLE: !Ref Table
@@ -103,6 +109,11 @@ Resources:
         - S3CrudPolicy: {BucketName: !Ref ImageBucket}
         - SNSPublishMessagePolicy: {TopicName: !GetAtt AlertTopic.TopicName}
         - Statement:
+            - Effect: Allow             # model planner through the Bedrock Converse API
+              Action: bedrock:InvokeModel
+              Resource:
+                - !Sub "arn:${AWS::Partition}:bedrock:*::foundation-model/*"
+                - !Sub "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*"
             - Effect: Allow             # Claude in Amazon Bedrock (Messages API on bedrock-mantle)
               Action: bedrock-mantle:CreateInference
               Resource: "*"

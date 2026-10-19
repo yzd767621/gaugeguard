@@ -28,7 +28,8 @@ Three layers, shown in the diagrams in the [README](../README.md#architecture):
 
 1. **Perception** (`gaugeguard/vision/`): OpenCV 5 image analysis.
 2. **Decision** (`gaugeguard/agent/`): a planner chooses each tool call from the previous tool's output.
-   Two planners share one interface: Claude on Amazon Bedrock, and a deterministic rule planner.
+   Planners share one interface: a model on Amazon Bedrock (GLM-5 by default, through the Converse API;
+   Claude is also supported) and a deterministic rule planner.
 3. **Action** (`gaugeguard/agent/tools.py`, `store.py`): record, alert, request recapture, escalate, all
    behind guardrails written in code.
 
@@ -105,8 +106,11 @@ that tries to record an unverified high value and is refused:
 | A run that ends without a decision, or exhausts its step budget, is escalated | `loop._finalise` |
 | The model can only record a reading by id, never a number of its own | tool schema |
 
-**Model planner.** `bedrock.py` uses the Anthropic SDK's Bedrock client with strict tool schemas and adaptive
-thinking. The model never receives the photo, only tool results, which keeps images inside the account and
+**Model planner.** `converse.py` drives any tool-capable Bedrock model through the Converse API; the
+deployed default is GLM-5 (`zai.glm-5`), chosen in a live comparison of five models (section 6.2).
+`bedrock.py` does the same for Claude through the Anthropic SDK, with strict tool schemas and adaptive
+thinking; it is not used on the deployed account, whose AWS Free plan does not allow Anthropic models. Both
+send the same system prompt and tools. The model never receives the photo, only tool results, which keeps images inside the account and
 makes every decision traceable to a measurement. If the model is unreachable, throttled or declines, the
 rule planner takes over from the current state and the trace records the hand-over.
 
@@ -123,10 +127,14 @@ in `infra/template.yaml` and deploys with `infra/build_lambda.py` and `aws cloud
 **Status.** Deployed to ap-southeast-2 (Sydney) on 15 October 2026. Through the live URL we verified the
 health check (OpenCV 5.0.0 on arm64), the bearer-token check, and a full rule-planner inspection of a
 low-light image: the agent chose to denoise and recorded 67.07 against a true 67.15, about 1.5 s on the
-server. The run record and evidence image were read back from DynamoDB and S3. **The Bedrock planner has
-not been run against a live model**: the AWS account had not yet accepted the Claude model agreement, so
-Bedrock refused the call and the run fell back to the rule planner, as designed, with the error in the
-trace.
+server. The run record and evidence image were read back from DynamoDB and S3.
+
+On 20 October 2026 the default planner was switched to GLM-5 on Bedrock and verified live on the same
+image: 16 steps, about 18 s, recorded 67.10 against a true 67.15. When the model first tried to record, the
+guardrail refused because the value had moved 36.5 degrees since the last recorded reading; the model then
+tried the Hough locator and another rim candidate, rejected their low-confidence readings, denoised, and
+recorded once two readings agreed (`eval/results/live_trace_glm5.json`). Claude could not be used: the
+account is on the AWS Free plan, which does not allow Anthropic models.
 
 ## 6. Evaluation
 
@@ -206,14 +214,36 @@ What this shows:
 
 `eval/results/real_overlays.jpg` shows each photo with the detected rim, pivot, needle and scale ends.
 
+### 6.2 Model planners
+
+Five Bedrock models drove the same tools on 14 unseen synthetic gauges (one per condition plus 6 values
+outside their limits), with live calls (`python eval/compare_planners.py`; full table in
+`eval/results/planner_comparison.md`).
+
+| Planner | Correct | Wrong value recorded | Needed alerts raised | Mean time per run |
+|---|---|---|---|---|
+| Rules | 14/14 | 0 | 6/6 | 0.3 s |
+| **GLM-5** | 13/14 | 0 | 5/6 | 18.7 s |
+| DeepSeek V3.2 | 13/14 | 0 | 5/6 | 19.5 s |
+| gpt-oss-120b | 12/14 | 0 | 5/6 | 11.7 s |
+| Kimi K2.5 | 11/14 | 0 | 3/6 | 14.8 s |
+| Amazon Nova Pro | 11/14 | 0 | 4/6 | 9.5 s |
+
+No model planner recorded a wrong value: the guardrails sit in the tools, so an unsure model can only
+withhold. The models were more cautious than the rules (their misses are recapture requests or escalations)
+and occasionally more accurate, because they tried more remedies. GLM-5 was chosen for accuracy, token use
+and an explanation on every step. The sample is small, so differences of one or two gauges are not
+significant.
+
 ## 7. Limitations
 
 - **The reader is not yet reliable on real photographs** (section 6.1). On 14 real photos the agent
   withheld every value; the accuracy figures in section 6 apply to synthetic images only. Real gauges have
   printed logos, dual scales, coloured arcs, counterweighted needles, worn faces, curved glass and shadows
   that the renderer does not model, and the confidence thresholds were calibrated on synthetic images.
-- **No live model evaluation.** The reported agent numbers use the rule planner. The Bedrock planner is
-  tested only with a scripted client.
+- **Small model-planner evaluation.** The 660-image numbers use the rule planner. The model planners were
+  compared live on 14 gauges, one run each (section 6.2); GLM-5 takes about 15 to 20 s per run against
+  0.3 s for the rules.
 - **One gauge type.** A single needle on a circular dial with a tick scale and a visible gap. No dual-needle,
   linear, digital or multi-scale gauges.
 - **Range comes from a registry.** The digits are not read; the asset record supplies minimum, maximum and
@@ -221,7 +251,7 @@ What this shows:
 - **The second reading is not independent evidence.** It re-processes the same photo, so it catches
   unstable readings, not a photo that is misleading in itself (the occlusion failures above).
 - **Linear scales only**, and the first and last ticks are assumed to be the scale's minimum and maximum.
-- **Bedrock planner not yet run live** (section 5), and the COOL path has not been attempted.
+- **The COOL path has not been attempted.**
 
 ## 8. Responsible use
 
@@ -244,6 +274,5 @@ What this shows:
 
 Make the reader work on real photographs: a pivot model that accepts real hubs, tick-ring selection that
 handles dual scales, telling the pointer from the counterweight tail, and confidence calibrated on a real
-labelled set larger than 14 photos. Run the Bedrock planner on the same sets and compare it with the rule
-planner; read the scale digits to remove the
+labelled set larger than 14 photos. Run the model planners on the full 660-image set and the real photos; read the scale digits to remove the
 registry dependency; take a true second photo for verification when a camera can be re-triggered.

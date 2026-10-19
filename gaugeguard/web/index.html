@@ -76,7 +76,8 @@
     <label for="planner">Planner</label>
     <select id="planner">
       <option value="rules">Rules (deterministic, offline)</option>
-      <option value="bedrock">Claude on Amazon Bedrock</option>
+      <option value="bedrock">AI planner on Amazon Bedrock</option>
+      <option value="claude">Claude on Amazon Bedrock</option>
     </select>
     <div id="tokenBox" hidden>
       <label for="token">Access token</label>
@@ -208,6 +209,8 @@ $("reject").addEventListener("click", () => decide(false));
     assets = a.assets;
     for (const x of assets) $("asset").add(new Option(`${x.asset_id}: ${x.name}`, x.asset_id));
     for (const c of a.conditions) $("cond").add(new Option(c.replace("_", " "), c));
+    const ai = $("planner").querySelector('option[value="bedrock"]');
+    if (h.planner_model) ai.textContent = `AI planner on Amazon Bedrock (${h.planner_model})`;
     $("planner").value = h.planner; $("tokenBox").hidden = !h.auth_required; showAsset();
   } catch (e) { $("status").textContent = "Could not reach the API: " + e.message; }
 })();

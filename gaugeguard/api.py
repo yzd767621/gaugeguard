@@ -16,6 +16,7 @@ from .agent import decide_alert, decode_image, make_planner, run_inspection
 from .synth import CONDITIONS, make_sample
 
 _WEB = os.path.join(os.path.dirname(__file__), "web", "index.html")
+PLANNERS = ("rules", "bedrock", "claude")
 _SECURITY = {"X-Content-Type-Options": "nosniff", "Referrer-Policy": "no-referrer",
              "Cache-Control": "no-store"}
 
@@ -66,7 +67,7 @@ def handle(method: str, path: str, query: str, headers: dict, body: bytes, store
                 return 200, {"Content-Type": "text/html; charset=utf-8", **_SECURITY}, f.read()
         if method == "GET" and path == "/api/health":
             return _json(200, {"ok": True, "version": __version__, "opencv": cv2.__version__,
-                               "planner": config.PLANNER, "auth_required": bool(config.DEMO_TOKEN)})
+                               "planner": config.PLANNER, "planner_model": config.PLANNER_MODEL, "auth_required": bool(config.DEMO_TOKEN)})
         if method == "GET" and path == "/api/assets":
             return _json(200, {"assets": store.list_assets(), "conditions": CONDITIONS})
         if method == "GET" and path == "/api/sample":
@@ -96,13 +97,13 @@ def handle(method: str, path: str, query: str, headers: dict, body: bytes, store
                 return _error(404, "unknown asset")
             image = decode_image(base64.b64decode(req["image_b64"], validate=True))
             planner_name = req.get("planner") or config.PLANNER
-            if planner_name not in ("rules", "bedrock"):
-                return _error(400, "planner must be 'rules' or 'bedrock'")
+            if planner_name not in PLANNERS:
+                return _error(400, f"planner must be one of {PLANNERS}")
             try:
                 planner = make_planner(planner_name)
-            except Exception as e:  # Bedrock client could not be built: run with the rule planner and say so
+            except Exception as e:  # model client could not be built: run with the rule planner and say so
                 planner = make_planner("rules")
-                planner.name = f"rules (bedrock unavailable: {type(e).__name__})"
+                planner.name = f"rules ({planner_name} unavailable: {type(e).__name__})"
             run = run_inspection(image, req["asset_id"], store, planner)
             _emit_metrics(run)
             return _json(200, _with_images(store, run))
