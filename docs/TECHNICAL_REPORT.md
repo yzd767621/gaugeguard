@@ -115,14 +115,18 @@ reason, the result and the time taken. Runs emit CloudWatch metrics by outcome t
 
 ## 5. AWS deployment
 
-One arm64 (Graviton) Lambda container behind a Function URL serves the web page and the API and runs the
+One arm64 (Graviton) Lambda function behind a Function URL serves the web page and the API and runs the
 agent loop; Amazon Bedrock supplies the planner; DynamoDB stores runs and readings; S3 stores photos and
 annotated evidence; SNS delivers alerts; CloudWatch holds logs, metrics and two alarms. The stack is defined
 in `infra/template.yaml` and deploys with `infra/build_lambda.py` and `aws cloudformation package/deploy`. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
-**Status: the deployment files are written but have not yet been deployed or tested against a live AWS
-account, and the Bedrock planner has not yet been run against a live model.** Both must be done before
-submission; the local server exercises the same request handler the Lambda uses.
+**Status.** Deployed to ap-southeast-2 (Sydney) on 15 October 2026. Through the live URL we verified the
+health check (OpenCV 5.0.0 on arm64), the bearer-token check, and a full rule-planner inspection of a
+low-light image: the agent chose to denoise and recorded 67.07 against a true 67.15, about 1.5 s on the
+server. The run record and evidence image were read back from DynamoDB and S3. **The Bedrock planner has
+not been run against a live model**: the AWS account had not yet accepted the Claude model agreement, so
+Bedrock refused the call and the run fell back to the rule planner, as designed, with the error in the
+trace.
 
 ## 6. Evaluation
 
@@ -171,11 +175,43 @@ photo. The exact mechanism has not been analysed further. Glare remains the weak
 for coverage (70% reported): when a reflection covers the needle no processing recovers it, and the agent
 correctly asks for a new photo.
 
+### 6.1 Real photographs
+
+**Data.** 14 openly licensed photographs from Wikimedia Commons (licences and authors in
+`eval/real/SOURCES.md`). Nine show a dial a person can read; we read their values by eye (approximate,
+tolerance stated per photo in `eval/real/labels.json`). Five cannot be read by a person: four gauges are
+small or distant in the frame, and one antique gauge has a symmetric needle whose pointer end is ambiguous.
+For those, the only correct outcome is to withhold a value. Reproduce with `python eval/run_real.py`.
+
+| | Readable photos (9): correct | Readable photos: wrong value reported | Unreadable photos (5): value reported anyway |
+|---|---|---|---|
+| Single pass | 4 | **5** | 4 |
+| **Agent** | 0 | **0** | **0** |
+
+What this shows:
+
+- **The reader does not yet transfer to real gauges.** A dial is located on 13 of 14 photos, but the
+  confidence of every reading on a readable photo is below 0.1. The reasons are visible in the confidence
+  components: the pivot check fails on 8 of 9 readable photos (real hubs, screws and needle bases look
+  different from the synthetic ones); the tick-ring search fails on 7 of 9, including every dual-scale dial
+  (bar and psi, kPa and psi), giving a sweep that does not match the asset; and real needles have counterweight tails, which the reader sometimes
+  follows (pool gauge: 2.2 bar read for 0).
+- **The safety design holds.** Because confidence is honest, the agent recorded nothing it could not
+  trust: no wrong values and no values on unreadable photos. Every run ended in a recapture request.
+  Single pass, which always reports, gave a wrong value on 5 of the 9 readable photos (errors up to 73% of
+  full scale) and a value on 4 of the 5 unreadable ones.
+- The four photos single pass read correctly (errors 0.2 to 1.4% of full scale) show that the geometry
+  pipeline works on real dials when the scale is a single ring; the confidence terms are the part that
+  needs real-data calibration.
+
+`eval/results/real_overlays.jpg` shows each photo with the detected rim, pivot, needle and scale ends.
+
 ## 7. Limitations
 
-- **Synthetic evaluation only.** No real photographs have been tested. Real gauges have printed logos,
-  mirror bands, coloured arcs, worn faces, curved glass and shadows that the renderer does not model.
-  Quality thresholds were calibrated on synthetic images and will need re-tuning on real ones.
+- **The reader is not yet reliable on real photographs** (section 6.1). On 14 real photos the agent
+  withheld every value; the accuracy figures in section 6 apply to synthetic images only. Real gauges have
+  printed logos, dual scales, coloured arcs, counterweighted needles, worn faces, curved glass and shadows
+  that the renderer does not model, and the confidence thresholds were calibrated on synthetic images.
 - **No live model evaluation.** The reported agent numbers use the rule planner. The Bedrock planner is
   tested only with a scripted client.
 - **One gauge type.** A single needle on a circular dial with a tick scale and a visible gap. No dual-needle,
@@ -185,7 +221,7 @@ correctly asks for a new photo.
 - **The second reading is not independent evidence.** It re-processes the same photo, so it catches
   unstable readings, not a photo that is misleading in itself (the occlusion failures above).
 - **Linear scales only**, and the first and last ticks are assumed to be the scale's minimum and maximum.
-- **Deployment not yet exercised** (section 5), and the COOL path has not been attempted.
+- **Bedrock planner not yet run live** (section 5), and the COOL path has not been attempted.
 
 ## 8. Responsible use
 
@@ -198,13 +234,16 @@ correctly asks for a new photo.
 - **Privacy.** Photos of plant equipment may show people or sensitive areas. Photos stay in a private
   encrypted bucket, expire after 30 days and are not sent to the model. Operators should frame the gauge
   only.
-- **Data rights.** All evaluation images are generated by this project's own code; no third-party images
-  or datasets are used.
+- **Data rights.** The synthetic evaluation images are generated by this project's own code. The 14 real
+  photographs are openly licensed (CC0, CC BY, CC BY-SA) from Wikimedia Commons and are credited in
+  `eval/real/SOURCES.md`; no other third-party images or datasets are used.
 - **Security.** Optional bearer token on write endpoints, input size limits, reserved concurrency,
   least-privilege IAM policies scoped to the stack's own resources.
 
 ## 9. Next steps
 
-Collect and label real gauge photos and repeat the evaluation; run the Bedrock planner on the same set and
-compare it with the rule planner; deploy and record the live endpoint; read the scale digits to remove the
+Make the reader work on real photographs: a pivot model that accepts real hubs, tick-ring selection that
+handles dual scales, telling the pointer from the counterweight tail, and confidence calibrated on a real
+labelled set larger than 14 photos. Run the Bedrock planner on the same sets and compare it with the rule
+planner; read the scale digits to remove the
 registry dependency; take a true second photo for verification when a camera can be re-triggered.

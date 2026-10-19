@@ -30,6 +30,10 @@ On 660 unseen synthetic images with exact ground truth (11 conditions including 
 noise, glare and occlusion), see [eval/results/results.md](eval/results/results.md) and
 [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) for the numbers, the method and the failure cases.
 
+On 14 openly licensed real photographs (`python eval/run_real.py`), the reader is not yet reliable: the
+agent withheld every value and asked for a new photo, so it reported no wrong values, while always
+reporting would have given a wrong value on 5 of the 9 readable photos. See section 6.1 of the report.
+
 ## Architecture
 
 ```mermaid
@@ -141,7 +145,7 @@ A stdio MCP server exposing `load_image` plus the same nine tools and guardrails
 
 ## Limitations
 
-Stated in full in the technical report. The main ones: the evaluation uses synthetic images only; the
-reader expects a single-needle circular dial with a tick scale and a visible gap; the asset's range and
-limits come from a registry, not from reading the digits; and the AWS deployment files have not yet been
-exercised against a live account.
+Stated in full in the technical report. The main ones: the reader works on synthetic images but not
+yet on real photographs; it expects a single-needle circular dial with a tick scale and a visible gap; the
+asset's range and limits come from a registry, not from reading the digits; and the Bedrock planner has
+not yet been run against a live model (the deployed site runs on the rule planner).
