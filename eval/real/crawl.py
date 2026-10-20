@@ -3,7 +3,7 @@
 Sources: Wikimedia Commons (category tree under the seed categories) and the Openverse image API.
 Only licences that allow redistribution and modification are kept (CC0, public domain, CC BY, CC BY-SA).
 Images are fetched as thumbnails up to --width pixels wide. A manifest line is appended per file, so the
-crawl can be stopped and resumed.
+crawl can be stopped and resumed. Files reviewed and deleted are listed in rejected.jsonl and never fetched again.
 
     python eval/real/crawl.py --out "%USERPROFILE%\\Downloads\\gauge_images" --max-gb 10
 """
@@ -29,7 +29,9 @@ OPENVERSE_QUERIES = ["pressure gauge", "manometer", "analog gauge", "pressure ga
                      "hydraulic pressure gauge", "air pressure gauge", "steam gauge", "gauge needle"]
 OK_LICENSE = re.compile(r"^(cc0|pdm|public domain|cc[- ]by(-sa)?[- ]?\d|cc by(-sa)? \d|by(-sa)?)", re.I)
 SKIP_TITLE = re.compile(r"\b(digital|diagram|drawing|schematic|logo|icon|svg|map|chart|graph|blood|sphygmo|"
-                        r"railway gauge|track gauge|narrow gauge|gauge railway|wire gauge|rain gauge)\b", re.I)
+                        r"railway gauge|track gauge|narrow gauge|gauge railway|wire gauge|rain gauge|watch|wristwatch|"
+                        r"casio|citizen|timex|g-shock|chronograph|barometer|barograph|thermograph|hygrometer|clock|"
+                        r"altimeter|weather station|wetterstation|postcard|engraving|patent)\b", re.I)
 
 
 def get_json(url, params, retries=4):
@@ -69,6 +71,12 @@ class Store:
                 self.seen.add(m["source_url"])
                 self.hashes.add(m["sha1"])
                 self.bytes += m["bytes"]
+        rejected = os.path.join(out, "rejected.jsonl")  # reviewed and deleted: never fetch these again
+        if os.path.exists(rejected):
+            for line in open(rejected, encoding="utf-8"):
+                m = json.loads(line)
+                self.seen.add(m["source_url"])
+                self.hashes.add(m["sha1"])
 
     def full(self):
         return self.bytes >= self.max_bytes
