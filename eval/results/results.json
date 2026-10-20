@@ -6,39 +6,39 @@
    "tolerance_pct_fs": 2.0,
    "min_confidence": 0.6,
    "opencv": "5.0.0",
-   "seconds": 382.7
+   "seconds": 450.2
   },
   "overall": {
    "single_pass": {
     "n": 660,
-    "coverage_pct": 96.5,
-    "correct_pct": 91.5,
-    "silent_error_pct": 5.0,
-    "mae_pct_fs": 0.7,
+    "coverage_pct": 96.4,
+    "correct_pct": 92.9,
+    "silent_error_pct": 3.5,
+    "mae_pct_fs": 0.58,
     "median_err_pct_fs": 0.06,
     "alert_recall_pct": 93.6,
-    "false_alerts": 4,
+    "false_alerts": 5,
     "out_of_limit_samples": 220
    },
    "gated": {
     "n": 660,
-    "coverage_pct": 81.1,
-    "correct_pct": 80.5,
-    "silent_error_pct": 0.6,
-    "mae_pct_fs": 0.14,
+    "coverage_pct": 87.9,
+    "correct_pct": 87.1,
+    "silent_error_pct": 0.8,
+    "mae_pct_fs": 0.16,
     "median_err_pct_fs": 0.05,
-    "alert_recall_pct": 80.5,
+    "alert_recall_pct": 86.8,
     "false_alerts": 1,
     "out_of_limit_samples": 220
    },
    "agent": {
     "n": 660,
-    "coverage_pct": 93.2,
-    "correct_pct": 92.6,
-    "silent_error_pct": 0.6,
-    "mae_pct_fs": 0.14,
+    "coverage_pct": 91.1,
+    "correct_pct": 90.6,
+    "silent_error_pct": 0.5,
+    "mae_pct_fs": 0.13,
     "median_err_pct_fs": 0.05,
-    "alert_recall_pct": 89.5,
+    "alert_recall_pct": 89.1,
     "false_alerts": 1,
     "out_of_limit_samples": 220
    }
@@ -188,9 +188,9 @@
     "single_pass": {
      "n": 60,
      "coverage_pct": 100.0,
-     "correct_pct": 95.0,
-     "silent_error_pct": 5.0,
-     "mae_pct_fs": 0.78,
+     "correct_pct": 98.3,
+     "silent_error_pct": 1.7,
+     "mae_pct_fs": 0.74,
      "median_err_pct_fs": 0.67,
      "alert_recall_pct": 100.0,
      "false_alerts": 1,
@@ -198,22 +198,22 @@
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 81.7,
-     "correct_pct": 81.7,
+     "coverage_pct": 85.0,
+     "correct_pct": 85.0,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.52,
-     "median_err_pct_fs": 0.34,
+     "mae_pct_fs": 0.56,
+     "median_err_pct_fs": 0.48,
      "alert_recall_pct": 85.0,
      "false_alerts": 1,
      "out_of_limit_samples": 20
     },
     "agent": {
      "n": 60,
-     "coverage_pct": 88.3,
-     "correct_pct": 88.3,
+     "coverage_pct": 86.7,
+     "correct_pct": 86.7,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.52,
-     "median_err_pct_fs": 0.48,
+     "mae_pct_fs": 0.5,
+     "median_err_pct_fs": 0.33,
      "alert_recall_pct": 85.0,
      "false_alerts": 1,
      "out_of_limit_samples": 20
@@ -223,22 +223,22 @@
     "single_pass": {
      "n": 60,
      "coverage_pct": 100.0,
-     "correct_pct": 95.0,
-     "silent_error_pct": 5.0,
-     "mae_pct_fs": 0.38,
-     "median_err_pct_fs": 0.08,
+     "correct_pct": 98.3,
+     "silent_error_pct": 1.7,
+     "mae_pct_fs": 0.21,
+     "median_err_pct_fs": 0.06,
      "alert_recall_pct": 100.0,
-     "false_alerts": 0,
+     "false_alerts": 1,
      "out_of_limit_samples": 20
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 45.0,
-     "correct_pct": 45.0,
+     "coverage_pct": 81.7,
+     "correct_pct": 81.7,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.06,
-     "median_err_pct_fs": 0.05,
-     "alert_recall_pct": 60.0,
+     "mae_pct_fs": 0.1,
+     "median_err_pct_fs": 0.06,
+     "alert_recall_pct": 90.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
@@ -247,7 +247,7 @@
      "coverage_pct": 100.0,
      "correct_pct": 100.0,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.05,
+     "mae_pct_fs": 0.06,
      "median_err_pct_fs": 0.05,
      "alert_recall_pct": 100.0,
      "false_alerts": 0,
@@ -260,7 +260,7 @@
      "coverage_pct": 100.0,
      "correct_pct": 100.0,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.06,
+     "mae_pct_fs": 0.08,
      "median_err_pct_fs": 0.05,
      "alert_recall_pct": 100.0,
      "false_alerts": 0,
@@ -268,12 +268,12 @@
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 86.7,
-     "correct_pct": 86.7,
+     "coverage_pct": 98.3,
+     "correct_pct": 98.3,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.06,
-     "median_err_pct_fs": 0.04,
-     "alert_recall_pct": 85.0,
+     "mae_pct_fs": 0.08,
+     "median_err_pct_fs": 0.05,
+     "alert_recall_pct": 100.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
@@ -282,8 +282,8 @@
      "coverage_pct": 100.0,
      "correct_pct": 100.0,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.05,
-     "median_err_pct_fs": 0.04,
+     "mae_pct_fs": 0.07,
+     "median_err_pct_fs": 0.05,
      "alert_recall_pct": 100.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
@@ -292,32 +292,32 @@
    "glare": {
     "single_pass": {
      "n": 60,
-     "coverage_pct": 83.3,
-     "correct_pct": 71.7,
-     "silent_error_pct": 11.7,
-     "mae_pct_fs": 1.9,
+     "coverage_pct": 81.7,
+     "correct_pct": 68.3,
+     "silent_error_pct": 13.3,
+     "mae_pct_fs": 2.0,
      "median_err_pct_fs": 0.1,
-     "alert_recall_pct": 80.0,
+     "alert_recall_pct": 70.0,
      "false_alerts": 1,
      "out_of_limit_samples": 20
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 48.3,
-     "correct_pct": 48.3,
-     "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.17,
+     "coverage_pct": 53.3,
+     "correct_pct": 50.0,
+     "silent_error_pct": 3.3,
+     "mae_pct_fs": 0.41,
      "median_err_pct_fs": 0.06,
-     "alert_recall_pct": 50.0,
+     "alert_recall_pct": 55.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
     "agent": {
      "n": 60,
-     "coverage_pct": 70.0,
-     "correct_pct": 70.0,
+     "coverage_pct": 60.0,
+     "correct_pct": 60.0,
      "silent_error_pct": 0.0,
-     "mae_pct_fs": 0.14,
+     "mae_pct_fs": 0.15,
      "median_err_pct_fs": 0.06,
      "alert_recall_pct": 65.0,
      "false_alerts": 0,
@@ -328,33 +328,33 @@
     "single_pass": {
      "n": 60,
      "coverage_pct": 78.3,
-     "correct_pct": 51.7,
-     "silent_error_pct": 26.7,
-     "mae_pct_fs": 4.73,
-     "median_err_pct_fs": 0.53,
+     "correct_pct": 60.0,
+     "silent_error_pct": 18.3,
+     "mae_pct_fs": 3.51,
+     "median_err_pct_fs": 0.38,
      "alert_recall_pct": 75.0,
      "false_alerts": 2,
      "out_of_limit_samples": 20
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 53.3,
-     "correct_pct": 48.3,
+     "coverage_pct": 60.0,
+     "correct_pct": 55.0,
      "silent_error_pct": 5.0,
-     "mae_pct_fs": 0.54,
+     "mae_pct_fs": 0.53,
      "median_err_pct_fs": 0.21,
-     "alert_recall_pct": 55.0,
+     "alert_recall_pct": 60.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
     "agent": {
      "n": 60,
-     "coverage_pct": 78.3,
-     "correct_pct": 73.3,
+     "coverage_pct": 66.7,
+     "correct_pct": 61.7,
      "silent_error_pct": 5.0,
-     "mae_pct_fs": 0.42,
-     "median_err_pct_fs": 0.16,
-     "alert_recall_pct": 70.0,
+     "mae_pct_fs": 0.44,
+     "median_err_pct_fs": 0.17,
+     "alert_recall_pct": 65.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     }
@@ -398,31 +398,31 @@
     "single_pass": {
      "n": 60,
      "coverage_pct": 100.0,
-     "correct_pct": 93.3,
-     "silent_error_pct": 6.7,
-     "mae_pct_fs": 0.62,
+     "correct_pct": 96.7,
+     "silent_error_pct": 3.3,
+     "mae_pct_fs": 0.51,
      "median_err_pct_fs": 0.08,
-     "alert_recall_pct": 90.0,
+     "alert_recall_pct": 100.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
     "gated": {
      "n": 60,
-     "coverage_pct": 76.7,
-     "correct_pct": 75.0,
-     "silent_error_pct": 1.7,
-     "mae_pct_fs": 0.17,
-     "median_err_pct_fs": 0.05,
-     "alert_recall_pct": 65.0,
+     "coverage_pct": 88.3,
+     "correct_pct": 88.3,
+     "silent_error_pct": 0.0,
+     "mae_pct_fs": 0.15,
+     "median_err_pct_fs": 0.06,
+     "alert_recall_pct": 80.0,
      "false_alerts": 0,
      "out_of_limit_samples": 20
     },
     "agent": {
      "n": 60,
      "coverage_pct": 88.3,
-     "correct_pct": 86.7,
-     "silent_error_pct": 1.7,
-     "mae_pct_fs": 0.15,
+     "correct_pct": 88.3,
+     "silent_error_pct": 0.0,
+     "mae_pct_fs": 0.11,
      "median_err_pct_fs": 0.05,
      "alert_recall_pct": 80.0,
      "false_alerts": 0,
@@ -431,16 +431,16 @@
    }
   },
   "agent_outcomes": {
-   "recorded": 417,
+   "recorded": 404,
    "alert_raised": 122,
-   "alert_pending_approval": 76,
-   "recapture_requested": 43,
-   "escalated": 2
+   "alert_pending_approval": 75,
+   "recapture_requested": 45,
+   "escalated": 14
   },
   "agent_cost": {
-   "mean_steps": 7.11,
-   "mean_ms": 298.7,
-   "p95_ms": 767.7
+   "mean_steps": 7.45,
+   "mean_ms": 393.9,
+   "p95_ms": 1054.1
   }
  },
  "rows": [
@@ -460,12 +460,12 @@
     "alert": false
    },
    "agent": {
-    "value": 35.5158,
-    "err": 0.03153943848198537,
+    "value": 35.5436,
+    "err": 0.003739438481986213,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 56.254499999340624
+    "steps": 8,
+    "ms": 632.4680000000171
    }
   },
   {
@@ -489,7 +489,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 857.8882000001613
+    "ms": 542.8750000000946
    }
   },
   {
@@ -513,7 +513,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.350800002372125
+    "ms": 70.5174000001989
    }
   },
   {
@@ -537,7 +537,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.266599997878075
+    "ms": 66.40399999992042
    }
   },
   {
@@ -561,7 +561,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.94140000254265
+    "ms": 64.75270000009914
    }
   },
   {
@@ -585,7 +585,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 52.92649999682908
+    "ms": 73.16889999992782
    }
   },
   {
@@ -609,7 +609,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 44.3024999985937
+    "ms": 68.35579999983565
    }
   },
   {
@@ -633,7 +633,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 663.698000000295
+    "ms": 508.6194999998952
    }
   },
   {
@@ -657,7 +657,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 705.8393000006618
+    "ms": 502.31510000003254
    }
   },
   {
@@ -681,7 +681,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.995400002837414
+    "ms": 64.26239999996142
    }
   },
   {
@@ -705,7 +705,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.93940000329167
+    "ms": 66.04240000001482
    }
   },
   {
@@ -729,7 +729,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 50.132899999880465
+    "ms": 62.569799999891984
    }
   },
   {
@@ -753,7 +753,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 775.4048999995575
+    "ms": 532.1288000000095
    }
   },
   {
@@ -777,7 +777,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 56.46049999995739
+    "ms": 67.1893999999611
    }
   },
   {
@@ -801,7 +801,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 797.7430999999342
+    "ms": 560.8125999999629
    }
   },
   {
@@ -825,7 +825,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 58.840800000325544
+    "ms": 62.95189999991635
    }
   },
   {
@@ -849,7 +849,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 863.1716999989294
+    "ms": 569.9549000000843
    }
   },
   {
@@ -873,7 +873,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 1546.25329999908
+    "ms": 539.9970000000849
    }
   },
   {
@@ -892,12 +892,12 @@
     "alert": false
    },
    "agent": {
-    "value": 37.9747,
-    "err": 0.02430243135265897,
+    "value": 37.9762,
+    "err": 0.022802431352658914,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 83.22540000153822
+    "steps": 8,
+    "ms": 537.0689000001221
    }
   },
   {
@@ -921,7 +921,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 80.4803000028187
+    "ms": 67.48940000011316
    }
   },
   {
@@ -944,8 +944,8 @@
     "err": 0.009761698724192414,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 80.19749999948544
+    "steps": 8,
+    "ms": 515.9067000001869
    }
   },
   {
@@ -969,7 +969,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 103.1775999981619
+    "ms": 69.65760000002774
    }
   },
   {
@@ -993,7 +993,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 95.58950000064215
+    "ms": 70.31140000003688
    }
   },
   {
@@ -1017,7 +1017,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 85.8795000021928
+    "ms": 66.42500000020846
    }
   },
   {
@@ -1041,7 +1041,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 65.47349999891594
+    "ms": 65.63749999986612
    }
   },
   {
@@ -1065,7 +1065,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.163300000538584
+    "ms": 61.77549999983967
    }
   },
   {
@@ -1089,7 +1089,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 603.2823999994434
+    "ms": 522.4375999998756
    }
   },
   {
@@ -1113,7 +1113,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.44219999923371
+    "ms": 66.94569999990563
    }
   },
   {
@@ -1137,7 +1137,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 614.4797999986622
+    "ms": 515.2539999999135
    }
   },
   {
@@ -1160,8 +1160,8 @@
     "err": 0.11357803598794902,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.46640000140178
+    "steps": 8,
+    "ms": 507.9393999999411
    }
   },
   {
@@ -1185,7 +1185,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 590.2070000011008
+    "ms": 530.4210000001603
    }
   },
   {
@@ -1209,7 +1209,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 569.3078000003879
+    "ms": 519.7213000001284
    }
   },
   {
@@ -1233,7 +1233,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.84309999921243
+    "ms": 63.78199999994649
    }
   },
   {
@@ -1257,7 +1257,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 602.4882000019716
+    "ms": 556.3471000000391
    }
   },
   {
@@ -1281,7 +1281,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.72329999791691
+    "ms": 66.21849999987717
    }
   },
   {
@@ -1305,7 +1305,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.37959999893792
+    "ms": 65.61829999986912
    }
   },
   {
@@ -1329,7 +1329,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 568.346100000781
+    "ms": 534.3586999999843
    }
   },
   {
@@ -1353,7 +1353,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 557.3202999985369
+    "ms": 503.9695999998912
    }
   },
   {
@@ -1377,7 +1377,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 583.2062999979826
+    "ms": 512.1414999998706
    }
   },
   {
@@ -1401,7 +1401,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.433399997098604
+    "ms": 64.93190000014692
    }
   },
   {
@@ -1425,7 +1425,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.96370000074967
+    "ms": 64.15749999996478
    }
   },
   {
@@ -1449,7 +1449,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 573.9829000012833
+    "ms": 520.9345999999186
    }
   },
   {
@@ -1473,7 +1473,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.27019999839831
+    "ms": 65.09189999997034
    }
   },
   {
@@ -1497,7 +1497,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 622.1387000005052
+    "ms": 501.12239999998565
    }
   },
   {
@@ -1521,7 +1521,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 601.9048000016483
+    "ms": 526.6265000000203
    }
   },
   {
@@ -1545,7 +1545,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.72770000129822
+    "ms": 64.81650000000627
    }
   },
   {
@@ -1569,7 +1569,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.353399999119574
+    "ms": 67.29519999998956
    }
   },
   {
@@ -1593,7 +1593,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.7047000003804
+    "ms": 64.49419999989914
    }
   },
   {
@@ -1617,7 +1617,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 596.4491000013368
+    "ms": 531.2089999999898
    }
   },
   {
@@ -1641,7 +1641,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.65049999815528
+    "ms": 62.682199999926524
    }
   },
   {
@@ -1665,7 +1665,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.02689999813447
+    "ms": 64.98199999987264
    }
   },
   {
@@ -1689,7 +1689,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.9681000013079
+    "ms": 63.839500000085536
    }
   },
   {
@@ -1713,7 +1713,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.00720000072033
+    "ms": 61.09240000000682
    }
   },
   {
@@ -1737,7 +1737,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.01720000026398
+    "ms": 62.216900000066744
    }
   },
   {
@@ -1760,8 +1760,8 @@
     "err": 0.10715340651966797,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.22139999829233
+    "steps": 8,
+    "ms": 506.826399999909
    }
   },
   {
@@ -1785,7 +1785,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 630.7460000025458
+    "ms": 512.2714000001451
    }
   },
   {
@@ -1809,7 +1809,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.05160000047181
+    "ms": 66.2761999999475
    }
   },
   {
@@ -1833,7 +1833,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.13000000020838
+    "ms": 63.07569999989937
    }
   },
   {
@@ -1857,7 +1857,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.27499999856809
+    "ms": 66.53099999994083
    }
   },
   {
@@ -1881,7 +1881,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.9506999993755
+    "ms": 57.95000000011896
    }
   },
   {
@@ -1905,7 +1905,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.91460000077495
+    "ms": 63.4760999998889
    }
   },
   {
@@ -1929,7 +1929,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 619.2970000010973
+    "ms": 559.3638000000283
    }
   },
   {
@@ -1953,7 +1953,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.09309999956167
+    "ms": 78.15180000011424
    }
   },
   {
@@ -1977,7 +1977,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.12869999819668
+    "ms": 74.83109999998305
    }
   },
   {
@@ -2001,7 +2001,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.505000000441214
+    "ms": 69.73659999994197
    }
   },
   {
@@ -2025,7 +2025,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.451800001988886
+    "ms": 67.44619999994939
    }
   },
   {
@@ -2049,7 +2049,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.67029999996885
+    "ms": 73.91880000000128
    }
   },
   {
@@ -2073,7 +2073,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 598.192100002052
+    "ms": 566.1552999999913
    }
   },
   {
@@ -2097,7 +2097,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 636.9620000004943
+    "ms": 580.3582999999435
    }
   },
   {
@@ -2121,7 +2121,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.75209999893559
+    "ms": 62.383400000044276
    }
   },
   {
@@ -2145,7 +2145,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.49239999928977
+    "ms": 76.53319999985797
    }
   },
   {
@@ -2169,7 +2169,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.71060000103898
+    "ms": 66.55780000005507
    }
   },
   {
@@ -2193,7 +2193,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 575.889300002018
+    "ms": 558.0305000000862
    }
   },
   {
@@ -2217,7 +2217,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.15699999904609
+    "ms": 68.43980000007832
    }
   },
   {
@@ -2241,7 +2241,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 568.3696999985841
+    "ms": 533.052699999871
    }
   },
   {
@@ -2265,7 +2265,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.17340000002878
+    "ms": 69.30400000010195
    }
   },
   {
@@ -2289,7 +2289,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 666.7760999989696
+    "ms": 566.8207999999595
    }
   },
   {
@@ -2313,7 +2313,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 592.3843999989913
+    "ms": 559.1110999998818
    }
   },
   {
@@ -2332,12 +2332,12 @@
     "alert": false
    },
    "agent": {
-    "value": 37.9758,
-    "err": 0.02320243135265798,
+    "value": 37.9734,
+    "err": 0.02560243135265949,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.629499998525716
+    "steps": 8,
+    "ms": 553.2646000001478
    }
   },
   {
@@ -2361,7 +2361,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.19219999705092
+    "ms": 70.60389999992367
    }
   },
   {
@@ -2380,12 +2380,12 @@
     "alert": false
    },
    "agent": {
-    "value": 6.2465,
-    "err": 0.0394383012758075,
+    "value": 6.2252,
+    "err": 0.0181383012758074,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.85399999853689
+    "steps": 8,
+    "ms": 545.004199999994
    }
   },
   {
@@ -2409,7 +2409,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.10599999956321
+    "ms": 68.47410000000309
    }
   },
   {
@@ -2433,7 +2433,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.28329999992275
+    "ms": 68.17769999997836
    }
   },
   {
@@ -2457,7 +2457,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.87469999890891
+    "ms": 76.22449999985292
    }
   },
   {
@@ -2481,7 +2481,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.69679999782238
+    "ms": 73.02030000005288
    }
   },
   {
@@ -2505,7 +2505,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.24730000208365
+    "ms": 67.43009999991045
    }
   },
   {
@@ -2529,7 +2529,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 579.5275000018592
+    "ms": 545.1818999999887
    }
   },
   {
@@ -2553,7 +2553,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.417899999330984
+    "ms": 74.10479999998643
    }
   },
   {
@@ -2577,7 +2577,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.82819999833009
+    "ms": 66.50579999995898
    }
   },
   {
@@ -2600,8 +2600,8 @@
     "err": 0.09717803598795172,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.298799998505274
+    "steps": 8,
+    "ms": 524.0632000000005
    }
   },
   {
@@ -2625,7 +2625,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 585.721100000228
+    "ms": 550.9841000000506
    }
   },
   {
@@ -2649,7 +2649,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 582.7042999990226
+    "ms": 518.3794999998099
    }
   },
   {
@@ -2673,7 +2673,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.31870000026538
+    "ms": 71.49509999999282
    }
   },
   {
@@ -2697,7 +2697,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 568.4079999991809
+    "ms": 515.9077999999226
    }
   },
   {
@@ -2721,7 +2721,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.3347000022477
+    "ms": 69.56409999997959
    }
   },
   {
@@ -2745,7 +2745,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.01100000136648
+    "ms": 70.72579999999107
    }
   },
   {
@@ -2769,7 +2769,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 562.2758999998041
+    "ms": 600.0976000000264
    }
   },
   {
@@ -2793,7 +2793,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 578.4075999981724
+    "ms": 507.4243999999908
    }
   },
   {
@@ -2817,7 +2817,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 666.6500000028464
+    "ms": 544.6676999999909
    }
   },
   {
@@ -2841,7 +2841,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.78659999725642
+    "ms": 59.815900000103284
    }
   },
   {
@@ -2865,7 +2865,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.071800002100645
+    "ms": 62.5311999999667
    }
   },
   {
@@ -2889,7 +2889,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 563.211600001523
+    "ms": 519.4860999999946
    }
   },
   {
@@ -2913,7 +2913,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.32659999898169
+    "ms": 63.77580000003036
    }
   },
   {
@@ -2937,7 +2937,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 583.036500000162
+    "ms": 481.9358000002012
    }
   },
   {
@@ -2961,7 +2961,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 560.8117999981914
+    "ms": 530.6076000001667
    }
   },
   {
@@ -2985,7 +2985,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.7374999995227
+    "ms": 60.176699999829
    }
   },
   {
@@ -3009,7 +3009,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.09209999922314
+    "ms": 62.33879999990677
    }
   },
   {
@@ -3033,7 +3033,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.74799999923562
+    "ms": 64.93430000000444
    }
   },
   {
@@ -3057,7 +3057,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 553.7520000034419
+    "ms": 497.23740000013095
    }
   },
   {
@@ -3081,7 +3081,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.86220000174944
+    "ms": 57.57960000005369
    }
   },
   {
@@ -3105,7 +3105,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.24770000169519
+    "ms": 70.87010000009286
    }
   },
   {
@@ -3129,7 +3129,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.430000000516884
+    "ms": 64.42349999997532
    }
   },
   {
@@ -3153,7 +3153,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.249999998603016
+    "ms": 64.32459999996354
    }
   },
   {
@@ -3177,7 +3177,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.18740000194521
+    "ms": 66.85140000013234
    }
   },
   {
@@ -3200,8 +3200,8 @@
     "err": 0.04965340651966699,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.29279999990831
+    "steps": 8,
+    "ms": 575.7493999999497
    }
   },
   {
@@ -3225,7 +3225,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 616.8228000024101
+    "ms": 492.7641000001586
    }
   },
   {
@@ -3249,7 +3249,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.496399997820845
+    "ms": 62.636399999973946
    }
   },
   {
@@ -3273,7 +3273,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.65730000002077
+    "ms": 62.124000000039814
    }
   },
   {
@@ -3297,7 +3297,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.8330999998725
+    "ms": 61.47340000006807
    }
   },
   {
@@ -3321,7 +3321,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.28460000013001
+    "ms": 64.64150000010704
    }
   },
   {
@@ -3344,8 +3344,8 @@
     "err": 0.031239438481982518,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.383400002203416
+    "steps": 8,
+    "ms": 482.008199999882
    }
   },
   {
@@ -3369,7 +3369,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 591.526199998043
+    "ms": 527.4805999999899
    }
   },
   {
@@ -3393,7 +3393,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.33740000077523
+    "ms": 65.71359999998094
    }
   },
   {
@@ -3417,7 +3417,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.18690000116476
+    "ms": 63.90119999991839
    }
   },
   {
@@ -3441,7 +3441,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.069000001996756
+    "ms": 64.36540000004243
    }
   },
   {
@@ -3465,7 +3465,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.74380000040401
+    "ms": 61.69139999997242
    }
   },
   {
@@ -3489,7 +3489,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.9320999996271
+    "ms": 64.00809999990997
    }
   },
   {
@@ -3513,7 +3513,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 617.4728000005416
+    "ms": 506.3540999999532
    }
   },
   {
@@ -3537,7 +3537,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 595.9093000019493
+    "ms": 542.642300000125
    }
   },
   {
@@ -3561,7 +3561,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.94980000020587
+    "ms": 62.89950000018507
    }
   },
   {
@@ -3585,7 +3585,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.779800000455
+    "ms": 70.9247999998297
    }
   },
   {
@@ -3609,7 +3609,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.58169999855454
+    "ms": 74.16209999996681
    }
   },
   {
@@ -3633,7 +3633,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 565.8848000020953
+    "ms": 532.1008000000802
    }
   },
   {
@@ -3657,7 +3657,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.18630000023404
+    "ms": 84.70850000003338
    }
   },
   {
@@ -3681,7 +3681,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 584.7419999990962
+    "ms": 551.0085999999319
    }
   },
   {
@@ -3705,7 +3705,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.262100002815714
+    "ms": 70.55250000007618
    }
   },
   {
@@ -3729,7 +3729,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 637.8737000013643
+    "ms": 571.0074000000986
    }
   },
   {
@@ -3753,7 +3753,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 587.56429999994
+    "ms": 564.6512999999231
    }
   },
   {
@@ -3776,8 +3776,8 @@
     "err": 0.05170243135265906,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.71570000046631
+    "steps": 8,
+    "ms": 555.2380999999968
    }
   },
   {
@@ -3801,7 +3801,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.44749999875785
+    "ms": 73.49819999990359
    }
   },
   {
@@ -3820,12 +3820,12 @@
     "alert": false
    },
    "agent": {
-    "value": 6.2512,
-    "err": 0.0441383012758072,
+    "value": 6.2523,
+    "err": 0.0452383012758073,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 40.711699999519624
+    "steps": 8,
+    "ms": 572.1354999998312
    }
   },
   {
@@ -3849,7 +3849,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.54480000256444
+    "ms": 71.5309999998226
    }
   },
   {
@@ -3873,7 +3873,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.17720000148984
+    "ms": 76.53819999995903
    }
   },
   {
@@ -3897,7 +3897,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.18079999877955
+    "ms": 72.70579999999427
    }
   },
   {
@@ -3921,7 +3921,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.17310000138241
+    "ms": 66.52729999996154
    }
   },
   {
@@ -3945,7 +3945,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.44300000066869
+    "ms": 71.45669999999882
    }
   },
   {
@@ -3969,7 +3969,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 593.9851000002818
+    "ms": 551.3660000001437
    }
   },
   {
@@ -3993,7 +3993,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.64950000165845
+    "ms": 75.42430000012246
    }
   },
   {
@@ -4017,7 +4017,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 581.824199998664
+    "ms": 531.5514999999778
    }
   },
   {
@@ -4040,8 +4040,8 @@
     "err": 0.08627803598795225,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 40.372700001171324
+    "steps": 8,
+    "ms": 520.8605000000261
    }
   },
   {
@@ -4065,7 +4065,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 558.3091000007698
+    "ms": 539.3275999999787
    }
   },
   {
@@ -4089,7 +4089,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 581.4666000005673
+    "ms": 559.656600000153
    }
   },
   {
@@ -4113,7 +4113,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.161899999773595
+    "ms": 70.58719999986351
    }
   },
   {
@@ -4137,7 +4137,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 640.0890999975672
+    "ms": 574.0676000000349
    }
   },
   {
@@ -4161,7 +4161,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.06760000286158
+    "ms": 67.0477999999548
    }
   },
   {
@@ -4185,7 +4185,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.6567999998515
+    "ms": 76.22190000006412
    }
   },
   {
@@ -4209,7 +4209,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 582.7860999997938
+    "ms": 531.8807000001016
    }
   },
   {
@@ -4233,7 +4233,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 665.732500001468
+    "ms": 565.51259999992
    }
   },
   {
@@ -4257,7 +4257,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 614.4924000000174
+    "ms": 595.6255999999485
    }
   },
   {
@@ -4281,7 +4281,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.09159999966505
+    "ms": 64.0882000000147
    }
   },
   {
@@ -4305,7 +4305,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.778000001300825
+    "ms": 71.7630999999983
    }
   },
   {
@@ -4329,7 +4329,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 587.4623000017891
+    "ms": 558.3480000000236
    }
   },
   {
@@ -4353,7 +4353,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.45730000306503
+    "ms": 69.75790000001325
    }
   },
   {
@@ -4377,7 +4377,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 559.97650000063
+    "ms": 565.9219000001485
    }
   },
   {
@@ -4401,7 +4401,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 560.3742999992392
+    "ms": 573.2218000000557
    }
   },
   {
@@ -4425,7 +4425,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.43869999825256
+    "ms": 70.10960000002342
    }
   },
   {
@@ -4449,7 +4449,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.67670000161161
+    "ms": 80.50789999992958
    }
   },
   {
@@ -4473,7 +4473,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.426999999705004
+    "ms": 64.76199999997334
    }
   },
   {
@@ -4497,7 +4497,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 573.3494000014616
+    "ms": 516.0679999999047
    }
   },
   {
@@ -4521,7 +4521,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.679700002627214
+    "ms": 63.137500000038926
    }
   },
   {
@@ -4545,7 +4545,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.60320000219508
+    "ms": 64.69459999993887
    }
   },
   {
@@ -4569,7 +4569,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.84619999694405
+    "ms": 66.23790000003282
    }
   },
   {
@@ -4593,7 +4593,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.068499997782055
+    "ms": 64.55490000007558
    }
   },
   {
@@ -4617,7 +4617,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.777199999050936
+    "ms": 62.60019999990618
    }
   },
   {
@@ -4640,8 +4640,8 @@
     "err": 0.02404659348033178,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.60730000046897
+    "steps": 8,
+    "ms": 512.2882000000573
    }
   },
   {
@@ -4665,7 +4665,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 568.597099998442
+    "ms": 497.0653999998831
    }
   },
   {
@@ -4689,7 +4689,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.5795000004
+    "ms": 67.25919999985308
    }
   },
   {
@@ -4713,7 +4713,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.469299997610506
+    "ms": 63.9061000001675
    }
   },
   {
@@ -4737,7 +4737,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.315800000418676
+    "ms": 65.90039999991859
    }
   },
   {
@@ -4761,7 +4761,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.74500000104308
+    "ms": 69.17010000006485
    }
   },
   {
@@ -4785,7 +4785,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 50.14310000115074
+    "ms": 64.66150000005655
    }
   },
   {
@@ -4809,7 +4809,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 582.8424999999697
+    "ms": 537.8514999999879
    }
   },
   {
@@ -4832,8 +4832,8 @@
     "err": 0.20700963615469803,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.49980000004871
+    "steps": 8,
+    "ms": 505.009500000142
    }
   },
   {
@@ -4857,7 +4857,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.82849999979953
+    "ms": 86.42220000001544
    }
   },
   {
@@ -4881,7 +4881,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.09019999890006
+    "ms": 67.5823000001401
    }
   },
   {
@@ -4905,7 +4905,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.14379999999073
+    "ms": 68.39430000013635
    }
   },
   {
@@ -4929,7 +4929,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.31559999869205
+    "ms": 73.91559999996389
    }
   },
   {
@@ -4953,7 +4953,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 626.2858999980381
+    "ms": 537.1256000000812
    }
   },
   {
@@ -4977,7 +4977,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 595.2385999989929
+    "ms": 663.5552000000189
    }
   },
   {
@@ -5000,8 +5000,8 @@
     "err": 0.04422813793087954,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 35.01010000036331
+    "steps": 8,
+    "ms": 562.8013000000465
    }
   },
   {
@@ -5025,7 +5025,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.54150000188383
+    "ms": 84.29959999989478
    }
   },
   {
@@ -5049,7 +5049,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.5897000010591
+    "ms": 80.27219999985391
    }
   },
   {
@@ -5073,7 +5073,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 675.7332999986829
+    "ms": 551.6039999999975
    }
   },
   {
@@ -5092,12 +5092,12 @@
     "alert": false
    },
    "agent": {
-    "value": 119.0026,
-    "err": 0.23446322150789456,
+    "value": 119.0524,
+    "err": 0.2655882215078975,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.42020000249613
+    "steps": 8,
+    "ms": 610.7603000000381
    }
   },
   {
@@ -5121,7 +5121,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 552.9067999996187
+    "ms": 522.4717999999484
    }
   },
   {
@@ -5145,7 +5145,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.699199998111
+    "ms": 63.23679999991327
    }
   },
   {
@@ -5169,7 +5169,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 555.5520000016259
+    "ms": 594.1540000001169
    }
   },
   {
@@ -5193,7 +5193,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 606.4172000005783
+    "ms": 585.0347000000511
    }
   },
   {
@@ -5217,7 +5217,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.983900001767324
+    "ms": 76.62970000001224
    }
   },
   {
@@ -5241,7 +5241,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.97270000298158
+    "ms": 79.09340000014708
    }
   },
   {
@@ -5265,7 +5265,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.06679999938933
+    "ms": 69.82560000005833
    }
   },
   {
@@ -5288,8 +5288,8 @@
     "err": 0.5719538560502269,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.43519999968703
+    "steps": 8,
+    "ms": 767.5848999999744
    }
   },
   {
@@ -5313,7 +5313,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.22269999870332
+    "ms": 69.55200000015793
    }
   },
   {
@@ -5337,7 +5337,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.98290000061388
+    "ms": 82.78549999999996
    }
   },
   {
@@ -5361,7 +5361,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.91460000097868
+    "ms": 92.21210000009705
    }
   },
   {
@@ -5385,7 +5385,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.87959999984014
+    "ms": 72.76359999991655
    }
   },
   {
@@ -5409,7 +5409,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 568.9354000023741
+    "ms": 607.2709000000032
    }
   },
   {
@@ -5428,12 +5428,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.6362,
-    "err": 0.09898410181806334,
+    "value": 2.6358,
+    "err": 0.10565076848472928,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 41.971700000431156
+    "steps": 8,
+    "ms": 565.63129999995
    }
   },
   {
@@ -5456,8 +5456,8 @@
     "err": 0.1332121508229071,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.11560000031022
+    "steps": 8,
+    "ms": 668.7155000001894
    }
   },
   {
@@ -5481,7 +5481,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.55050000027404
+    "ms": 75.18200000004072
    }
   },
   {
@@ -5505,7 +5505,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 594.8217999975896
+    "ms": 552.4631000000682
    }
   },
   {
@@ -5529,7 +5529,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 569.5828999996593
+    "ms": 579.10609999999
    }
   },
   {
@@ -5553,7 +5553,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.41799999968498
+    "ms": 78.5651000001053
    }
   },
   {
@@ -5577,7 +5577,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 612.1812000019418
+    "ms": 542.8090000000338
    }
   },
   {
@@ -5601,7 +5601,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.60240000014892
+    "ms": 88.55589999984659
    }
   },
   {
@@ -5624,8 +5624,8 @@
     "err": 0.19583335700438612,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.76250000030268
+    "steps": 8,
+    "ms": 516.4027000000715
    }
   },
   {
@@ -5649,7 +5649,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 561.1260000005132
+    "ms": 593.3964000000742
    }
   },
   {
@@ -5668,12 +5668,12 @@
     "alert": true
    },
    "agent": {
-    "value": 2.2945,
-    "err": 0.010759257863645288,
+    "value": 2.295,
+    "err": 0.010259257863645566,
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 554.7802000000956
+    "ms": 542.1300000000429
    }
   },
   {
@@ -5697,7 +5697,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 819.9419000011403
+    "ms": 613.6816000000636
    }
   },
   {
@@ -5721,7 +5721,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.12510000090697
+    "ms": 63.786299999947005
    }
   },
   {
@@ -5740,12 +5740,12 @@
     "alert": false
    },
    "agent": {
-    "value": 108.8689,
-    "err": 0.2411861971735441,
+    "value": 109.0531,
+    "err": 0.35631119717354665,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.84889999972074
+    "steps": 8,
+    "ms": 602.4025000001529
    }
   },
   {
@@ -5769,7 +5769,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 651.5598000005411
+    "ms": 510.7728999998926
    }
   },
   {
@@ -5792,8 +5792,8 @@
     "err": 0.21157397733198025,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.51089999827673
+    "steps": 8,
+    "ms": 655.7748000000174
    }
   },
   {
@@ -5817,7 +5817,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 566.5217999994638
+    "ms": 511.2973000000238
    }
   },
   {
@@ -5836,12 +5836,12 @@
     "alert": true
    },
    "agent": {
-    "value": 7.956,
-    "err": 0.09926312832135409,
+    "value": 7.9532,
+    "err": 0.07126312832134829,
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 592.4559999984922
+    "ms": 585.0817999998981
    }
   },
   {
@@ -5865,7 +5865,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.02810000019963
+    "ms": 78.0170000000453
    }
   },
   {
@@ -5888,8 +5888,8 @@
     "err": 0.4593507722870438,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.68489999836311
+    "steps": 8,
+    "ms": 551.081300000078
    }
   },
   {
@@ -5912,8 +5912,8 @@
     "err": 0.26679766794424076,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 46.806300000753254
+    "steps": 8,
+    "ms": 541.1377000000357
    }
   },
   {
@@ -5937,7 +5937,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 566.1340000006021
+    "ms": 742.6362999999583
    }
   },
   {
@@ -5961,7 +5961,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.87110000080429
+    "ms": 83.32110000014836
    }
   },
   {
@@ -5985,7 +5985,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.71009999723174
+    "ms": 76.66199999994205
    }
   },
   {
@@ -6009,7 +6009,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.671500001626555
+    "ms": 72.00739999984762
    }
   },
   {
@@ -6033,7 +6033,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.91299999970943
+    "ms": 86.58900000000358
    }
   },
   {
@@ -6056,8 +6056,8 @@
     "err": 0.5824828530189041,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.955299997818656
+    "steps": 8,
+    "ms": 547.6902999998856
    }
   },
   {
@@ -6081,7 +6081,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.95220000029076
+    "ms": 62.11729999995441
    }
   },
   {
@@ -6105,7 +6105,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 562.8940000024159
+    "ms": 556.7313000001377
    }
   },
   {
@@ -6128,8 +6128,8 @@
     "err": 0.08834759145564716,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.721100001363084
+    "steps": 8,
+    "ms": 572.3192000000381
    }
   },
   {
@@ -6153,7 +6153,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.94530000232044
+    "ms": 78.15439999990303
    }
   },
   {
@@ -6176,8 +6176,8 @@
     "err": 0.05814907244580484,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.71030000218889
+    "steps": 8,
+    "ms": 583.6254000000736
    }
   },
   {
@@ -6201,7 +6201,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.379200002149446
+    "ms": 73.839899999939
    }
   },
   {
@@ -6225,7 +6225,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 11,
-    "ms": 636.3273999995727
+    "ms": 1131.020099999887
    }
   },
   {
@@ -6249,7 +6249,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 572.516899999755
+    "ms": 761.0927000000629
    }
   },
   {
@@ -6273,7 +6273,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.27299999669776
+    "ms": 101.63190000002942
    }
   },
   {
@@ -6297,7 +6297,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.60549999869545
+    "ms": 90.41740000020582
    }
   },
   {
@@ -6321,7 +6321,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.4750000005879
+    "ms": 82.52969999989546
    }
   },
   {
@@ -6340,12 +6340,12 @@
     "alert": false
    },
    "agent": {
-    "value": 1.12,
-    "err": 0.1202528457264207,
+    "value": 1.1238,
+    "err": 0.02525284572642561,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 41.8336000002455
+    "steps": 8,
+    "ms": 582.2293999999602
    }
   },
   {
@@ -6369,7 +6369,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.651200000051176
+    "ms": 75.44480000001386
    }
   },
   {
@@ -6393,7 +6393,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 574.0707999975712
+    "ms": 614.3389999999727
    }
   },
   {
@@ -6417,7 +6417,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 597.7806000009878
+    "ms": 567.6048000000264
    }
   },
   {
@@ -6436,12 +6436,12 @@
     "alert": false
    },
    "agent": {
-    "value": 110.2918,
-    "err": 1.6984156379308768,
+    "value": 109.3296,
+    "err": 1.0970406379308795,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.21940000145696
+    "steps": 8,
+    "ms": 610.3986999999051
    }
   },
   {
@@ -6460,12 +6460,12 @@
     "alert": false
    },
    "agent": {
-    "value": 1.8147,
-    "err": 0.15472356518040922,
+    "value": 1.8228,
+    "err": 0.14966106518040923,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 53.35189999823342
+    "steps": 8,
+    "ms": 580.1487999999608
    }
   },
   {
@@ -6489,7 +6489,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.7148000006855
+    "ms": 78.78409999989344
    }
   },
   {
@@ -6513,7 +6513,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 561.700700000074
+    "ms": 751.0105000001204
    }
   },
   {
@@ -6537,7 +6537,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 12,
-    "ms": 633.5445000004256
+    "ms": 1085.0118000000748
    }
   },
   {
@@ -6561,7 +6561,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 602.1966000007524
+    "ms": 556.2178000000131
    }
   },
   {
@@ -6580,12 +6580,12 @@
     "alert": false
    },
    "agent": {
-    "value": -0.8775,
-    "err": 0.1771452037752752,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 11,
-    "ms": 591.1027000001923
+    "status": "escalated",
+    "steps": 14,
+    "ms": 1219.807400000036
    }
   },
   {
@@ -6604,12 +6604,12 @@
     "alert": true
    },
    "agent": {
-    "value": 5.7039,
-    "err": 0.5474119378157265,
+    "value": 5.6552,
+    "err": 1.3590786044823964,
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 594.036500002403
+    "ms": 612.3973999999635
    }
   },
   {
@@ -6633,7 +6633,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 558.4628000033263
+    "ms": 562.39880000021
    }
   },
   {
@@ -6657,7 +6657,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.04600000087521
+    "ms": 74.95560000006662
    }
   },
   {
@@ -6671,17 +6671,17 @@
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 27.6574,
+    "err": 1.46373321664663,
     "alert": false
    },
    "agent": {
-    "value": 30.809,
-    "err": 0.5060167833533713,
+    "value": 28.7983,
+    "err": 0.7506707166466287,
     "alert": false,
     "status": "recorded",
-    "steps": 12,
-    "ms": 656.0008999986167
+    "steps": 8,
+    "ms": 804.2740999999296
    }
   },
   {
@@ -6705,7 +6705,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.89360000175657
+    "ms": 66.77100000001701
    }
   },
   {
@@ -6724,12 +6724,12 @@
     "alert": false
    },
    "agent": {
-    "value": 85.9872,
-    "err": 0.23939135605022696,
+    "value": 85.096,
+    "err": 0.3176086439497716,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 42.54890000083833
+    "steps": 8,
+    "ms": 714.1828999999689
    }
   },
   {
@@ -6743,17 +6743,17 @@
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 3.5638,
+    "err": 1.767096797208336,
     "alert": false
    },
    "agent": {
-    "value": 3.5589,
-    "err": 1.8160967972083375,
+    "value": 3.5638,
+    "err": 1.767096797208336,
     "alert": false,
     "status": "recorded",
-    "steps": 12,
-    "ms": 739.7901000003912
+    "steps": 5,
+    "ms": 81.27070000000458
    }
   },
   {
@@ -6777,7 +6777,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.20210000150837
+    "ms": 89.75359999999455
    }
   },
   {
@@ -6801,7 +6801,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.85759999745642
+    "ms": 77.21820000006119
    }
   },
   {
@@ -6824,8 +6824,8 @@
     "err": 0.7098907839425461,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 33.8463000007323
+    "steps": 8,
+    "ms": 656.3012999999955
    }
   },
   {
@@ -6834,8 +6834,8 @@
    "truth": 0.6562490916984287,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 0.5089,
-    "err": 1.473490916984287,
+    "value": 0.5145,
+    "err": 1.4174909169842875,
     "alert": true
    },
    "gated": {
@@ -6847,9 +6847,9 @@
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 12,
-    "ms": 673.8158000007388
+    "status": "escalated",
+    "steps": 15,
+    "ms": 1266.943000000083
    }
   },
   {
@@ -6873,7 +6873,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.52279999712482
+    "ms": 83.9647000000241
    }
   },
   {
@@ -6897,7 +6897,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 562.0268999991822
+    "ms": 587.9526000001079
    }
   },
   {
@@ -6921,7 +6921,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.353799998323666
+    "ms": 75.83249999993313
    }
   },
   {
@@ -6945,7 +6945,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 849.3764000013471
+    "ms": 635.6333999999606
    }
   },
   {
@@ -6969,7 +6969,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 584.9309999975958
+    "ms": 550.5564999998569
    }
   },
   {
@@ -6993,7 +6993,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.96290000193403
+    "ms": 80.00250000009146
    }
   },
   {
@@ -7017,7 +7017,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 622.2562000002654
+    "ms": 527.024499999925
    }
   },
   {
@@ -7041,7 +7041,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.404999999533175
+    "ms": 70.4025999998521
    }
   },
   {
@@ -7065,7 +7065,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.48369999791612
+    "ms": 63.21239999988393
    }
   },
   {
@@ -7089,7 +7089,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 580.2134999976261
+    "ms": 532.3249000000487
    }
   },
   {
@@ -7112,8 +7112,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 11,
-    "ms": 598.638799998298
+    "steps": 14,
+    "ms": 1260.1435999999921
    }
   },
   {
@@ -7137,7 +7137,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 599.1811000021698
+    "ms": 518.9010999999937
    }
   },
   {
@@ -7156,12 +7156,12 @@
     "alert": false
    },
    "agent": {
-    "value": 1.3717,
-    "err": 0.7720557388883609,
+    "value": 1.4049,
+    "err": 0.05794426111164208,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 31.828699997277
+    "steps": 8,
+    "ms": 518.9585999999053
    }
   },
   {
@@ -7170,8 +7170,8 @@
    "truth": 108.48300208452233,
    "truth_status": "normal",
    "single_pass": {
-    "value": 112.2452,
-    "err": 2.3513736971735444,
+    "value": 110.0299,
+    "err": 0.9668111971735449,
     "alert": false
    },
    "gated": {
@@ -7185,7 +7185,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 12,
-    "ms": 801.932599999418
+    "ms": 978.4334999999373
    }
   },
   {
@@ -7207,9 +7207,9 @@
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 12,
-    "ms": 759.4022000012046
+    "status": "escalated",
+    "steps": 15,
+    "ms": 1052.4299999999585
    }
   },
   {
@@ -7228,12 +7228,12 @@
     "alert": false
    },
    "agent": {
-    "value": 106.0301,
-    "err": 1.2955114773319831,
+    "value": 104.4245,
+    "err": 0.2920114773319771,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.462500000197906
+    "steps": 8,
+    "ms": 559.6509000001788
    }
   },
   {
@@ -7257,7 +7257,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 558.6146999994526
+    "ms": 521.9289000001481
    }
   },
   {
@@ -7281,7 +7281,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 558.7812999983726
+    "ms": 536.7691000001287
    }
   },
   {
@@ -7305,7 +7305,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.73730000061914
+    "ms": 74.88820000003216
    }
   },
   {
@@ -7314,8 +7314,8 @@
    "truth": 80.46183876434073,
    "truth_status": "normal",
    "single_pass": {
-    "value": 76.0916,
-    "err": 2.731399227712954,
+    "value": 78.1648,
+    "err": 1.435649227712954,
     "alert": false
    },
    "gated": {
@@ -7329,7 +7329,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 12,
-    "ms": 649.2083000011917
+    "ms": 1101.0646999998244
    }
   },
   {
@@ -7353,7 +7353,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 561.2356000019645
+    "ms": 539.6716000000197
    }
   },
   {
@@ -7377,7 +7377,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 594.6253999973123
+    "ms": 545.6325999998626
    }
   },
   {
@@ -7400,8 +7400,8 @@
     "err": 0.7498526395178673,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.08589999971446
+    "steps": 8,
+    "ms": 499.45819999993546
    }
   },
   {
@@ -7424,8 +7424,8 @@
     "err": 0.47893346320484476,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.19270000146935
+    "steps": 8,
+    "ms": 506.6773999999441
    }
   },
   {
@@ -7449,7 +7449,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.61959999953979
+    "ms": 67.85169999989193
    }
   },
   {
@@ -7473,7 +7473,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.956500001309905
+    "ms": 72.01370000007046
    }
   },
   {
@@ -7497,7 +7497,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 11,
-    "ms": 619.8561000019254
+    "ms": 1009.956000000102
    }
   },
   {
@@ -7521,7 +7521,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.766000000876375
+    "ms": 67.18330000012429
    }
   },
   {
@@ -7545,7 +7545,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 583.1962999982352
+    "ms": 532.7767999999651
    }
   },
   {
@@ -7569,7 +7569,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.360899998020614
+    "ms": 71.14520000004632
    }
   },
   {
@@ -7593,7 +7593,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.15189999982249
+    "ms": 87.9424999998264
    }
   },
   {
@@ -7617,7 +7617,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 32.736400000430876
+    "ms": 74.97119999993629
    }
   },
   {
@@ -7641,7 +7641,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.01340000022901
+    "ms": 75.57869999982358
    }
   },
   {
@@ -7650,22 +7650,22 @@
    "truth": 35.547339438481984,
    "truth_status": "normal",
    "single_pass": {
-    "value": 30.918,
-    "err": 4.629339438481985,
+    "value": 35.7086,
+    "err": 0.16126056151801293,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 35.7086,
+    "err": 0.16126056151801293,
     "alert": false
    },
    "agent": {
-    "value": 35.5359,
-    "err": 0.01143943848198603,
+    "value": 35.7086,
+    "err": 0.16126056151801293,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 656.5780000019004
+    "ms": 688.0524000000605
    }
   },
   {
@@ -7689,7 +7689,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 579.3474000020069
+    "ms": 570.0948999999582
    }
   },
   {
@@ -7713,7 +7713,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 560.2432999985467
+    "ms": 824.7768999999607
    }
   },
   {
@@ -7737,7 +7737,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.44490000119549
+    "ms": 73.56939999999668
    }
   },
   {
@@ -7746,13 +7746,13 @@
    "truth": 4.757631746288075,
    "truth_status": "normal",
    "single_pass": {
-    "value": 5.4822,
-    "err": 7.24568253711925,
+    "value": 4.769,
+    "err": 0.11368253711925291,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 4.769,
+    "err": 0.11368253711925291,
     "alert": false
    },
    "agent": {
@@ -7761,7 +7761,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 552.2840000012366
+    "ms": 747.0806999999695
    }
   },
   {
@@ -7770,13 +7770,13 @@
    "truth": 1.124810113829057,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.0507,
-    "err": 1.8527528457264242,
+    "value": 1.1116,
+    "err": 0.3302528457264253,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.1116,
+    "err": 0.3302528457264253,
     "alert": false
    },
    "agent": {
@@ -7785,7 +7785,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 668.5204999994312
+    "ms": 638.6204000000362
    }
   },
   {
@@ -7809,7 +7809,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.74570000052336
+    "ms": 61.5867999999864
    }
   },
   {
@@ -7818,22 +7818,22 @@
    "truth": 0.07749392582433456,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 0.3964,
-    "err": 0.3189060741756654,
+    "value": 0.5277,
+    "err": 0.4502060741756654,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 0.5277,
+    "err": 0.4502060741756654,
+    "alert": true
    },
    "agent": {
-    "value": 0.1608,
-    "err": 0.08330607417566543,
+    "value": 0.5277,
+    "err": 0.4502060741756654,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 628.8399999975809
+    "steps": 9,
+    "ms": 600.2043999999387
    }
   },
   {
@@ -7857,7 +7857,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 564.9158999985957
+    "ms": 661.7888000000676
    }
   },
   {
@@ -7866,13 +7866,13 @@
    "truth": 107.57433497931059,
    "truth_status": "normal",
    "single_pass": {
-    "value": 107.6082,
-    "err": 0.02116563793087778,
+    "value": 107.4845,
+    "err": 0.0561468620691219,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 107.4845,
+    "err": 0.0561468620691219,
     "alert": false
    },
    "agent": {
@@ -7881,7 +7881,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 559.257400000206
+    "ms": 659.4457000001057
    }
   },
   {
@@ -7905,7 +7905,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.59690000273986
+    "ms": 75.36179999988235
    }
   },
   {
@@ -7929,7 +7929,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.7373000010266
+    "ms": 71.26079999989088
    }
   },
   {
@@ -7953,7 +7953,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 590.8429999981308
+    "ms": 555.9343000002173
    }
   },
   {
@@ -7977,7 +7977,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 582.5392000006104
+    "ms": 609.3120999998973
    }
   },
   {
@@ -8001,7 +8001,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 667.1593000028224
+    "ms": 588.9938999998776
    }
   },
   {
@@ -8010,13 +8010,13 @@
    "truth": -0.8704141918489889,
    "truth_status": "normal",
    "single_pass": {
-    "value": -0.8674,
-    "err": 0.07535479622472474,
+    "value": -0.862,
+    "err": 0.21035479622472375,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": -0.862,
+    "err": 0.21035479622472375,
     "alert": false
    },
    "agent": {
@@ -8025,7 +8025,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 580.7616999991296
+    "ms": 633.9394999999968
    }
   },
   {
@@ -8049,7 +8049,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 573.8368000020273
+    "ms": 520.681500000137
    }
   },
   {
@@ -8073,7 +8073,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 596.6835999970499
+    "ms": 540.0855999998839
    }
   },
   {
@@ -8082,22 +8082,22 @@
    "truth": 37.99900243135266,
    "truth_status": "normal",
    "single_pass": {
-    "value": 37.9674,
-    "err": 0.03160243135265972,
+    "value": 38.1315,
+    "err": 0.13249756864734508,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 38.1315,
+    "err": 0.13249756864734508,
     "alert": false
    },
    "agent": {
-    "value": 37.9589,
-    "err": 0.040102431352657675,
+    "value": 38.1315,
+    "err": 0.13249756864734508,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 605.0646000003326
+    "ms": 633.6804000000029
    }
   },
   {
@@ -8106,13 +8106,13 @@
    "truth": 29.999373146634607,
    "truth_status": "normal",
    "single_pass": {
-    "value": 30.0418,
-    "err": 0.02651678335336971,
+    "value": 30.3993,
+    "err": 0.24995428335337078,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 30.3993,
+    "err": 0.24995428335337078,
     "alert": false
    },
    "agent": {
@@ -8121,7 +8121,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 575.4936000012094
+    "ms": 649.0489000000252
    }
   },
   {
@@ -8140,12 +8140,12 @@
     "alert": false
    },
    "agent": {
-    "value": 6.2435,
-    "err": 0.03643830127580738,
+    "value": 6.2117,
+    "err": 0.004638301275807777,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.6714999981923
+    "steps": 8,
+    "ms": 549.8434999999517
    }
   },
   {
@@ -8169,7 +8169,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 679.5721000016783
+    "ms": 611.2653000000137
    }
   },
   {
@@ -8178,13 +8178,13 @@
    "truth": 3.7405096797208337,
    "truth_status": "normal",
    "single_pass": {
-    "value": 3.762,
-    "err": 0.21490320279166308,
+    "value": 3.7439,
+    "err": 0.033903202791663034,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 3.7439,
+    "err": 0.033903202791663034,
     "alert": false
    },
    "agent": {
@@ -8193,7 +8193,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 879.9540999971214
+    "ms": 662.2983000002023
    }
   },
   {
@@ -8202,13 +8202,13 @@
    "truth": 2.9276866122437095,
    "truth_status": "normal",
    "single_pass": {
-    "value": 2.9563,
-    "err": 0.2861338775629063,
+    "value": 2.9441,
+    "err": 0.16413387756290643,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 2.9441,
+    "err": 0.16413387756290643,
     "alert": false
    },
    "agent": {
@@ -8217,7 +8217,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 772.682500002702
+    "ms": 638.3084999999937
    }
   },
   {
@@ -8241,7 +8241,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.38229999950272
+    "ms": 62.38419999999678
    }
   },
   {
@@ -8250,13 +8250,13 @@
    "truth": 1.732104368642298,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.7391,
-    "err": 0.17489078394254953,
+    "value": 1.7301,
+    "err": 0.05010921605745344,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.7301,
+    "err": 0.05010921605745344,
     "alert": false
    },
    "agent": {
@@ -8265,7 +8265,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 711.3237000012305
+    "ms": 713.2593999999699
    }
   },
   {
@@ -8274,22 +8274,22 @@
    "truth": 0.6562490916984287,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 0.6767,
-    "err": 0.20450908301571255,
+    "value": 0.6837,
+    "err": 0.27450908301571264,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 0.6837,
+    "err": 0.27450908301571264,
+    "alert": true
    },
    "agent": {
-    "value": 0.6559,
-    "err": 0.0034909169842867183,
+    "value": 0.6564,
+    "err": 0.001509083015712731,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 754.3522000014491
+    "steps": 9,
+    "ms": 941.4036000000578
    }
   },
   {
@@ -8313,7 +8313,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 688.6847999994643
+    "ms": 679.165699999885
    }
   },
   {
@@ -8322,22 +8322,22 @@
    "truth": 5.002392729049374,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 5.0209,
-    "err": 0.3084545158437665,
+    "value": 5.0258,
+    "err": 0.39012118251043526,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 5.0258,
+    "err": 0.39012118251043526,
+    "alert": true
    },
    "agent": {
-    "value": 5.0017,
-    "err": 0.011545484156242718,
+    "value": 5.0034,
+    "err": 0.0167878491770986,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 714.3672999991395
+    "steps": 9,
+    "ms": 688.8682999999673
    }
   },
   {
@@ -8346,22 +8346,22 @@
    "truth": 49.01707803598795,
    "truth_status": "normal",
    "single_pass": {
-    "value": 49.0728,
-    "err": 0.05572196401205077,
+    "value": 49.0603,
+    "err": 0.04322196401204792,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 49.0603,
+    "err": 0.04322196401204792,
     "alert": false
    },
    "agent": {
-    "value": 48.962,
-    "err": 0.055078035987946805,
+    "value": 49.0603,
+    "err": 0.04322196401204792,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 756.344800000079
+    "ms": 669.9544000000515
    }
   },
   {
@@ -8385,7 +8385,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 700.3805999993347
+    "ms": 560.5052999999316
    }
   },
   {
@@ -8394,22 +8394,22 @@
    "truth": 2.5418864382686603,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 2.5405,
-    "err": 0.03466095671650349,
+    "value": 2.5398,
+    "err": 0.05216095671650711,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 2.5398,
+    "err": 0.05216095671650711,
+    "alert": true
    },
    "agent": {
     "value": 2.5441,
     "err": 0.0553390432834866,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 792.1777999981714
+    "steps": 9,
+    "ms": 662.0645000000422
    }
   },
   {
@@ -8433,7 +8433,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 856.0957000008784
+    "ms": 690.7616999999391
    }
   },
   {
@@ -8457,7 +8457,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 777.575699998124
+    "ms": 562.0326999999179
    }
   },
   {
@@ -8481,7 +8481,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 49.49699999997392
+    "ms": 96.25459999983832
    }
   },
   {
@@ -8490,13 +8490,13 @@
    "truth": 3.298849998579737,
    "truth_status": "normal",
    "single_pass": {
-    "value": 3.306,
-    "err": 0.1191666903377205,
+    "value": 3.2978,
+    "err": 0.01749997632894592,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 3.2978,
+    "err": 0.01749997632894592,
     "alert": false
    },
    "agent": {
@@ -8505,7 +8505,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 767.4728999991203
+    "ms": 1610.9031999999388
    }
   },
   {
@@ -8529,7 +8529,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 821.4379999990342
+    "ms": 829.3306999999004
    }
   },
   {
@@ -8548,12 +8548,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.3874,
-    "err": 0.08214074213635447,
+    "value": 2.305,
+    "err": 0.00025925786364533465,
     "alert": true,
     "status": "alert_raised",
     "steps": 12,
-    "ms": 876.9905000008293
+    "ms": 930.3422999998929
    }
   },
   {
@@ -8577,7 +8577,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 1146.456099999341
+    "ms": 589.838699999973
    }
   },
   {
@@ -8586,8 +8586,8 @@
    "truth": 1.4025822295555344,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.274,
-    "err": 3.2145557388883583,
+    "value": 1.4068,
+    "err": 0.1054442611116424,
     "alert": false
    },
    "gated": {
@@ -8601,7 +8601,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 975.2800999995088
+    "ms": 722.1945000001142
    }
   },
   {
@@ -8625,7 +8625,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 912.2495000010531
+    "ms": 798.4050000000025
    }
   },
   {
@@ -8634,22 +8634,22 @@
    "truth": 1.3763016696216206,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 1.3686,
-    "err": 0.12836116036034256,
+    "value": 1.3791,
+    "err": 0.04663883963965665,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 1.3791,
+    "err": 0.04663883963965665,
+    "alert": true
    },
    "agent": {
     "value": 1.3773,
     "err": 0.016638839639656254,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 907.1212000017113
+    "steps": 9,
+    "ms": 727.1989000000758
    }
   },
   {
@@ -8658,13 +8658,13 @@
    "truth": 103.95728163626883,
    "truth_status": "normal",
    "single_pass": {
-    "value": 104.0244,
-    "err": 0.04194897733198033,
+    "value": 103.9953,
+    "err": 0.02376147733198053,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 103.9953,
+    "err": 0.02376147733198053,
     "alert": false
    },
    "agent": {
@@ -8673,7 +8673,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 862.704200000735
+    "ms": 772.9295999999977
    }
   },
   {
@@ -8682,8 +8682,8 @@
    "truth": 97.45465875348745,
    "truth_status": "crit_high",
    "single_pass": {
-    "value": 97.317,
-    "err": 0.13765875348745737,
+    "value": 97.3415,
+    "err": 0.11315875348745408,
     "alert": true
    },
    "gated": {
@@ -8692,12 +8692,12 @@
     "alert": false
    },
    "agent": {
-    "value": 97.434,
-    "err": 0.02065875348745294,
+    "value": 97.4681,
+    "err": 0.013441246512556402,
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 12,
-    "ms": 692.8404000027513
+    "ms": 752.263800000037
    }
   },
   {
@@ -8721,7 +8721,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 661.8641999993997
+    "ms": 594.2437000001064
    }
   },
   {
@@ -8745,7 +8745,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 54.2301999994379
+    "ms": 74.08660000010059
    }
   },
   {
@@ -8769,7 +8769,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 702.4352999978873
+    "ms": 612.711999999874
    }
   },
   {
@@ -8778,9 +8778,9 @@
    "truth": 119.32872373128922,
    "truth_status": "normal",
    "single_pass": {
-    "value": 119.3733,
-    "err": 0.027860167944240292,
-    "alert": false
+    "value": 129.3386,
+    "err": 6.256172667944249,
+    "alert": true
    },
    "gated": {
     "value": null,
@@ -8788,12 +8788,12 @@
     "alert": false
    },
    "agent": {
-    "value": 119.1896,
-    "err": 0.0869523320557608,
+    "value": 119.208,
+    "err": 0.07545233205576096,
     "alert": false,
     "status": "recorded",
-    "steps": 8,
-    "ms": 573.4718999992765
+    "steps": 11,
+    "ms": 745.3217000002041
    }
   },
   {
@@ -8817,7 +8817,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 593.5936999994738
+    "ms": 527.3862000001373
    }
   },
   {
@@ -8841,7 +8841,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.415099999838276
+    "ms": 74.03879999992569
    }
   },
   {
@@ -8865,7 +8865,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.71969999818248
+    "ms": 71.39619999998104
    }
   },
   {
@@ -8889,7 +8889,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.83359999922686
+    "ms": 65.79090000013821
    }
   },
   {
@@ -8913,7 +8913,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 54.92679999952088
+    "ms": 65.92060000002675
    }
   },
   {
@@ -8922,13 +8922,13 @@
    "truth": 75.63472743516975,
    "truth_status": "normal",
    "single_pass": {
-    "value": 76.0013,
-    "err": 0.22910785301890613,
+    "value": 75.6984,
+    "err": 0.03979535301890991,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 75.6984,
+    "err": 0.03979535301890991,
     "alert": false
    },
    "agent": {
@@ -8937,7 +8937,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 537.249699998938
+    "ms": 601.7864000000372
    }
   },
   {
@@ -8946,22 +8946,22 @@
    "truth": 31.410453406519668,
    "truth_status": "normal",
    "single_pass": {
-    "value": 31.3549,
-    "err": 0.05555340651966745,
+    "value": 31.4863,
+    "err": 0.07584659348033185,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 31.4863,
+    "err": 0.07584659348033185,
     "alert": false
    },
    "agent": {
-    "value": 31.4195,
-    "err": 0.009046593480331211,
+    "value": 31.4863,
+    "err": 0.07584659348033185,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 587.8713999991305
+    "ms": 613.9869999999519
    }
   },
   {
@@ -8970,22 +8970,22 @@
    "truth": 86.78206317082054,
    "truth_status": "crit_high",
    "single_pass": {
-    "value": 86.8626,
-    "err": 0.08053682917946503,
+    "value": 86.7605,
+    "err": 0.021563170820542155,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 86.7605,
+    "err": 0.021563170820542155,
+    "alert": true
    },
    "agent": {
-    "value": 86.8175,
-    "err": 0.035436829179460005,
+    "value": 86.7605,
+    "err": 0.021563170820542155,
     "alert": true,
     "status": "alert_pending_approval",
-    "steps": 12,
-    "ms": 671.348299998499
+    "steps": 9,
+    "ms": 605.1785999998174
    }
   },
   {
@@ -9009,7 +9009,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.50929999680375
+    "ms": 94.99360000017987
    }
   },
   {
@@ -9033,7 +9033,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.68100000161212
+    "ms": 89.929199999915
    }
   },
   {
@@ -9042,13 +9042,13 @@
    "truth": 3.1482110556532517,
    "truth_status": "normal",
    "single_pass": {
-    "value": 3.1401,
-    "err": 0.13518426088752938,
+    "value": 3.1504,
+    "err": 0.03648240577913686,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 3.1504,
+    "err": 0.03648240577913686,
     "alert": false
    },
    "agent": {
@@ -9057,7 +9057,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 598.1670000001031
+    "ms": 957.1309999998903
    }
   },
   {
@@ -9081,7 +9081,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.24770000189892
+    "ms": 84.342400000196
    }
   },
   {
@@ -9105,7 +9105,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.87700000227778
+    "ms": 97.71200000000135
    }
   },
   {
@@ -9129,7 +9129,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 555.3773999999976
+    "ms": 630.0372999999126
    }
   },
   {
@@ -9153,7 +9153,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.240600000397535
+    "ms": 81.98579999998401
    }
   },
   {
@@ -9177,7 +9177,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 63.964799999666866
+    "ms": 88.50099999995109
    }
   },
   {
@@ -9201,7 +9201,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.98030000185827
+    "ms": 90.67589999995107
    }
   },
   {
@@ -9225,7 +9225,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.26879999967059
+    "ms": 93.12530000011066
    }
   },
   {
@@ -9249,7 +9249,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.86649999933434
+    "ms": 71.45170000012513
    }
   },
   {
@@ -9258,22 +9258,22 @@
    "truth": 0.07749392582433456,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 0.0847,
-    "err": 0.007206074175665433,
+    "value": 0.4579,
+    "err": 0.3804060741756654,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 0.4579,
+    "err": 0.3804060741756654,
+    "alert": true
    },
    "agent": {
-    "value": 0.1177,
-    "err": 0.040206074175665435,
+    "value": 0.4579,
+    "err": 0.3804060741756654,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 613.9312000013888
+    "steps": 9,
+    "ms": 827.0320999999967
    }
   },
   {
@@ -9297,7 +9297,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 568.8450000016019
+    "ms": 559.7041999999419
    }
   },
   {
@@ -9321,7 +9321,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.069400001404574
+    "ms": 77.85560000002079
    }
   },
   {
@@ -9345,7 +9345,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.73340000084136
+    "ms": 75.84170000018275
    }
   },
   {
@@ -9369,7 +9369,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.58260000217706
+    "ms": 78.25869999987844
    }
   },
   {
@@ -9393,7 +9393,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 612.149299999146
+    "ms": 534.5988999999918
    }
   },
   {
@@ -9417,7 +9417,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 571.711000000505
+    "ms": 739.3133000000489
    }
   },
   {
@@ -9441,7 +9441,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 626.4897999972163
+    "ms": 632.7991000000566
    }
   },
   {
@@ -9465,7 +9465,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.29449999911594
+    "ms": 100.04559999993035
    }
   },
   {
@@ -9489,7 +9489,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 597.7147999983572
+    "ms": 650.7314999998925
    }
   },
   {
@@ -9513,7 +9513,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 607.9079000010097
+    "ms": 659.2892999999549
    }
   },
   {
@@ -9537,7 +9537,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.47599999810336
+    "ms": 85.1126000000022
    }
   },
   {
@@ -9561,7 +9561,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.76479999982985
+    "ms": 80.91709999985142
    }
   },
   {
@@ -9580,12 +9580,12 @@
     "alert": false
    },
    "agent": {
-    "value": 6.242,
-    "err": 0.034938301275807326,
+    "value": 6.2118,
+    "err": 0.004738301275807544,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 33.9760999995633
+    "steps": 8,
+    "ms": 539.1124000000218
    }
   },
   {
@@ -9594,13 +9594,13 @@
    "truth": 85.60417383031964,
    "truth_status": "normal",
    "single_pass": {
-    "value": 85.7664,
-    "err": 0.10139135605022886,
+    "value": 85.78,
+    "err": 0.10989135605022683,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 85.78,
+    "err": 0.10989135605022683,
     "alert": false
    },
    "agent": {
@@ -9609,7 +9609,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 573.8711999983934
+    "ms": 762.9609000000528
    }
   },
   {
@@ -9633,7 +9633,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.72450000239769
+    "ms": 85.71580000011636
    }
   },
   {
@@ -9657,7 +9657,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.938600002235034
+    "ms": 88.12659999989592
    }
   },
   {
@@ -9681,7 +9681,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 44.41690000021481
+    "ms": 79.88909999994576
    }
   },
   {
@@ -9705,7 +9705,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 54.325500001141336
+    "ms": 76.67540000011286
    }
   },
   {
@@ -9729,7 +9729,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 558.4342000001925
+    "ms": 560.140199999978
    }
   },
   {
@@ -9753,7 +9753,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.27800000080606
+    "ms": 90.85480000021562
    }
   },
   {
@@ -9777,7 +9777,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 572.7766999989399
+    "ms": 583.230599999979
    }
   },
   {
@@ -9786,22 +9786,22 @@
    "truth": 49.01707803598795,
    "truth_status": "normal",
    "single_pass": {
-    "value": 49.0743,
-    "err": 0.05722196401205081,
+    "value": 49.0551,
+    "err": 0.03802196401205293,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 49.0551,
+    "err": 0.03802196401205293,
     "alert": false
    },
    "agent": {
-    "value": 48.9671,
-    "err": 0.049978035987948026,
+    "value": 49.0551,
+    "err": 0.03802196401205293,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 569.8039999988396
+    "ms": 778.058000000101
    }
   },
   {
@@ -9825,7 +9825,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 567.7743999985978
+    "ms": 736.2596999998914
    }
   },
   {
@@ -9849,7 +9849,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 558.4350999997696
+    "ms": 572.1255000000838
    }
   },
   {
@@ -9873,7 +9873,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 44.19160000179545
+    "ms": 85.21819999987201
    }
   },
   {
@@ -9897,7 +9897,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 623.7261999995098
+    "ms": 557.991599999923
    }
   },
   {
@@ -9921,7 +9921,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.98149999947054
+    "ms": 79.69709999997576
    }
   },
   {
@@ -9945,7 +9945,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.93009999956121
+    "ms": 82.30729999991127
    }
   },
   {
@@ -9969,7 +9969,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 703.8408000007621
+    "ms": 532.9721999999038
    }
   },
   {
@@ -9978,22 +9978,22 @@
    "truth": 2.3052592578636455,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 2.2555,
-    "err": 0.049759257863645434,
+    "value": 2.5392,
+    "err": 0.23394074213635463,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 2.5392,
+    "err": 0.23394074213635463,
+    "alert": true
    },
    "agent": {
-    "value": 2.2748,
-    "err": 0.03045925786364556,
+    "value": 2.5392,
+    "err": 0.23394074213635463,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 687.7028000017162
+    "steps": 9,
+    "ms": 723.2056999998804
    }
   },
   {
@@ -10017,7 +10017,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 642.7240000011807
+    "ms": 535.9372000000349
    }
   },
   {
@@ -10041,7 +10041,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.51710000101593
+    "ms": 78.80439999985356
    }
   },
   {
@@ -10065,7 +10065,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.3539000005112
+    "ms": 80.95219999995606
    }
   },
   {
@@ -10089,7 +10089,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 602.8101000010793
+    "ms": 566.4578000000802
    }
   },
   {
@@ -10113,7 +10113,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.464100002282066
+    "ms": 79.74319999993895
    }
   },
   {
@@ -10122,22 +10122,22 @@
    "truth": 97.45465875348745,
    "truth_status": "crit_high",
    "single_pass": {
-    "value": 97.8387,
-    "err": 0.38404124651255245,
+    "value": 97.3108,
+    "err": 0.14385875348745003,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 97.3108,
+    "err": 0.14385875348745003,
+    "alert": true
    },
    "agent": {
-    "value": 97.4498,
-    "err": 0.004858753487454237,
+    "value": 97.3108,
+    "err": 0.14385875348745003,
     "alert": true,
     "status": "alert_pending_approval",
-    "steps": 12,
-    "ms": 700.6158999975014
+    "steps": 9,
+    "ms": 684.0816999999788
    }
   },
   {
@@ -10161,7 +10161,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 567.672200002562
+    "ms": 536.8576000000758
    }
   },
   {
@@ -10185,7 +10185,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.30090000014752
+    "ms": 77.27650000015274
    }
   },
   {
@@ -10194,13 +10194,13 @@
    "truth": 80.46183876434073,
    "truth_status": "normal",
    "single_pass": {
-    "value": 80.2478,
-    "err": 0.133774227712955,
+    "value": 79.3645,
+    "err": 0.6858367277129496,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 79.3645,
+    "err": 0.6858367277129496,
     "alert": false
    },
    "agent": {
@@ -10209,7 +10209,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 580.1997000016854
+    "ms": 709.3469999999797
    }
   },
   {
@@ -10233,7 +10233,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.052200001402525
+    "ms": 81.71749999996791
    }
   },
   {
@@ -10257,7 +10257,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 569.9318000006315
+    "ms": 513.0890000000363
    }
   },
   {
@@ -10281,7 +10281,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.95710000122199
+    "ms": 72.53730000002179
    }
   },
   {
@@ -10305,7 +10305,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.626599998475285
+    "ms": 76.91070000009859
    }
   },
   {
@@ -10329,7 +10329,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.484099998750025
+    "ms": 67.93809999999212
    }
   },
   {
@@ -10353,7 +10353,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 51.46890000105486
+    "ms": 75.60339999986354
    }
   },
   {
@@ -10377,7 +10377,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 46.06930000227294
+    "ms": 86.50770000008379
    }
   },
   {
@@ -10386,22 +10386,22 @@
    "truth": 31.410453406519668,
    "truth_status": "normal",
    "single_pass": {
-    "value": 31.3735,
-    "err": 0.036953406519668164,
+    "value": 31.5394,
+    "err": 0.12894659348033244,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 31.5394,
+    "err": 0.12894659348033244,
     "alert": false
    },
    "agent": {
-    "value": 31.4156,
-    "err": 0.005146593480333195,
+    "value": 31.5394,
+    "err": 0.12894659348033244,
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 577.6454999977432
+    "ms": 682.3744000000715
    }
   },
   {
@@ -10425,7 +10425,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 569.7567999995954
+    "ms": 534.6892000000025
    }
   },
   {
@@ -10449,7 +10449,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.72230000019772
+    "ms": 83.5048999999799
    }
   },
   {
@@ -10473,7 +10473,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.54299999936484
+    "ms": 76.83780000002116
    }
   },
   {
@@ -10497,7 +10497,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.252200000191806
+    "ms": 83.58650000013768
    }
   },
   {
@@ -10521,7 +10521,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.013900001416914
+    "ms": 69.7023000000172
    }
   },
   {
@@ -10535,17 +10535,17 @@
     "alert": false
    },
    "gated": {
-    "value": 35.4459,
-    "err": 0.10143943848198234,
+    "value": null,
+    "err": null,
     "alert": false
    },
    "agent": {
-    "value": 35.4459,
-    "err": 0.10143943848198234,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 5,
-    "ms": 34.87999999924796
+    "status": "recapture_requested",
+    "steps": 15,
+    "ms": 1088.623699999971
    }
   },
   {
@@ -10569,7 +10569,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 561.5862000013294
+    "ms": 512.3879000000215
    }
   },
   {
@@ -10578,8 +10578,8 @@
    "truth": 4.598979421830718,
    "truth_status": "normal",
    "single_pass": {
-    "value": 4.7875,
-    "err": 3.1420096361546968,
+    "value": 4.9199,
+    "err": 5.348676302821373,
     "alert": false
    },
    "gated": {
@@ -10593,7 +10593,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 726.7457000016293
+    "ms": 1281.0799999999745
    }
   },
   {
@@ -10617,7 +10617,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.254799998161616
+    "ms": 64.6715000000313
    }
   },
   {
@@ -10641,7 +10641,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.723200002801605
+    "ms": 62.920399999939036
    }
   },
   {
@@ -10650,22 +10650,22 @@
    "truth": 1.124810113829057,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.13,
-    "err": 0.12974715427357397,
+    "value": 1.1312,
+    "err": 0.15974715427357622,
     "alert": false
    },
    "gated": {
-    "value": 1.13,
-    "err": 0.12974715427357397,
+    "value": null,
+    "err": null,
     "alert": false
    },
    "agent": {
-    "value": 1.13,
-    "err": 0.12974715427357397,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 5,
-    "ms": 34.48709999793209
+    "status": "recapture_requested",
+    "steps": 15,
+    "ms": 1153.659800000014
    }
   },
   {
@@ -10688,8 +10688,8 @@
     "err": 0.06709881124023376,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.082900002540555
+    "steps": 8,
+    "ms": 528.2254999999623
    }
   },
   {
@@ -10703,17 +10703,17 @@
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 0.1096,
+    "err": 0.03210607417566544,
+    "alert": true
    },
    "agent": {
-    "value": null,
-    "err": null,
-    "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 747.4494000016421
+    "value": 0.1096,
+    "err": 0.03210607417566544,
+    "alert": true,
+    "status": "alert_raised",
+    "steps": 9,
+    "ms": 494.1209999999501
    }
   },
   {
@@ -10732,12 +10732,12 @@
     "alert": false
    },
    "agent": {
-    "value": null,
-    "err": null,
-    "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 799.8893999974825
+    "value": 1.1752,
+    "err": 0.08276448253033233,
+    "alert": true,
+    "status": "alert_raised",
+    "steps": 12,
+    "ms": 726.8235999999888
    }
   },
   {
@@ -10761,7 +10761,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.51580000243848
+    "ms": 59.013499999991836
    }
   },
   {
@@ -10784,8 +10784,8 @@
     "err": 0.027963934819590922,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.8691000007384
+    "steps": 8,
+    "ms": 541.9686999998703
    }
   },
   {
@@ -10809,7 +10809,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.31990000192309
+    "ms": 61.07279999991988
    }
   },
   {
@@ -10833,7 +10833,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 659.2473999990034
+    "ms": 507.0984999999837
    }
   },
   {
@@ -10847,17 +10847,17 @@
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 118.6549,
+    "err": 0.01715072150789254,
     "alert": false
    },
    "agent": {
-    "value": 118.707,
-    "err": 0.04971322150788993,
+    "value": 118.6549,
+    "err": 0.01715072150789254,
     "alert": false,
     "status": "recorded",
-    "steps": 10,
-    "ms": 178.13390000083018
+    "steps": 5,
+    "ms": 60.00040000003537
    }
   },
   {
@@ -10881,7 +10881,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 686.0379000027024
+    "ms": 988.2033999999749
    }
   },
   {
@@ -10905,7 +10905,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 713.8753999970504
+    "ms": 1108.7820000000193
    }
   },
   {
@@ -10924,12 +10924,12 @@
     "alert": false
    },
    "agent": {
-    "value": 5.7369,
-    "err": 0.002588062184279612,
-    "alert": true,
-    "status": "alert_pending_approval",
-    "steps": 12,
-    "ms": 660.9596999987843
+    "value": null,
+    "err": null,
+    "alert": false,
+    "status": "recapture_requested",
+    "steps": 14,
+    "ms": 1295.7300999999006
    }
   },
   {
@@ -10953,7 +10953,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 550.2049999995506
+    "ms": 510.0290000000314
    }
   },
   {
@@ -10976,8 +10976,8 @@
     "err": 0.051302431352659994,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 32.238399999187095
+    "steps": 8,
+    "ms": 507.03790000011395
    }
   },
   {
@@ -10996,12 +10996,12 @@
     "alert": false
    },
    "agent": {
-    "value": 29.2271,
-    "err": 0.48267071664662936,
+    "value": 29.3054,
+    "err": 0.4337332166466301,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.65890000006766
+    "steps": 8,
+    "ms": 531.2263999999232
    }
   },
   {
@@ -11024,8 +11024,8 @@
     "err": 0.006961698724192723,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 35.025900000619
+    "steps": 8,
+    "ms": 498.51870000020426
    }
   },
   {
@@ -11034,22 +11034,22 @@
    "truth": 85.60417383031964,
    "truth_status": "normal",
    "single_pass": {
-    "value": 93.1475,
-    "err": 4.714578856050222,
+    "value": 85.9189,
+    "err": 0.1967038560502221,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 85.9189,
+    "err": 0.1967038560502221,
     "alert": false
    },
    "agent": {
-    "value": 86.0556,
-    "err": 0.28214135605022506,
+    "value": 85.9189,
+    "err": 0.1967038560502221,
     "alert": false,
     "status": "recorded",
-    "steps": 10,
-    "ms": 172.15639999994892
+    "steps": 8,
+    "ms": 691.9258000000355
    }
   },
   {
@@ -11072,8 +11072,8 @@
     "err": 0.10909679720833676,
     "alert": false,
     "status": "recorded",
-    "steps": 8,
-    "ms": 154.42610000172863
+    "steps": 11,
+    "ms": 741.8529999999919
    }
   },
   {
@@ -11096,8 +11096,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 742.7974000020185
+    "steps": 15,
+    "ms": 1228.1268000001546
    }
   },
   {
@@ -11120,8 +11120,8 @@
     "err": 0.6135813231180576,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.1616999982507
+    "steps": 8,
+    "ms": 505.0602000001163
    }
   },
   {
@@ -11145,7 +11145,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.04859999965993
+    "ms": 58.7362999999641
    }
   },
   {
@@ -11169,7 +11169,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 15,
-    "ms": 719.6009999970556
+    "ms": 1242.6878000001125
    }
   },
   {
@@ -11188,12 +11188,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.6451,
-    "err": 0.04934923151526475,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 8,
-    "ms": 158.86609999870416
+    "status": "recapture_requested",
+    "steps": 15,
+    "ms": 1244.223300000158
    }
   },
   {
@@ -11202,22 +11202,22 @@
    "truth": 5.002392729049374,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 4.9026,
-    "err": 1.6632121508229087,
+    "value": 4.783,
+    "err": 3.6565454841562297,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 4.783,
+    "err": 3.6565454841562297,
     "alert": false
    },
    "agent": {
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 764.0510000019276
+    "status": "escalated",
+    "steps": 8,
+    "ms": 650.3301000000192
    }
   },
   {
@@ -11226,8 +11226,8 @@
    "truth": 49.01707803598795,
    "truth_status": "normal",
    "single_pass": {
-    "value": 42.5726,
-    "err": 6.44447803598795,
+    "value": 43.3928,
+    "err": 5.624278035987949,
     "alert": false
    },
    "gated": {
@@ -11240,8 +11240,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 706.9532000023173
+    "steps": 15,
+    "ms": 1142.377900000156
    }
   },
   {
@@ -11250,9 +11250,9 @@
    "truth": 0.039619033291335315,
    "truth_status": "crit_low",
    "single_pass": {
-    "value": -0.0014,
-    "err": 0.6836505548555886,
-    "alert": true
+    "value": null,
+    "err": null,
+    "alert": false
    },
    "gated": {
     "value": null,
@@ -11260,12 +11260,12 @@
     "alert": false
    },
    "agent": {
-    "value": 0.0403,
-    "err": 0.011349445144411458,
+    "value": 0.0402,
+    "err": 0.009682778477744746,
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 12,
-    "ms": 649.9972000019625
+    "ms": 813.8229000001047
    }
   },
   {
@@ -11289,7 +11289,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 540.105100000801
+    "ms": 532.5682000000143
    }
   },
   {
@@ -11313,7 +11313,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 724.0808000024117
+    "ms": 1240.9963000000062
    }
   },
   {
@@ -11337,7 +11337,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 554.5827999994799
+    "ms": 506.94469999984904
    }
   },
   {
@@ -11360,8 +11360,8 @@
     "err": 0.08750737649567464,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 43.28040000109468
+    "steps": 8,
+    "ms": 529.6705000000657
    }
   },
   {
@@ -11385,7 +11385,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 118.67030000212253
+    "ms": 271.97479999995267
    }
   },
   {
@@ -11409,7 +11409,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 542.0298999997613
+    "ms": 521.3719000000765
    }
   },
   {
@@ -11433,7 +11433,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 725.6435000017518
+    "ms": 1152.6814999999715
    }
   },
   {
@@ -11457,7 +11457,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 574.3365000016638
+    "ms": 516.0852000001341
    }
   },
   {
@@ -11481,7 +11481,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.60529999958817
+    "ms": 58.39660000015101
    }
   },
   {
@@ -11500,12 +11500,12 @@
     "alert": false
    },
    "agent": {
-    "value": 108.4173,
-    "err": 0.04106380282645539,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 8,
-    "ms": 152.12809999866295
+    "status": "recapture_requested",
+    "steps": 14,
+    "ms": 1331.7293000000063
    }
   },
   {
@@ -11514,22 +11514,22 @@
    "truth": 1.3763016696216206,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 1.4751,
-    "err": 1.646638839639658,
-    "alert": true
+    "value": 1.6411,
+    "err": 4.413305506306323,
+    "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.6411,
+    "err": 4.413305506306323,
     "alert": false
    },
    "agent": {
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 684.9507999977504
+    "status": "escalated",
+    "steps": 8,
+    "ms": 655.72659999998
    }
   },
   {
@@ -11553,7 +11553,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 737.1112000000721
+    "ms": 1110.911299999998
    }
   },
   {
@@ -11562,22 +11562,22 @@
    "truth": 97.45465875348745,
    "truth_status": "crit_high",
    "single_pass": {
-    "value": 96.5534,
-    "err": 0.9012587534874541,
+    "value": 97.3511,
+    "err": 0.10355875348744803,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 97.3511,
+    "err": 0.10355875348744803,
+    "alert": true
    },
    "agent": {
-    "value": 97.4341,
-    "err": 0.02055875348744962,
+    "value": 97.3511,
+    "err": 0.10355875348744803,
     "alert": true,
     "status": "alert_pending_approval",
-    "steps": 11,
-    "ms": 149.5013999992807
+    "steps": 9,
+    "ms": 642.4019999999473
    }
   },
   {
@@ -11601,7 +11601,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 574.6274000011908
+    "ms": 523.6001999999189
    }
   },
   {
@@ -11625,7 +11625,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 113.10550000052899
+    "ms": 263.6383999999907
    }
   },
   {
@@ -11649,7 +11649,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.02350000012666
+    "ms": 61.368999999785956
    }
   },
   {
@@ -11673,7 +11673,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 645.950999998604
+    "ms": 1033.2594000001336
    }
   },
   {
@@ -11687,17 +11687,17 @@
     "alert": true
    },
    "gated": {
-    "value": 128.3694,
-    "err": 0.11603763939842082,
-    "alert": true
+    "value": null,
+    "err": null,
+    "alert": false
    },
    "agent": {
-    "value": 128.3694,
-    "err": 0.11603763939842082,
-    "alert": true,
-    "status": "alert_raised",
-    "steps": 9,
-    "ms": 587.7680999983568
+    "value": null,
+    "err": null,
+    "alert": false,
+    "status": "recapture_requested",
+    "steps": 14,
+    "ms": 1037.403999999924
    }
   },
   {
@@ -11721,7 +11721,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 1038.8654000016686
+    "ms": 1186.0488000002078
    }
   },
   {
@@ -11744,8 +11744,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 746.8339000006381
+    "steps": 15,
+    "ms": 1264.2410999997082
    }
   },
   {
@@ -11754,8 +11754,8 @@
    "truth": 3.676984294094494,
    "truth_status": "normal",
    "single_pass": {
-    "value": 3.4014,
-    "err": 2.755842940944939,
+    "value": 3.1307,
+    "err": 5.462842940944941,
     "alert": false
    },
    "gated": {
@@ -11768,8 +11768,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 789.1521000019566
+    "steps": 15,
+    "ms": 1200.7880999999543
    }
   },
   {
@@ -11793,7 +11793,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.19070000058855
+    "ms": 61.65820000023814
    }
   },
   {
@@ -11816,8 +11816,8 @@
     "err": 0.054267146981095145,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 39.005699996778276
+    "steps": 8,
+    "ms": 514.4118000002891
    }
   },
   {
@@ -11831,17 +11831,17 @@
     "alert": false
    },
    "gated": {
-    "value": 31.4181,
-    "err": 0.00764659348033092,
+    "value": null,
+    "err": null,
     "alert": false
    },
    "agent": {
-    "value": 31.4181,
-    "err": 0.00764659348033092,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 5,
-    "ms": 33.40819999721134
+    "status": "recapture_requested",
+    "steps": 15,
+    "ms": 1162.3222000002897
    }
   },
   {
@@ -11865,7 +11865,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 553.3783999999287
+    "ms": 504.3978000003335
    }
   },
   {
@@ -11884,12 +11884,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.8679,
-    "err": 0.026652408544351285,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 8,
-    "ms": 135.7529999986582
+    "status": "recapture_requested",
+    "steps": 15,
+    "ms": 1223.04000000031
    }
   },
   {
@@ -11913,7 +11913,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 113.98449999978766
+    "ms": 296.1568000000625
    }
   },
   {
@@ -11932,12 +11932,12 @@
     "alert": false
    },
    "agent": {
-    "value": 3.1462,
-    "err": 0.033517594220862826,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 8,
-    "ms": 102.90970000278321
+    "status": "recapture_requested",
+    "steps": 14,
+    "ms": 1206.0837999997602
    }
   },
   {
@@ -11951,17 +11951,17 @@
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.0123,
+    "err": 0.008484058956331753,
     "alert": false
    },
    "agent": {
-    "value": null,
-    "err": null,
+    "value": 1.0123,
+    "err": 0.008484058956331753,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 691.4372999999614
+    "status": "recorded",
+    "steps": 5,
+    "ms": 62.557400000059715
    }
   },
   {
@@ -11985,7 +11985,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 7,
-    "ms": 68.67460000285064
+    "ms": 195.15420000016093
    }
   },
   {
@@ -12009,7 +12009,7 @@
     "alert": false,
     "status": "escalated",
     "steps": 10,
-    "ms": 606.2245000030089
+    "ms": 657.6989999998659
    }
   },
   {
@@ -12028,12 +12028,12 @@
     "alert": false
    },
    "agent": {
-    "value": 4.6274,
-    "err": 0.4736763028213649,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 6,
-    "ms": 49.75340000237338
+    "status": "recapture_requested",
+    "steps": 10,
+    "ms": 492.96030000004976
    }
   },
   {
@@ -12056,8 +12056,8 @@
     "err": 0.03535268560692861,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.21340000286
+    "steps": 8,
+    "ms": 518.5963999997512
    }
   },
   {
@@ -12081,7 +12081,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 6,
-    "ms": 54.32680000012624
+    "ms": 80.8615999999347
    }
   },
   {
@@ -12104,8 +12104,8 @@
     "err": 0.5302528457264255,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 43.583200000284705
+    "steps": 8,
+    "ms": 518.6416999999892
    }
   },
   {
@@ -12128,8 +12128,8 @@
     "err": 0.030838688759766697,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 41.401200000109384
+    "steps": 8,
+    "ms": 524.1880999997193
    }
   },
   {
@@ -12153,7 +12153,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 11,
-    "ms": 655.5919000020367
+    "ms": 709.1432999995959
    }
   },
   {
@@ -12162,8 +12162,8 @@
    "truth": 1.17023413104818,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 1.3869,
-    "err": 3.6110978158636655,
+    "value": 1.2234,
+    "err": 0.886097815863666,
     "alert": true
    },
    "gated": {
@@ -12177,7 +12177,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 13,
-    "ms": 751.4965000009397
+    "ms": 1091.359999999895
    }
   },
   {
@@ -12196,12 +12196,12 @@
     "alert": false
    },
    "agent": {
-    "value": 107.5865,
-    "err": 0.0076031379308805205,
+    "value": 107.6022,
+    "err": 0.017415637930877637,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 47.68820000026608
+    "steps": 8,
+    "ms": 518.8993000001574
    }
   },
   {
@@ -12224,8 +12224,8 @@
     "err": 0.008588934819590832,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 45.274399999470916
+    "steps": 8,
+    "ms": 542.8203000001304
    }
   },
   {
@@ -12244,12 +12244,12 @@
     "alert": false
    },
    "agent": {
-    "value": 3.3092,
-    "err": 0.13027503879932123,
+    "value": 3.3281,
+    "err": 0.058724961200677946,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.31389999666135
+    "steps": 8,
+    "ms": 498.053699999673
    }
   },
   {
@@ -12273,7 +12273,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 591.486099998292
+    "ms": 513.5184000000663
    }
   },
   {
@@ -12292,12 +12292,12 @@
     "alert": false
    },
    "agent": {
-    "value": 118.64,
-    "err": 0.00783822150789426,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 6,
-    "ms": 53.09359999955632
+    "status": "recapture_requested",
+    "steps": 10,
+    "ms": 469.6827999996458
    }
   },
   {
@@ -12306,8 +12306,8 @@
    "truth": 76.98511394882402,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 86.7837,
-    "err": 9.798586051175974,
+    "value": 86.864,
+    "err": 9.878886051175982,
     "alert": true
    },
    "gated": {
@@ -12321,7 +12321,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 12,
-    "ms": 705.9939999999187
+    "ms": 781.7130999997062
    }
   },
   {
@@ -12344,8 +12344,8 @@
     "err": 0.07964520377527762,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 40.16419999970822
+    "steps": 8,
+    "ms": 491.8112000000292
    }
   },
   {
@@ -12354,22 +12354,22 @@
    "truth": 5.7367447162689436,
    "truth_status": "crit_high",
    "single_pass": {
-    "value": 5.6907,
-    "err": 0.7674119378157318,
+    "value": 5.7363,
+    "err": 0.007411937815726688,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 5.7363,
+    "err": 0.007411937815726688,
+    "alert": true
    },
    "agent": {
-    "value": 5.7388,
-    "err": 0.03425472885094649,
+    "value": 5.7363,
+    "err": 0.007411937815726688,
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 95.47819999716012
+    "ms": 662.768799999867
    }
   },
   {
@@ -12393,7 +12393,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 565.9822999987227
+    "ms": 484.8895000000084
    }
   },
   {
@@ -12412,12 +12412,12 @@
     "alert": false
    },
    "agent": {
-    "value": 37.9411,
-    "err": 0.057902431352658816,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 8,
-    "ms": 105.42480000003707
+    "status": "escalated",
+    "steps": 10,
+    "ms": 624.0931000002092
    }
   },
   {
@@ -12440,8 +12440,8 @@
     "err": 0.24551678335337002,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.757000001263805
+    "steps": 8,
+    "ms": 519.742700000279
    }
   },
   {
@@ -12464,8 +12464,8 @@
     "err": 0.272461698724193,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.56120000232477
+    "steps": 8,
+    "ms": 494.98369999992065
    }
   },
   {
@@ -12484,12 +12484,12 @@
     "alert": false
    },
    "agent": {
-    "value": 84.7034,
-    "err": 0.5629836439497726,
+    "value": 84.6997,
+    "err": 0.5652961439497695,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.004500001785345
+    "steps": 8,
+    "ms": 502.7586000001065
    }
   },
   {
@@ -12498,8 +12498,8 @@
    "truth": 3.7405096797208337,
    "truth_status": "normal",
    "single_pass": {
-    "value": 3.9802,
-    "err": 2.3969032027916626,
+    "value": 4.0138,
+    "err": 2.732903202791661,
     "alert": false
    },
    "gated": {
@@ -12512,8 +12512,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 685.7737000027555
+    "steps": 11,
+    "ms": 868.1854999999814
    }
   },
   {
@@ -12536,8 +12536,8 @@
     "err": 1.7128661224370936,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 35.51299999890034
+    "steps": 8,
+    "ms": 502.8456999998525
    }
   },
   {
@@ -12560,8 +12560,8 @@
     "err": 0.03141867688194466,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.81189999729395
+    "steps": 8,
+    "ms": 483.7193999996998
    }
   },
   {
@@ -12584,8 +12584,8 @@
     "err": 0.3598907839425458,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.4147999973502
+    "steps": 8,
+    "ms": 518.3772000000317
    }
   },
   {
@@ -12609,7 +12609,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 11,
-    "ms": 644.0335000006598
+    "ms": 669.4379000000481
    }
   },
   {
@@ -12631,9 +12631,9 @@
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 12,
-    "ms": 631.5079000014521
+    "status": "escalated",
+    "steps": 11,
+    "ms": 667.5475000001825
    }
   },
   {
@@ -12642,8 +12642,8 @@
    "truth": 5.002392729049374,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 3.438,
-    "err": 26.0732121508229,
+    "value": 4.9278,
+    "err": 1.2432121508228957,
     "alert": false
    },
    "gated": {
@@ -12656,8 +12656,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 14,
-    "ms": 690.6798000018171
+    "steps": 11,
+    "ms": 861.3311999997677
    }
   },
   {
@@ -12676,12 +12676,12 @@
     "alert": false
    },
    "agent": {
-    "value": 48.8557,
-    "err": 0.1613780359879513,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 7,
-    "ms": 82.96939999854658
+    "status": "escalated",
+    "steps": 10,
+    "ms": 725.6999999999607
    }
   },
   {
@@ -12705,7 +12705,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 556.974999999511
+    "ms": 520.8152999998674
    }
   },
   {
@@ -12729,7 +12729,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 672.4931000026118
+    "ms": 1193.7940000002527
    }
   },
   {
@@ -12752,8 +12752,8 @@
     "err": 0.24515131647221688,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.612799998692935
+    "steps": 8,
+    "ms": 510.47369999969305
    }
   },
   {
@@ -12777,7 +12777,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 557.0121000018844
+    "ms": 489.6089000003485
    }
   },
   {
@@ -12800,8 +12800,8 @@
     "err": 0.0475073764956746,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.27760000037961
+    "steps": 8,
+    "ms": 493.9823999998225
    }
   },
   {
@@ -12810,8 +12810,8 @@
    "truth": 3.298849998579737,
    "truth_status": "normal",
    "single_pass": {
-    "value": 2.976,
-    "err": 5.380833309662281,
+    "value": 2.9785,
+    "err": 5.3391666429956155,
     "alert": false
    },
    "gated": {
@@ -12825,7 +12825,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 14,
-    "ms": 675.9630999986257
+    "ms": 873.5896000002867
    }
   },
   {
@@ -12849,7 +12849,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 551.5340999991167
+    "ms": 519.7676000002502
    }
   },
   {
@@ -12873,7 +12873,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 608.670899997378
+    "ms": 498.29399999998714
    }
   },
   {
@@ -12897,7 +12897,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 578.349999999773
+    "ms": 522.4552999998195
    }
   },
   {
@@ -12916,12 +12916,12 @@
     "alert": false
    },
    "agent": {
-    "value": 1.4179,
-    "err": 0.3829442611116396,
+    "value": 1.4219,
+    "err": 0.4829442611116397,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 38.78500000064378
+    "steps": 8,
+    "ms": 531.7101999999068
    }
   },
   {
@@ -12944,8 +12944,8 @@
     "err": null,
     "alert": false,
     "status": "recapture_requested",
-    "steps": 11,
-    "ms": 605.409799998597
+    "steps": 10,
+    "ms": 567.1857000002092
    }
   },
   {
@@ -12969,7 +12969,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 558.3060000026308
+    "ms": 510.98159999992276
    }
   },
   {
@@ -12992,8 +12992,8 @@
     "err": 0.004198977331979492,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.60389999963809
+    "steps": 8,
+    "ms": 526.4717999998538
    }
   },
   {
@@ -13017,7 +13017,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 581.0392000021238
+    "ms": 489.7470000000794
    }
   },
   {
@@ -13041,7 +13041,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 571.6548999989755
+    "ms": 509.3689999998787
    }
   },
   {
@@ -13064,8 +13064,8 @@
     "err": 0.8436342191904856,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.69330000068294
+    "steps": 8,
+    "ms": 511.9506000000911
    }
   },
   {
@@ -13074,22 +13074,22 @@
    "truth": 80.46183876434073,
    "truth_status": "normal",
    "single_pass": {
-    "value": 89.5868,
-    "err": 5.703100772287044,
+    "value": 80.6953,
+    "err": 0.1459132722870482,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 80.6953,
+    "err": 0.1459132722870482,
     "alert": false
    },
    "agent": {
-    "value": 79.6507,
-    "err": 0.5069617277129534,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 7,
-    "ms": 102.05389999828185
+    "status": "escalated",
+    "steps": 8,
+    "ms": 717.9855999997926
    }
   },
   {
@@ -13098,8 +13098,8 @@
    "truth": 119.32872373128922,
    "truth_status": "normal",
    "single_pass": {
-    "value": 132.946,
-    "err": 8.510797667944239,
+    "value": 132.7921,
+    "err": 8.414610167944243,
     "alert": true
    },
    "gated": {
@@ -13113,7 +13113,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 684.5576000014262
+    "ms": 1211.293900000328
    }
   },
   {
@@ -13132,12 +13132,12 @@
     "alert": false
    },
    "agent": {
-    "value": 128.4798,
-    "err": 0.04703763939842176,
-    "alert": true,
-    "status": "alert_raised",
-    "steps": 8,
-    "ms": 76.97700000062468
+    "value": null,
+    "err": null,
+    "alert": false,
+    "status": "recapture_requested",
+    "steps": 10,
+    "ms": 486.01589999998396
    }
   },
   {
@@ -13161,7 +13161,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 11,
-    "ms": 649.6822999979486
+    "ms": 733.8073999999324
    }
   },
   {
@@ -13180,12 +13180,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.3198,
-    "err": 1.1343998701284885,
+    "value": 2.383,
+    "err": 0.08106653679515277,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.12299999824609
+    "steps": 8,
+    "ms": 582.2588000000906
    }
   },
   {
@@ -13204,12 +13204,12 @@
     "alert": false
    },
    "agent": {
-    "value": 3.6153,
-    "err": 0.6168429409449416,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 7,
-    "ms": 83.9839000000211
+    "status": "escalated",
+    "steps": 10,
+    "ms": 652.3659999998017
    }
   },
   {
@@ -13232,8 +13232,8 @@
     "err": 0.176484967536239,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 35.38079999998445
+    "steps": 8,
+    "ms": 508.5927999998603
    }
   },
   {
@@ -13242,22 +13242,22 @@
    "truth": 75.63472743516975,
    "truth_status": "normal",
    "single_pass": {
-    "value": 84.0929,
-    "err": 5.286357853018906,
+    "value": 76.1645,
+    "err": 0.3311078530189082,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 76.1645,
+    "err": 0.3311078530189082,
     "alert": false
    },
    "agent": {
-    "value": 75.6489,
-    "err": 0.008857853018904294,
+    "value": 76.5014,
+    "err": 0.5416703530189082,
     "alert": false,
     "status": "recorded",
-    "steps": 7,
-    "ms": 77.32899999973597
+    "steps": 8,
+    "ms": 702.8924999999617
    }
   },
   {
@@ -13281,7 +13281,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 11,
-    "ms": 567.2300000005635
+    "ms": 691.8875999999727
    }
   },
   {
@@ -13305,7 +13305,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 547.4107000009099
+    "ms": 510.2351999998973
    }
   },
   {
@@ -13324,12 +13324,12 @@
     "alert": false
    },
    "agent": {
-    "value": null,
-    "err": null,
+    "value": 2.8478,
+    "err": 0.3083475914556525,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 11,
-    "ms": 578.3627000018896
+    "status": "recorded",
+    "steps": 6,
+    "ms": 81.04510000021037
    }
   },
   {
@@ -13348,12 +13348,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.2665,
-    "err": 0.49683868136722875,
+    "value": 2.2352,
+    "err": 0.18383868136722548,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 33.55100000044331
+    "steps": 8,
+    "ms": 563.6210000002393
    }
   },
   {
@@ -13362,22 +13362,22 @@
    "truth": 3.1482110556532517,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.9407,
-    "err": 20.125184260887526,
+    "value": 3.0678,
+    "err": 1.340184260887526,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 3.0678,
+    "err": 1.340184260887526,
     "alert": false
    },
    "agent": {
-    "value": 3.1589,
-    "err": 0.1781490724458064,
+    "value": 3.1174,
+    "err": 0.5135175942208619,
     "alert": false,
     "status": "recorded",
-    "steps": 7,
-    "ms": 74.39069999963976
+    "steps": 8,
+    "ms": 702.8249000004507
    }
   },
   {
@@ -13396,12 +13396,12 @@
     "alert": false
    },
    "agent": {
-    "value": 1.0125,
-    "err": 0.0034840589563323032,
+    "value": null,
+    "err": null,
     "alert": false,
-    "status": "recorded",
-    "steps": 7,
-    "ms": 73.02749999871594
+    "status": "recapture_requested",
+    "steps": 10,
+    "ms": 575.8961999999883
    }
   },
   {
@@ -13424,8 +13424,8 @@
     "err": 0.024060561518012946,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 35.79549999994924
+    "steps": 8,
+    "ms": 508.9236999997411
    }
   },
   {
@@ -13449,7 +13449,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 592.0986000019184
+    "ms": 527.5392000003194
    }
   },
   {
@@ -13473,7 +13473,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.0605999994732
+    "ms": 69.0495000003466
    }
   },
   {
@@ -13497,7 +13497,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.76149999894551
+    "ms": 62.8762999999708
    }
   },
   {
@@ -13521,7 +13521,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.94750000027125
+    "ms": 62.534900000173366
    }
   },
   {
@@ -13545,7 +13545,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.23259999928996
+    "ms": 62.68979999958901
    }
   },
   {
@@ -13569,7 +13569,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.67620000246097
+    "ms": 64.97790000003079
    }
   },
   {
@@ -13593,7 +13593,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 593.4627000024193
+    "ms": 510.40340000008655
    }
   },
   {
@@ -13617,7 +13617,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 628.371499999048
+    "ms": 520.3744999998889
    }
   },
   {
@@ -13641,7 +13641,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.641399999003625
+    "ms": 65.4804000000695
    }
   },
   {
@@ -13665,7 +13665,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 43.53339999943273
+    "ms": 66.47190000012415
    }
   },
   {
@@ -13689,7 +13689,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.59419999955571
+    "ms": 69.39240000019709
    }
   },
   {
@@ -13713,7 +13713,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 636.8617999978596
+    "ms": 512.0537999996486
    }
   },
   {
@@ -13737,7 +13737,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.69359999871813
+    "ms": 67.70660000029238
    }
   },
   {
@@ -13761,7 +13761,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 564.2789999983506
+    "ms": 526.6345000000001
    }
   },
   {
@@ -13785,7 +13785,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.10129999995115
+    "ms": 64.92160000016156
    }
   },
   {
@@ -13809,7 +13809,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 581.966800000373
+    "ms": 520.0038000002678
    }
   },
   {
@@ -13833,7 +13833,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 563.2205000001704
+    "ms": 521.9966999998178
    }
   },
   {
@@ -13856,8 +13856,8 @@
     "err": 0.09390243135266019,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.33909999937168
+    "steps": 8,
+    "ms": 532.1294999998827
    }
   },
   {
@@ -13881,7 +13881,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.28140000021085
+    "ms": 64.49890000021696
    }
   },
   {
@@ -13904,8 +13904,8 @@
     "err": 0.02566169872419266,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.35369999756222
+    "steps": 8,
+    "ms": 515.2674999999363
    }
   },
   {
@@ -13929,7 +13929,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.01359999892884
+    "ms": 66.5542000001551
    }
   },
   {
@@ -13953,7 +13953,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.06619999866234
+    "ms": 66.56700000030469
    }
   },
   {
@@ -13977,7 +13977,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 32.899099998758174
+    "ms": 68.64980000000287
    }
   },
   {
@@ -14001,7 +14001,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.32749999896623
+    "ms": 64.13329999986672
    }
   },
   {
@@ -14025,7 +14025,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.995500002783956
+    "ms": 58.26099999967482
    }
   },
   {
@@ -14049,7 +14049,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 618.7409000012849
+    "ms": 537.0404000000235
    }
   },
   {
@@ -14073,7 +14073,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.45580000092741
+    "ms": 65.07389999978841
    }
   },
   {
@@ -14097,7 +14097,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.07949999847915
+    "ms": 73.67089999979726
    }
   },
   {
@@ -14120,8 +14120,8 @@
     "err": 0.05547803598795298,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 34.965300001204014
+    "steps": 8,
+    "ms": 532.8793999997288
    }
   },
   {
@@ -14145,7 +14145,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 596.8671000009635
+    "ms": 519.326899999669
    }
   },
   {
@@ -14169,7 +14169,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 540.4836000016076
+    "ms": 509.98970000000554
    }
   },
   {
@@ -14193,7 +14193,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.63270000065677
+    "ms": 62.60909999991782
    }
   },
   {
@@ -14217,7 +14217,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 582.2915999997349
+    "ms": 509.5139999998537
    }
   },
   {
@@ -14241,7 +14241,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.64539999913541
+    "ms": 62.81170000011116
    }
   },
   {
@@ -14265,7 +14265,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.324799999420065
+    "ms": 66.11899999961679
    }
   },
   {
@@ -14289,7 +14289,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 542.5328999990597
+    "ms": 515.8996999998635
    }
   },
   {
@@ -14313,7 +14313,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 539.7938000023714
+    "ms": 519.7583999997732
    }
   },
   {
@@ -14337,7 +14337,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 547.5153000006685
+    "ms": 567.5257000002603
    }
   },
   {
@@ -14361,7 +14361,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.38209999896935
+    "ms": 63.56980000009571
    }
   },
   {
@@ -14385,7 +14385,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.646600002626656
+    "ms": 67.96069999973042
    }
   },
   {
@@ -14409,7 +14409,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 549.0730000019539
+    "ms": 515.5301999998301
    }
   },
   {
@@ -14433,7 +14433,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.77949999817065
+    "ms": 59.823600000072474
    }
   },
   {
@@ -14457,7 +14457,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 547.3787000009906
+    "ms": 480.60279999981503
    }
   },
   {
@@ -14481,7 +14481,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 549.8966999984987
+    "ms": 529.2902999999569
    }
   },
   {
@@ -14505,7 +14505,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.05070000048727
+    "ms": 63.367700000071636
    }
   },
   {
@@ -14529,7 +14529,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.60259999742266
+    "ms": 66.5102000002662
    }
   },
   {
@@ -14553,7 +14553,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.63629999916884
+    "ms": 62.302700000145705
    }
   },
   {
@@ -14577,7 +14577,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 563.2495999998355
+    "ms": 521.7067000003226
    }
   },
   {
@@ -14601,7 +14601,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.26219999973546
+    "ms": 59.04869999994844
    }
   },
   {
@@ -14625,7 +14625,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.04820000065956
+    "ms": 64.36920000032842
    }
   },
   {
@@ -14649,7 +14649,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 34.13390000059735
+    "ms": 66.48549999999886
    }
   },
   {
@@ -14673,7 +14673,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.361900001589675
+    "ms": 66.08019999976023
    }
   },
   {
@@ -14697,7 +14697,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 33.295400000497466
+    "ms": 64.72949999988487
    }
   },
   {
@@ -14716,12 +14716,12 @@
     "alert": false
    },
    "agent": {
-    "value": 31.4883,
-    "err": 0.07784659348033074,
+    "value": 31.4855,
+    "err": 0.07504659348033016,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 36.09810000125435
+    "steps": 8,
+    "ms": 523.0856999996831
    }
   },
   {
@@ -14745,7 +14745,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 564.3711000011535
+    "ms": 502.5583000001461
    }
   },
   {
@@ -14769,7 +14769,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.57450000193785
+    "ms": 66.7739000000438
    }
   },
   {
@@ -14793,7 +14793,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.020699997403426
+    "ms": 64.00219999977708
    }
   },
   {
@@ -14817,7 +14817,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 35.816799998428905
+    "ms": 67.63959999989311
    }
   },
   {
@@ -14841,7 +14841,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 36.29150000051595
+    "ms": 61.38479999981428
    }
   },
   {
@@ -14850,13 +14850,13 @@
    "truth": 35.547339438481984,
    "truth_status": "normal",
    "single_pass": {
-    "value": 35.9257,
-    "err": 0.378360561518015,
+    "value": 35.2704,
+    "err": 0.2769394384819819,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 35.2704,
+    "err": 0.2769394384819819,
     "alert": false
    },
    "agent": {
@@ -14865,7 +14865,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 557.9558999997971
+    "ms": 602.7595000000474
    }
   },
   {
@@ -14874,22 +14874,22 @@
    "truth": 7.7137446928774285,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 7.452,
-    "err": 2.617446928774285,
-    "alert": false
+    "value": 7.7145,
+    "err": 0.00755307122571658,
+    "alert": true
    },
    "gated": {
-    "value": 7.452,
-    "err": 2.617446928774285,
-    "alert": false
+    "value": 7.7145,
+    "err": 0.00755307122571658,
+    "alert": true
    },
    "agent": {
-    "value": 7.452,
-    "err": 2.617446928774285,
-    "alert": false,
-    "status": "recorded",
-    "steps": 5,
-    "ms": 33.718700000463286
+    "value": 7.7145,
+    "err": 0.00755307122571658,
+    "alert": true,
+    "status": "alert_raised",
+    "steps": 9,
+    "ms": 511.4821000001939
    }
   },
   {
@@ -14913,7 +14913,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 38.340399998560315
+    "ms": 67.00069999988045
    }
   },
   {
@@ -14937,7 +14937,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 37.73529999671155
+    "ms": 96.4269000000968
    }
   },
   {
@@ -14946,13 +14946,13 @@
    "truth": 4.757631746288075,
    "truth_status": "normal",
    "single_pass": {
-    "value": 4.8012,
-    "err": 0.43568253711924854,
+    "value": 4.8396,
+    "err": 0.8196825371192507,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 4.8396,
+    "err": 0.8196825371192507,
     "alert": false
    },
    "agent": {
@@ -14961,7 +14961,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 585.607599998184
+    "ms": 612.1664000002056
    }
   },
   {
@@ -14985,7 +14985,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.0233000004373
+    "ms": 60.69149999984802
    }
   },
   {
@@ -15009,7 +15009,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.51750000123866
+    "ms": 63.24820000008913
    }
   },
   {
@@ -15033,7 +15033,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 600.768500000413
+    "ms": 503.99530000004233
    }
   },
   {
@@ -15057,7 +15057,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 610.428399999364
+    "ms": 518.5203000000911
    }
   },
   {
@@ -15080,8 +15080,8 @@
     "err": 0.48564686206911567,
     "alert": false,
     "status": "recorded",
-    "steps": 5,
-    "ms": 37.4387999981991
+    "steps": 8,
+    "ms": 509.9110999999539
    }
   },
   {
@@ -15105,7 +15105,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.43189999740571
+    "ms": 61.13550000009127
    }
   },
   {
@@ -15129,7 +15129,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 40.54240000186837
+    "ms": 40.5612999998084
    }
   },
   {
@@ -15153,7 +15153,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 845.4297999996925
+    "ms": 524.4750000001659
    }
   },
   {
@@ -15177,7 +15177,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 46.61379999743076
+    "ms": 61.2159000002066
    }
   },
   {
@@ -15186,22 +15186,22 @@
    "truth": 76.98511394882402,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 77.0422,
-    "err": 0.057086051175971875,
+    "value": 76.6192,
+    "err": 0.36591394882401573,
     "alert": true
    },
    "gated": {
-    "value": 77.0422,
-    "err": 0.057086051175971875,
-    "alert": true
+    "value": null,
+    "err": null,
+    "alert": false
    },
    "agent": {
-    "value": 77.0422,
-    "err": 0.057086051175971875,
-    "alert": true,
-    "status": "alert_raised",
-    "steps": 9,
-    "ms": 716.4738999999827
+    "value": null,
+    "err": null,
+    "alert": false,
+    "status": "recapture_requested",
+    "steps": 14,
+    "ms": 1331.6657000000305
    }
   },
   {
@@ -15225,7 +15225,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 59.28850000054808
+    "ms": 44.07100000025821
    }
   },
   {
@@ -15249,7 +15249,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 712.680000000546
+    "ms": 553.3480000003692
    }
   },
   {
@@ -15273,7 +15273,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 828.2542000015383
+    "ms": 496.57699999988836
    }
   },
   {
@@ -15282,13 +15282,13 @@
    "truth": 37.99900243135266,
    "truth_status": "normal",
    "single_pass": {
-    "value": 38.333,
-    "err": 0.33399756864734087,
+    "value": 37.7486,
+    "err": 0.2504024313526543,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 37.7486,
+    "err": 0.2504024313526543,
     "alert": false
    },
    "agent": {
@@ -15297,7 +15297,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 709.8280000027444
+    "ms": 582.844699999896
    }
   },
   {
@@ -15321,7 +15321,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 100.02460000032443
+    "ms": 63.07639999977255
    }
   },
   {
@@ -15345,7 +15345,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 48.43119999713963
+    "ms": 69.73070000003645
    }
   },
   {
@@ -15369,7 +15369,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 64.66260000161128
+    "ms": 75.12009999982183
    }
   },
   {
@@ -15393,7 +15393,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 57.96069999996689
+    "ms": 69.56639999998515
    }
   },
   {
@@ -15417,7 +15417,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 62.026700001297286
+    "ms": 80.84119999966788
    }
   },
   {
@@ -15441,7 +15441,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 59.30060000173398
+    "ms": 73.89229999989766
    }
   },
   {
@@ -15450,22 +15450,22 @@
    "truth": 1.732104368642298,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.7373,
-    "err": 0.12989078394254894,
+    "value": 1.7089,
+    "err": 0.5801092160574506,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.7089,
+    "err": 0.5801092160574506,
     "alert": false
    },
    "agent": {
-    "value": null,
-    "err": null,
+    "value": 1.7089,
+    "err": 0.5801092160574506,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 427.9367999988608
+    "status": "recorded",
+    "steps": 5,
+    "ms": 69.80849999990824
    }
   },
   {
@@ -15489,7 +15489,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 882.8967000008561
+    "ms": 510.7911000000058
    }
   },
   {
@@ -15513,7 +15513,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 59.63109999720473
+    "ms": 74.915300000157
    }
   },
   {
@@ -15527,17 +15527,17 @@
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 5.0031,
+    "err": 0.011787849177095449,
+    "alert": true
    },
    "agent": {
-    "value": null,
-    "err": null,
-    "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 785.2638000003935
+    "value": 5.0031,
+    "err": 0.011787849177095449,
+    "alert": true,
+    "status": "alert_raised",
+    "steps": 9,
+    "ms": 515.979299999799
    }
   },
   {
@@ -15561,7 +15561,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.85340000205906
+    "ms": 65.25459999966188
    }
   },
   {
@@ -15585,7 +15585,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 700.8934000004956
+    "ms": 531.3682999999401
    }
   },
   {
@@ -15609,7 +15609,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 15,
-    "ms": 919.1726999997627
+    "ms": 1139.6486000003279
    }
   },
   {
@@ -15633,7 +15633,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 60.943099997530226
+    "ms": 61.02020000025732
    }
   },
   {
@@ -15657,7 +15657,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 747.2973000003549
+    "ms": 478.6993999996412
    }
   },
   {
@@ -15681,7 +15681,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 55.842699999629986
+    "ms": 74.77730000027805
    }
   },
   {
@@ -15705,7 +15705,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.26890000043204
+    "ms": 70.80420000011145
    }
   },
   {
@@ -15729,7 +15729,7 @@
     "alert": false,
     "status": "escalated",
     "steps": 11,
-    "ms": 818.7542000014219
+    "ms": 675.6657000000814
    }
   },
   {
@@ -15738,9 +15738,9 @@
    "truth": 2.3052592578636455,
    "truth_status": "warn_low",
    "single_pass": {
-    "value": 9.413,
-    "err": 7.107740742136355,
-    "alert": false
+    "value": 2.3696,
+    "err": 0.06434074213635466,
+    "alert": true
    },
    "gated": {
     "value": null,
@@ -15748,12 +15748,12 @@
     "alert": false
    },
    "agent": {
-    "value": 2.3011,
-    "err": 0.004159257863645571,
+    "value": 2.2793,
+    "err": 0.02595925786364539,
     "alert": true,
     "status": "alert_raised",
-    "steps": 12,
-    "ms": 727.20180000033
+    "steps": 9,
+    "ms": 586.488499999632
    }
   },
   {
@@ -15777,7 +15777,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 750.1159999992524
+    "ms": 511.6667999996025
    }
   },
   {
@@ -15786,22 +15786,22 @@
    "truth": 1.4025822295555344,
    "truth_status": "normal",
    "single_pass": {
-    "value": 1.3873,
-    "err": 0.3820557388883594,
+    "value": 1.4193,
+    "err": 0.4179442611116413,
     "alert": false
    },
    "gated": {
-    "value": null,
-    "err": null,
+    "value": 1.4193,
+    "err": 0.4179442611116413,
     "alert": false
    },
    "agent": {
     "value": null,
     "err": null,
     "alert": false,
-    "status": "recapture_requested",
-    "steps": 14,
-    "ms": 852.6390999977593
+    "status": "escalated",
+    "steps": 8,
+    "ms": 684.0818999999101
    }
   },
   {
@@ -15825,7 +15825,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.80940000232658
+    "ms": 45.06760000003851
    }
   },
   {
@@ -15849,7 +15849,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 643.2574999998906
+    "ms": 516.7219999998451
    }
   },
   {
@@ -15873,7 +15873,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.337499999732245
+    "ms": 68.19180000002234
    }
   },
   {
@@ -15897,7 +15897,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 689.40030000158
+    "ms": 504.09069999977874
    }
   },
   {
@@ -15906,14 +15906,14 @@
    "truth": 7.946073687167865,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 8.0665,
-    "err": 1.2042631283213456,
+    "value": 7.8957,
+    "err": 0.5037368716786528,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 7.8957,
+    "err": 0.5037368716786528,
+    "alert": true
    },
    "agent": {
     "value": 7.9459,
@@ -15921,7 +15921,7 @@
     "alert": true,
     "status": "alert_raised",
     "steps": 9,
-    "ms": 717.2629999986384
+    "ms": 629.8744000000625
    }
   },
   {
@@ -15945,7 +15945,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 39.377900000545196
+    "ms": 57.32769999985976
    }
   },
   {
@@ -15969,7 +15969,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 44.80649999823072
+    "ms": 76.49169999967853
    }
   },
   {
@@ -15993,7 +15993,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 47.39329999938491
+    "ms": 60.7798000000912
    }
   },
   {
@@ -16002,22 +16002,22 @@
    "truth": 128.5550602230375,
    "truth_status": "warn_high",
    "single_pass": {
-    "value": 131.4767,
-    "err": 1.8260248606015672,
+    "value": 128.9277,
+    "err": 0.2328998606015631,
     "alert": true
    },
    "gated": {
-    "value": null,
-    "err": null,
-    "alert": false
+    "value": 128.9277,
+    "err": 0.2328998606015631,
+    "alert": true
    },
    "agent": {
-    "value": 128.5789,
-    "err": 0.014899860601573776,
-    "alert": true,
-    "status": "alert_raised",
-    "steps": 12,
-    "ms": 771.7527000022528
+    "value": null,
+    "err": null,
+    "alert": false,
+    "status": "escalated",
+    "steps": 8,
+    "ms": 669.087799999943
    }
   },
   {
@@ -16041,7 +16041,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 56.26250000204891
+    "ms": 71.47089999989475
    }
   },
   {
@@ -16050,8 +16050,8 @@
    "truth": 2.387863992207709,
    "truth_status": "normal",
    "single_pass": {
-    "value": 2.2417,
-    "err": 2.436066536795156,
+    "value": 1.9732,
+    "err": 6.911066536795152,
     "alert": false
    },
    "gated": {
@@ -16065,7 +16065,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 895.324500001152
+    "ms": 1206.2684000002264
    }
   },
   {
@@ -16089,7 +16089,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 62.82239999927697
+    "ms": 84.83109999997396
    }
   },
   {
@@ -16113,7 +16113,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 8,
-    "ms": 685.6716999973287
+    "ms": 628.7584000001516
    }
   },
   {
@@ -16137,7 +16137,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 46.85419999805163
+    "ms": 71.11919999988459
    }
   },
   {
@@ -16161,7 +16161,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 42.48109999753069
+    "ms": 64.96450000031473
    }
   },
   {
@@ -16185,7 +16185,7 @@
     "alert": true,
     "status": "alert_pending_approval",
     "steps": 9,
-    "ms": 629.829299999983
+    "ms": 490.7208999998147
    }
   },
   {
@@ -16209,7 +16209,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 44.34459999902174
+    "ms": 68.69619999997667
    }
   },
   {
@@ -16233,7 +16233,7 @@
     "alert": false,
     "status": "recapture_requested",
     "steps": 14,
-    "ms": 793.4477999988303
+    "ms": 1230.750199999875
    }
   },
   {
@@ -16257,7 +16257,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 45.35510000278009
+    "ms": 75.1428999997188
    }
   },
   {
@@ -16281,7 +16281,7 @@
     "alert": false,
     "status": "recorded",
     "steps": 5,
-    "ms": 41.63179999886779
+    "ms": 61.00530000003346
    }
   }
  ]

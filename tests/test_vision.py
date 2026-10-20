@@ -71,3 +71,23 @@ def test_annotate_draws_on_a_copy(gauge):
     img, truth = gauge("PG-101", 5.0)
     out = annotate(img, _read(img, truth.spec), "PG-101 5.00 bar", "ok")
     assert out.shape == img.shape and not np.array_equal(out, img)
+
+
+def test_tick_marks_vote_for_the_pivot(gauge):
+    from gaugeguard.vision import reader as rd
+    img, truth = gauge("PG-101", 4.0)
+    rect = rd._warp(img, rd._affine_h(locate_dial(img)["dial"]))
+    (cx, cy), support = rd._vote_centre(rect)
+    assert support > 0.3 and np.hypot(cx - rd.C, cy - rd.C) < 2.5  # ~1% of R: a fallback, the hub blob is finer
+
+
+@pytest.mark.parametrize("name, truth, full_scale", [("soderstroms_0-15kgcm2.jpg", 0.0, 15),
+                                                     ("astralpool_0-3bar.jpg", 0.0, 3)])
+def test_real_dial_with_a_long_counterweight_reads_the_pointer_end(name, truth, full_scale):
+    import json
+    import os
+    from gaugeguard.agent.loop import fit_image
+    here = os.path.join(os.path.dirname(__file__), "..", "eval", "real")
+    label = next(l for l in json.load(open(os.path.join(here, "labels.json"), encoding="utf-8")) if l["file"] == name)
+    r = _read(fit_image(cv2.imread(os.path.join(here, "images", name))), label)
+    assert abs(r["value"] - truth) / full_scale < 0.02

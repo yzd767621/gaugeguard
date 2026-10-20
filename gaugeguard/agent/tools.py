@@ -15,6 +15,10 @@ from ..vision import ENHANCE_OPS, assess_quality, enhance, locate_dial, read_gau
 
 MAX_ENHANCED_VERSIONS = 5
 FATAL_FLAGS = ("needle_outside_scale",)
+# Reader paths that are less proven (fallbacks for real dials whose outline, scale or ticks did not match the
+# registry); a reading that relied on one is recorded only with an agreeing, independent second reading.
+FALLBACK_FLAGS = ("dial_refit_to_ticks", "scale_from_tick_segments", "scale_offset_from_rim",
+                  "scale_sweep_mismatch", "scale_partially_hidden", "pivot_inconsistent")
 
 
 class ToolError(Exception):
@@ -62,13 +66,36 @@ class Session:
 
     def acceptable(self, r):
         return (r is not None and r["value"] is not None and r["confidence"] >= config.MIN_CONFIDENCE
-                and not any(f in r["flags"] for f in FATAL_FLAGS))
+                and not any(f in r["flags"] for f in FATAL_FLAGS) and self.opposite_end(r) is None)
+
+    def opposite_end(self, r):
+        """Another reading in this run whose needle points the opposite way: the pointer and its counterweight
+        tail were confused in one of them, so which end is the pointer is not settled by the evidence."""
+        a = (r.get("raw") or {}).get("needle_deg")
+        if a is None:
+            return None
+        for o in self.readings:
+            b = (o.get("raw") or {}).get("needle_deg")
+            if o is not r and b is not None and abs(((a - b) % 360.0) - 180.0) <= 25.0:
+                return o
+        return None
 
     def needs_verification(self, r) -> str | None:
-        """Out-of-limit values and implausible jumps must be confirmed by a second, independent reading."""
+        """Values that matter or that the evidence does not settle must be confirmed by a second, independent
+        reading: out-of-limit values, implausible jumps, readings that conflict with another reading of the same
+        photo in this run, and readings that relied on a fallback path of the reader."""
         status = limit_status(self.asset, r["value"])
         if status != "normal":
             return f"value is in the {status} band"
+        tol = config.AGREE_FRACTION * self.full_scale
+        conflict = next((o for o in self.readings if o is not r and o["value"] is not None
+                         and abs(o["value"] - r["value"]) > tol), None)
+        if conflict is not None:
+            return (f"reading {conflict['reading_id']} of this photo gave {conflict['value']:.4g}, which disagrees "
+                    f"with {r['value']:.4g}")
+        fallback = next((f for f in r["flags"] if f in FALLBACK_FLAGS), None)
+        if fallback is not None:
+            return f"reader relied on a fallback ({fallback})"
         if self.history and self.asset.get("max_step") is not None:
             jump = abs(r["value"] - self.history[-1]["value"])
             if jump > self.asset["max_step"]:
@@ -163,6 +190,10 @@ def record_reading(s: Session, reading_id: str):
     if r["confidence"] < config.MIN_CONFIDENCE:
         raise ToolError(f"confidence {r['confidence']} is below the minimum {config.MIN_CONFIDENCE}; improve the "
                         "evidence, request a recapture, or escalate")
+    flip = s.opposite_end(r)
+    if flip is not None:
+        raise ToolError(f"reading {flip['reading_id']} points at the opposite end of the needle, so it is not clear "
+                        "which end is the pointer; request a recapture or escalate")
     why = s.needs_verification(r)
     partner = s.agreeing_reading(r) if why else None
     if why and partner is None:

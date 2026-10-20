@@ -31,9 +31,13 @@ On 660 unseen synthetic images with exact ground truth (11 conditions including 
 noise, glare and occlusion), see [eval/results/results.md](eval/results/results.md) and
 [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) for the numbers, the method and the failure cases.
 
-On 14 openly licensed real photographs (`python eval/run_real.py`), the reader is not yet reliable: the
-agent withheld every value and asked for a new photo, so it reported no wrong values, while always
-reporting would have given a wrong value on 5 of the 9 readable photos. See section 6.1 of the report.
+On 660 synthetic images the agent reports a correct value on 90.6% and a wrong one on 0.5%; always
+reporting would be wrong on 3.5%.
+
+On 21 held-out real photographs with open licences (`python eval/run_real.py --set test`), the agent
+recorded a value for 9: 8 within 2% of full scale and 1 off by 3.2%. It asked for a new photo or escalated on
+the rest, and withheld on both photos a person cannot read. Always reporting would have been wrong on 11 of
+the 21. See section 6.1 of the report.
 
 Five Bedrock models were compared as planners on 14 gauges with live calls
 ([eval/results/planner_comparison.md](eval/results/planner_comparison.md)): none recorded a wrong value,
@@ -152,7 +156,7 @@ A stdio MCP server exposing `load_image` plus the same nine tools and guardrails
 
 ## Limitations
 
-Stated in full in the technical report. The main ones: the reader works on synthetic images but not
-yet on real photographs; it expects a single-needle circular dial with a tick scale and a visible gap; the
+Stated in full in the technical report. The main ones: on real photographs the agent gives a value for
+fewer than half of the gauges; it expects a single-needle circular dial with a tick scale and a visible gap; the
 asset's range and limits come from a registry, not from reading the digits; and the model-planner
 comparison is small (14 gauges, one run per model).

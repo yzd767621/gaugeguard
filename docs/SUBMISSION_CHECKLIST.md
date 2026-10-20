@@ -13,7 +13,7 @@ earlier time). Rules: https://opencv26.devpost.com/rules
 | Architecture diagram with OpenCV 5, AWS and agent components | Done | `README.md` (Mermaid). Export as an image for the report if the form needs one. |
 | Working web endpoint, or an arranged live screen-share | Done | https://u7vijv2bb2ouird3dz6ktymsn40jybjv.lambda-url.ap-southeast-2.on.aws/ (Sydney), GLM-5 planner by default. Give judges the demo token. |
 | Video, 5 minutes or less, showing the team, the app working, architecture and results | To do | Script in `docs/VIDEO_SCRIPT.md` |
-| Evaluation evidence including failure cases | Done (synthetic + 14 real photos) | `eval/results/`, report section 6.1 |
+| Evaluation evidence including failure cases | Done (660 synthetic + 37 real photos) | `eval/results/`, report section 6.1 |
 
 ## Agentic Vision Award evidence
 
@@ -29,7 +29,7 @@ steps in `docs/DEPLOYMENT.md` are completed.
 ## Before you submit
 
 1. Deployed (Sydney) with the GLM-5 planner; live trace saved in `eval/results/live_trace_glm5.json`.
-2. Real photos: 14 Commons photos evaluated (report section 6.1). The reader does not yet work on them; improving it is the largest gap.
+2. Real photos: 14 tuning photos and a 23-photo held-out test set evaluated (report section 6.1).
 3. Record the video.
 4. Re-run `python -m pytest -q` and `python eval/run_eval.py --n 60` and make sure the numbers in the report
    still match `eval/results/results.md`.

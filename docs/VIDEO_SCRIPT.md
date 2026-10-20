@@ -8,8 +8,8 @@
 | 1:50 to 2:30 | UI: an image above the critical limit | The value is over the limit, so the agent takes a second reading before acting. They agree, so it records, but the critical alert is held. Type a name, approve. Nothing is sent without a person. |
 | 2:30 to 2:55 | UI: **glare** image | Processing cannot recover a needle hidden by a reflection. The agent stops and tells the technician what to change. |
 | 2:55 to 3:35 | Architecture diagram | Lambda on Graviton runs OpenCV 5 and the agent loop. A model on Bedrock (GLM-5) plans from tool results and never sees the photo. DynamoDB, S3, SNS, CloudWatch. Guardrails are in code, so they hold for any planner. |
-| 3:35 to 4:15 | Results table | 660 unseen test images. Always reporting gives a wrong value on 5.0%. The agent gives a correct value on 92.6% and a wrong one on 0.6%. Show the failure image: a bar hiding the end of the scale. |
-| 4:15 to 4:30 | Limitations slide | Synthetic images so far; real photos are the next step. Decision support, not a safety system. |
+| 3:35 to 4:15 | Results table | 660 synthetic test images: always reporting is wrong on 3.5%, the agent on 0.5%. 21 real photos from the web, labelled before testing: the agent gives 8 correct values, 1 slightly off, and asks for a new photo on the rest. |
+| 4:15 to 4:30 | Limitations slide | On real photos it answers for fewer than half the gauges, by design when unsure. Decision support, not a safety system. |
 
 Before recording: replace the results line if the numbers change, and show the live AWS URL in the browser
 bar if deployed.

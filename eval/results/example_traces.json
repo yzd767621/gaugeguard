@@ -1,21 +1,20 @@
 {
  "clean": {
-  "seed": 5001,
-  "truth": 7.7137446928774285,
+  "seed": 5000,
+  "truth": 35.547339438481984,
   "outcome": {
-   "status": "alert_raised",
-   "severity": "warning"
+   "status": "recorded"
   },
   "recorded": {
-   "asset_id": "PG-101",
-   "value": 7.7079,
-   "units": "bar",
-   "confidence": 0.998,
-   "limit_status": "warn_high",
-   "reading_id": "r1",
-   "verified_by": "r2",
-   "run_id": "d4b2e3a6b642",
-   "ts": 1791877271.0607677
+   "asset_id": "TG-303",
+   "value": 35.5436,
+   "units": "C",
+   "confidence": 0.849,
+   "limit_status": "normal",
+   "reading_id": "r2",
+   "verified_by": "r1",
+   "run_id": "f3ba8e23865f",
+   "ts": 1792459891.9642284
   },
   "trace": [
    {
@@ -25,17 +24,17 @@
     "reason": "Load the gauge range and alarm limits first.",
     "result": {
      "asset": {
-      "asset_id": "PG-101",
-      "name": "Compressor discharge pressure",
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
       "vmin": 0,
-      "vmax": 10,
-      "units": "bar",
+      "vmax": 100,
+      "units": "C",
       "sweep_deg": 270,
-      "warn_high": 7.5,
-      "crit_high": 9.0,
-      "warn_low": 1.0,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
       "crit_low": null,
-      "max_step": 3.0
+      "max_step": 30
      },
      "recent_readings": [],
      "policy": {
@@ -53,15 +52,15 @@
     "reason": "Measure image quality before trusting any reading.",
     "result": {
      "image": "original",
-     "sharpness": 1093.5,
-     "brightness": 159.2,
-     "contrast": 201.0,
-     "noise": 1.47,
+     "sharpness": 843.7,
+     "brightness": 131.5,
+     "contrast": 185.0,
+     "noise": 1.32,
      "glare_fraction": 0.0,
      "issues": [],
      "scope": "frame"
     },
-    "ms": 6.1
+    "ms": 4.0
    },
    {
     "step": 3,
@@ -74,15 +73,15 @@
      "image": "original",
      "method": "contour",
      "found": true,
-     "candidates": 3,
+     "candidates": 1,
      "score": 0.995,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 10.1
+    "ms": 5.8
    },
    {
     "step": 4,
@@ -95,19 +94,21 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 7.7079,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5158,
+     "units": "C",
+     "confidence": 0.848,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
       "locate": 0.995,
-      "scale": 1.0,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 29.6
+    "ms": 47.9
    },
    {
     "step": 5,
@@ -115,13 +116,13 @@
     "args": {
      "op": "denoise"
     },
-    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "reason": "The reader relied on a fallback (scale_partially_hidden). Before acting on that, take an independent second reading from a re-processed image.",
     "result": {
      "image": "v1:denoise",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 773.4
+    "ms": 518.4
    },
    {
     "step": 6,
@@ -134,15 +135,15 @@
      "image": "v1:denoise",
      "method": "contour",
      "found": true,
-     "candidates": 3,
-     "score": 0.995,
+     "candidates": 1,
+     "score": 0.996,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 9.0
+    "ms": 6.2
    },
    {
     "step": 7,
@@ -155,50 +156,36 @@
      "reading_id": "r2",
      "image": "v1:denoise",
      "method": "contour#0",
-     "value": 7.7078,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5436,
+     "units": "C",
+     "confidence": 0.849,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
-      "locate": 0.995,
-      "scale": 1.0,
+      "locate": 0.996,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 27.8
+    "ms": 49.0
    },
    {
     "step": 8,
     "tool": "record_reading",
     "args": {
-     "reading_id": "r1"
+     "reading_id": "r2"
     },
     "reason": "A second, independent reading agrees.",
     "result": {
      "recorded": true,
-     "value": 7.7079,
-     "units": "bar",
-     "limit_status": "warn_high",
-     "verified_by": "r2",
-     "next": "raise_alert"
-    },
-    "ms": 0.1
-   },
-   {
-    "step": 9,
-    "tool": "raise_alert",
-    "args": {
-     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
-    },
-    "reason": "Recorded value is outside its limits.",
-    "result": {
-     "alert": "dispatched",
-     "severity": "warning",
-     "delivery": {
-      "delivered": "memory"
-     }
+     "value": 35.5436,
+     "units": "C",
+     "limit_status": "normal",
+     "verified_by": "r1",
+     "next": "finished"
     },
     "ms": 0.0
    }
@@ -219,8 +206,8 @@
    "limit_status": "warn_high",
    "reading_id": "r1",
    "verified_by": "r2",
-   "run_id": "37040fedc05e",
-   "ts": 1791877305.089878
+   "run_id": "9455bf302f25",
+   "ts": 1792459922.5687895
   },
   "trace": [
    {
@@ -266,7 +253,7 @@
      "issues": [],
      "scope": "frame"
     },
-    "ms": 4.3
+    "ms": 3.7
    },
    {
     "step": 3,
@@ -287,7 +274,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 9.3
+    "ms": 6.6
    },
    {
     "step": 4,
@@ -312,7 +299,7 @@
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 24.1
+    "ms": 56.5
    },
    {
     "step": 5,
@@ -326,7 +313,7 @@
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 546.0
+    "ms": 429.4
    },
    {
     "step": 6,
@@ -347,7 +334,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 8.4
+    "ms": 6.6
    },
    {
     "step": 7,
@@ -372,7 +359,7 @@
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 26.0
+    "ms": 55.2
    },
    {
     "step": 8,
@@ -410,22 +397,21 @@
   ]
  },
  "tilt": {
-  "seed": 5001,
-  "truth": 7.7137446928774285,
+  "seed": 5000,
+  "truth": 35.547339438481984,
   "outcome": {
-   "status": "alert_raised",
-   "severity": "warning"
+   "status": "recorded"
   },
   "recorded": {
-   "asset_id": "PG-101",
-   "value": 7.7059,
-   "units": "bar",
-   "confidence": 0.998,
-   "limit_status": "warn_high",
+   "asset_id": "TG-303",
+   "value": 35.5161,
+   "units": "C",
+   "confidence": 0.848,
+   "limit_status": "normal",
    "reading_id": "r1",
    "verified_by": "r2",
-   "run_id": "5cd566aab0b9",
-   "ts": 1791877332.929713
+   "run_id": "09d7d5f8053c",
+   "ts": 1792459952.854735
   },
   "trace": [
    {
@@ -435,17 +421,17 @@
     "reason": "Load the gauge range and alarm limits first.",
     "result": {
      "asset": {
-      "asset_id": "PG-101",
-      "name": "Compressor discharge pressure",
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
       "vmin": 0,
-      "vmax": 10,
-      "units": "bar",
+      "vmax": 100,
+      "units": "C",
       "sweep_deg": 270,
-      "warn_high": 7.5,
-      "crit_high": 9.0,
-      "warn_low": 1.0,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
       "crit_low": null,
-      "max_step": 3.0
+      "max_step": 30
      },
      "recent_readings": [],
      "policy": {
@@ -454,7 +440,7 @@
       "critical_alerts_need_human_approval": true
      }
     },
-    "ms": 0.1
+    "ms": 0.0
    },
    {
     "step": 2,
@@ -463,15 +449,15 @@
     "reason": "Measure image quality before trusting any reading.",
     "result": {
      "image": "original",
-     "sharpness": 802.7,
-     "brightness": 155.0,
-     "contrast": 200.0,
-     "noise": 1.13,
+     "sharpness": 640.3,
+     "brightness": 133.1,
+     "contrast": 167.0,
+     "noise": 0.95,
      "glare_fraction": 0.0,
      "issues": [],
      "scope": "frame"
     },
-    "ms": 4.8
+    "ms": 3.4
    },
    {
     "step": 3,
@@ -484,15 +470,15 @@
      "image": "original",
      "method": "contour",
      "found": true,
-     "candidates": 2,
-     "score": 0.995,
+     "candidates": 1,
+     "score": 0.994,
      "centre": [
-      398,
-      258
+      332,
+      252
      ],
-     "axis_ratio": 0.876
+     "axis_ratio": 0.829
     },
-    "ms": 7.7
+    "ms": 5.3
    },
    {
     "step": 4,
@@ -505,19 +491,21 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 7.7059,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5161,
+     "units": "C",
+     "confidence": 0.848,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
-      "locate": 0.995,
-      "scale": 1.0,
+      "locate": 0.994,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 26.2
+    "ms": 43.7
    },
    {
     "step": 5,
@@ -525,13 +513,13 @@
     "args": {
      "op": "denoise"
     },
-    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "reason": "The reader relied on a fallback (scale_partially_hidden). Before acting on that, take an independent second reading from a re-processed image.",
     "result": {
      "image": "v1:denoise",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 516.2
+    "ms": 378.9
    },
    {
     "step": 6,
@@ -544,15 +532,15 @@
      "image": "v1:denoise",
      "method": "contour",
      "found": true,
-     "candidates": 2,
-     "score": 0.995,
+     "candidates": 1,
+     "score": 0.994,
      "centre": [
-      398,
-      258
+      332,
+      252
      ],
-     "axis_ratio": 0.876
+     "axis_ratio": 0.829
     },
-    "ms": 7.6
+    "ms": 5.4
    },
    {
     "step": 7,
@@ -565,19 +553,21 @@
      "reading_id": "r2",
      "image": "v1:denoise",
      "method": "contour#0",
-     "value": 7.7059,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.4943,
+     "units": "C",
+     "confidence": 0.848,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
-      "locate": 0.995,
-      "scale": 1.0,
+      "locate": 0.994,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 27.7
+    "ms": 44.5
    },
    {
     "step": 8,
@@ -588,27 +578,11 @@
     "reason": "A second, independent reading agrees.",
     "result": {
      "recorded": true,
-     "value": 7.7059,
-     "units": "bar",
-     "limit_status": "warn_high",
+     "value": 35.5161,
+     "units": "C",
+     "limit_status": "normal",
      "verified_by": "r2",
-     "next": "raise_alert"
-    },
-    "ms": 0.0
-   },
-   {
-    "step": 9,
-    "tool": "raise_alert",
-    "args": {
-     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
-    },
-    "reason": "Recorded value is outside its limits.",
-    "result": {
-     "alert": "dispatched",
-     "severity": "warning",
-     "delivery": {
-      "delivered": "memory"
-     }
+     "next": "finished"
     },
     "ms": 0.0
    }
@@ -629,8 +603,8 @@
    "limit_status": "warn_high",
    "reading_id": "r1",
    "verified_by": "r2",
-   "run_id": "4ce2e11de679",
-   "ts": 1791877361.3698218
+   "run_id": "03e409cc9d45",
+   "ts": 1792459985.0003433
   },
   "trace": [
    {
@@ -659,7 +633,7 @@
       "critical_alerts_need_human_approval": true
      }
     },
-    "ms": 0.1
+    "ms": 0.0
    },
    {
     "step": 2,
@@ -678,7 +652,7 @@
      ],
      "scope": "frame"
     },
-    "ms": 4.2
+    "ms": 3.4
    },
    {
     "step": 3,
@@ -699,7 +673,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 6.5
+    "ms": 6.7
    },
    {
     "step": 4,
@@ -724,7 +698,7 @@
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 21.8
+    "ms": 63.8
    },
    {
     "step": 5,
@@ -738,7 +712,7 @@
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 514.2
+    "ms": 397.8
    },
    {
     "step": 6,
@@ -759,7 +733,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 7.4
+    "ms": 10.4
    },
    {
     "step": 7,
@@ -784,7 +758,7 @@
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 27.2
+    "ms": 54.8
    },
    {
     "step": 8,
@@ -826,256 +800,10 @@
   "truth": 35.547339438481984,
   "outcome": {
    "status": "recapture_requested",
-   "reason": "Could not obtain a trustworthy reading (best confidence 0.03 is below the minimum).",
+   "reason": "Could not obtain a trustworthy reading (best confidence 0.16 is below the minimum).",
    "guidance": "The photo is blurred. Hold the camera steady, tap to focus on the dial, then retake."
   },
   "recorded": null,
-  "trace": [
-   {
-    "step": 1,
-    "tool": "get_asset_context",
-    "args": {},
-    "reason": "Load the gauge range and alarm limits first.",
-    "result": {
-     "asset": {
-      "asset_id": "TG-303",
-      "name": "Cooling water return temperature",
-      "vmin": 0,
-      "vmax": 100,
-      "units": "C",
-      "sweep_deg": 270,
-      "warn_high": 70,
-      "crit_high": 85,
-      "warn_low": 5,
-      "crit_low": null,
-      "max_step": 30
-     },
-     "recent_readings": [],
-     "policy": {
-      "min_confidence": 0.6,
-      "agreement_tolerance_fraction": 0.02,
-      "critical_alerts_need_human_approval": true
-     }
-    },
-    "ms": 0.0
-   },
-   {
-    "step": 2,
-    "tool": "assess_quality",
-    "args": {},
-    "reason": "Measure image quality before trusting any reading.",
-    "result": {
-     "image": "original",
-     "sharpness": 80.8,
-     "brightness": 131.6,
-     "contrast": 158.0,
-     "noise": 0.61,
-     "glare_fraction": 0.0,
-     "issues": [
-      "blurry"
-     ],
-     "scope": "frame"
-    },
-    "ms": 4.8
-   },
-   {
-    "step": 3,
-    "tool": "locate_dial",
-    "args": {
-     "method": "contour"
-    },
-    "reason": "Find the dial rim on the current image.",
-    "result": {
-     "image": "original",
-     "method": "contour",
-     "found": true,
-     "candidates": 1,
-     "score": 0.993,
-     "centre": [
-      320,
-      257
-     ],
-     "axis_ratio": 0.988
-    },
-    "ms": 5.4
-   },
-   {
-    "step": 4,
-    "tool": "read_gauge",
-    "args": {
-     "candidate": 0
-    },
-    "reason": "Dial located; read it.",
-    "result": {
-     "reading_id": "r1",
-     "image": "original",
-     "method": "contour#0",
-     "value": 37.4405,
-     "units": "C",
-     "confidence": 0.031,
-     "flags": [],
-     "components": {
-      "locate": 0.993,
-      "scale": 1.0,
-      "needle": 0.031
-     },
-     "acceptable": false,
-     "limit_status": "normal"
-    },
-    "ms": 23.8
-   },
-   {
-    "step": 5,
-    "tool": "enhance_image",
-    "args": {
-     "op": "sharpen"
-    },
-    "reason": "Quality check reported 'blurry', so apply sharpen and look again.",
-    "result": {
-     "image": "v1:sharpen",
-     "derived_from": "original",
-     "note": "now the current image; locate and read it again"
-    },
-    "ms": 2.2
-   },
-   {
-    "step": 6,
-    "tool": "locate_dial",
-    "args": {
-     "method": "contour"
-    },
-    "reason": "Find the dial rim on the current image.",
-    "result": {
-     "image": "v1:sharpen",
-     "method": "contour",
-     "found": true,
-     "candidates": 1,
-     "score": 0.992,
-     "centre": [
-      320,
-      257
-     ],
-     "axis_ratio": 0.987
-    },
-    "ms": 6.7
-   },
-   {
-    "step": 7,
-    "tool": "read_gauge",
-    "args": {
-     "candidate": 0
-    },
-    "reason": "Dial located; read it.",
-    "result": {
-     "reading_id": "r2",
-     "image": "v1:sharpen",
-     "method": "contour#0",
-     "value": 37.6118,
-     "units": "C",
-     "confidence": 0.004,
-     "flags": [],
-     "components": {
-      "locate": 0.992,
-      "scale": 1.0,
-      "needle": 0.004
-     },
-     "acceptable": false,
-     "limit_status": "normal"
-    },
-    "ms": 23.3
-   },
-   {
-    "step": 8,
-    "tool": "enhance_image",
-    "args": {
-     "op": "denoise"
-    },
-    "reason": "No specific defect explains the low confidence; try denoise and look again.",
-    "result": {
-     "image": "v2:denoise",
-     "derived_from": "v1:sharpen",
-     "note": "now the current image; locate and read it again"
-    },
-    "ms": 537.6
-   },
-   {
-    "step": 9,
-    "tool": "locate_dial",
-    "args": {
-     "method": "contour"
-    },
-    "reason": "Find the dial rim on the current image.",
-    "result": {
-     "image": "v2:denoise",
-     "method": "contour",
-     "found": true,
-     "candidates": 1,
-     "score": 0.991,
-     "centre": [
-      320,
-      257
-     ],
-     "axis_ratio": 0.987
-    },
-    "ms": 6.5
-   },
-   {
-    "step": 10,
-    "tool": "read_gauge",
-    "args": {
-     "candidate": 0
-    },
-    "reason": "Dial located; read it.",
-    "result": {
-     "reading_id": "r3",
-     "image": "v2:denoise",
-     "method": "contour#0",
-     "value": 33.4375,
-     "units": "C",
-     "confidence": 0.033,
-     "flags": [],
-     "components": {
-      "locate": 0.991,
-      "scale": 1.0,
-      "needle": 0.033
-     },
-     "acceptable": false,
-     "limit_status": "normal"
-    },
-    "ms": 24.3
-   },
-   {
-    "step": 11,
-    "tool": "request_recapture",
-    "args": {
-     "reason": "Could not obtain a trustworthy reading (best confidence 0.03 is below the minimum).",
-     "guidance": "The photo is blurred. Hold the camera steady, tap to focus on the dial, then retake."
-    },
-    "reason": "Remedies exhausted.",
-    "result": {
-     "ok": true
-    },
-    "ms": 0.0
-   }
-  ]
- },
- "low_light": {
-  "seed": 5000,
-  "truth": 35.547339438481984,
-  "outcome": {
-   "status": "recorded"
-  },
-  "recorded": {
-   "asset_id": "TG-303",
-   "value": 35.5359,
-   "units": "C",
-   "confidence": 0.805,
-   "limit_status": "normal",
-   "reading_id": "r2",
-   "verified_by": null,
-   "run_id": "3d03e1d6aaaf",
-   "ts": 1791877425.0014572
-  },
   "trace": [
    {
     "step": 1,
@@ -1112,6 +840,255 @@
     "reason": "Measure image quality before trusting any reading.",
     "result": {
      "image": "original",
+     "sharpness": 80.8,
+     "brightness": 131.6,
+     "contrast": 158.0,
+     "noise": 0.61,
+     "glare_fraction": 0.0,
+     "issues": [
+      "blurry"
+     ],
+     "scope": "frame"
+    },
+    "ms": 3.6
+   },
+   {
+    "step": 3,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "original",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.993,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.988
+    },
+    "ms": 5.5
+   },
+   {
+    "step": 4,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r1",
+     "image": "original",
+     "method": "contour#0",
+     "value": 37.4405,
+     "units": "C",
+     "confidence": 0.164,
+     "flags": [],
+     "components": {
+      "locate": 0.993,
+      "scale": 1.0,
+      "needle": 0.164
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 172.4
+   },
+   {
+    "step": 5,
+    "tool": "enhance_image",
+    "args": {
+     "op": "sharpen"
+    },
+    "reason": "Quality check reported 'blurry', so apply sharpen and look again.",
+    "result": {
+     "image": "v1:sharpen",
+     "derived_from": "original",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 1.9
+   },
+   {
+    "step": 6,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v1:sharpen",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.992,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.987
+    },
+    "ms": 6.4
+   },
+   {
+    "step": 7,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r2",
+     "image": "v1:sharpen",
+     "method": "contour#0",
+     "value": 37.6118,
+     "units": "C",
+     "confidence": 0.073,
+     "flags": [],
+     "components": {
+      "locate": 0.992,
+      "scale": 1.0,
+      "needle": 0.073
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 197.4
+   },
+   {
+    "step": 8,
+    "tool": "enhance_image",
+    "args": {
+     "op": "denoise"
+    },
+    "reason": "No specific defect explains the low confidence; try denoise and look again.",
+    "result": {
+     "image": "v2:denoise",
+     "derived_from": "v1:sharpen",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 513.1
+   },
+   {
+    "step": 9,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v2:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.991,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 0.987
+    },
+    "ms": 6.9
+   },
+   {
+    "step": 10,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r3",
+     "image": "v2:denoise",
+     "method": "contour#0",
+     "value": 25.1149,
+     "units": "C",
+     "confidence": 0.071,
+     "flags": [
+      "dial_refit_to_ticks",
+      "scale_offset_from_rim"
+     ],
+     "components": {
+      "locate": 0.991,
+      "scale": 1.0,
+      "needle": 0.071
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 221.7
+   },
+   {
+    "step": 11,
+    "tool": "request_recapture",
+    "args": {
+     "reason": "Could not obtain a trustworthy reading (best confidence 0.16 is below the minimum).",
+     "guidance": "The photo is blurred. Hold the camera steady, tap to focus on the dial, then retake."
+    },
+    "reason": "Remedies exhausted.",
+    "result": {
+     "ok": true
+    },
+    "ms": 0.0
+   }
+  ]
+ },
+ "low_light": {
+  "seed": 5000,
+  "truth": 35.547339438481984,
+  "outcome": {
+   "status": "recorded"
+  },
+  "recorded": {
+   "asset_id": "TG-303",
+   "value": 35.7086,
+   "units": "C",
+   "confidence": 0.979,
+   "limit_status": "normal",
+   "reading_id": "r1",
+   "verified_by": "r2",
+   "run_id": "52ff9aa14401",
+   "ts": 1792460069.7889073
+  },
+  "trace": [
+   {
+    "step": 1,
+    "tool": "get_asset_context",
+    "args": {},
+    "reason": "Load the gauge range and alarm limits first.",
+    "result": {
+     "asset": {
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
+      "vmin": 0,
+      "vmax": 100,
+      "units": "C",
+      "sweep_deg": 270,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
+      "crit_low": null,
+      "max_step": 30
+     },
+     "recent_readings": [],
+     "policy": {
+      "min_confidence": 0.6,
+      "agreement_tolerance_fraction": 0.02,
+      "critical_alerts_need_human_approval": true
+     }
+    },
+    "ms": 0.0
+   },
+   {
+    "step": 2,
+    "tool": "assess_quality",
+    "args": {},
+    "reason": "Measure image quality before trusting any reading.",
+    "result": {
+     "image": "original",
      "sharpness": 100.6,
      "brightness": 25.3,
      "contrast": 37.0,
@@ -1123,7 +1100,7 @@
      ],
      "scope": "frame"
     },
-    "ms": 5.6
+    "ms": 5.1
    },
    {
     "step": 3,
@@ -1144,7 +1121,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 6.3
+    "ms": 8.9
    },
    {
     "step": 4,
@@ -1157,21 +1134,21 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 30.918,
+     "value": 35.7086,
      "units": "C",
-     "confidence": 0.0,
+     "confidence": 0.979,
      "flags": [
-      "scale_sweep_mismatch"
+      "scale_from_tick_segments"
      ],
      "components": {
       "locate": 0.992,
-      "scale": 0.0,
-      "needle": 0.807
+      "scale": 1.0,
+      "needle": 0.982
      },
-     "acceptable": false,
+     "acceptable": true,
      "limit_status": "normal"
     },
-    "ms": 25.0
+    "ms": 155.7
    },
    {
     "step": 5,
@@ -1179,13 +1156,13 @@
     "args": {
      "op": "denoise"
     },
-    "reason": "Quality check reported 'dark', so apply denoise and look again.",
+    "reason": "The reader relied on a fallback (scale_from_tick_segments). Before acting on that, take an independent second reading from a re-processed image.",
     "result": {
      "image": "v1:denoise",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 583.1
+    "ms": 465.9
    },
    {
     "step": 6,
@@ -1206,7 +1183,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 6.3
+    "ms": 5.6
    },
    {
     "step": 7,
@@ -1221,33 +1198,33 @@
      "method": "contour#0",
      "value": 35.5359,
      "units": "C",
-     "confidence": 0.805,
+     "confidence": 0.846,
      "flags": [
       "scale_partially_hidden"
      ],
      "components": {
       "locate": 0.993,
       "scale": 0.85,
-      "needle": 0.95
+      "needle": 0.998
      },
      "acceptable": true,
      "limit_status": "normal"
     },
-    "ms": 29.1
+    "ms": 45.7
    },
    {
     "step": 8,
     "tool": "record_reading",
     "args": {
-     "reading_id": "r2"
+     "reading_id": "r1"
     },
-    "reason": "Confidence 0.81 meets the minimum and the value is in range.",
+    "reason": "A second, independent reading agrees.",
     "result": {
      "recorded": true,
-     "value": 35.5359,
+     "value": 35.7086,
      "units": "C",
      "limit_status": "normal",
-     "verified_by": null,
+     "verified_by": "r2",
      "next": "finished"
     },
     "ms": 0.0
@@ -1265,12 +1242,12 @@
    "asset_id": "PG-101",
    "value": 7.7089,
    "units": "bar",
-   "confidence": 0.982,
+   "confidence": 0.997,
    "limit_status": "warn_high",
    "reading_id": "r2",
    "verified_by": "r1",
-   "run_id": "2943b7d55239",
-   "ts": 1791877476.9342296
+   "run_id": "9cac61525d96",
+   "ts": 1792460126.2146344
   },
   "trace": [
    {
@@ -1318,7 +1295,7 @@
      ],
      "scope": "frame"
     },
-    "ms": 4.6
+    "ms": 4.4
    },
    {
     "step": 3,
@@ -1339,7 +1316,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 8.6
+    "ms": 6.9
    },
    {
     "step": 4,
@@ -1354,17 +1331,17 @@
      "method": "contour#0",
      "value": 7.7092,
      "units": "bar",
-     "confidence": 0.898,
+     "confidence": 0.991,
      "flags": [],
      "components": {
       "locate": 0.994,
       "scale": 1.0,
-      "needle": 0.9
+      "needle": 0.993
      },
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 23.6
+    "ms": 62.5
    },
    {
     "step": 5,
@@ -1378,7 +1355,7 @@
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 485.4
+    "ms": 480.8
    },
    {
     "step": 6,
@@ -1399,7 +1376,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 6.9
+    "ms": 6.7
    },
    {
     "step": 7,
@@ -1414,17 +1391,17 @@
      "method": "contour#0",
      "value": 7.7089,
      "units": "bar",
-     "confidence": 0.982,
+     "confidence": 0.997,
      "flags": [],
      "components": {
       "locate": 0.995,
       "scale": 1.0,
-      "needle": 0.984
+      "needle": 0.999
      },
      "acceptable": true,
      "limit_status": "warn_high"
     },
-    "ms": 25.1
+    "ms": 67.4
    },
    {
     "step": 8,
@@ -1462,23 +1439,14 @@
   ]
  },
  "glare": {
-  "seed": 5001,
-  "truth": 7.7137446928774285,
+  "seed": 5000,
+  "truth": 35.547339438481984,
   "outcome": {
-   "status": "alert_raised",
-   "severity": "warning"
+   "status": "recapture_requested",
+   "reason": "Could not obtain a trustworthy reading (best confidence 0.00 is below the minimum).",
+   "guidance": "A reflection hides part of the dial. Step to one side or shade the glass, then retake."
   },
-  "recorded": {
-   "asset_id": "PG-101",
-   "value": 7.7079,
-   "units": "bar",
-   "confidence": 0.998,
-   "limit_status": "warn_high",
-   "reading_id": "r1",
-   "verified_by": "r2",
-   "run_id": "e50612f1cef6",
-   "ts": 1791877509.868715
-  },
+  "recorded": null,
   "trace": [
    {
     "step": 1,
@@ -1487,17 +1455,17 @@
     "reason": "Load the gauge range and alarm limits first.",
     "result": {
      "asset": {
-      "asset_id": "PG-101",
-      "name": "Compressor discharge pressure",
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
       "vmin": 0,
-      "vmax": 10,
-      "units": "bar",
+      "vmax": 100,
+      "units": "C",
       "sweep_deg": 270,
-      "warn_high": 7.5,
-      "crit_high": 9.0,
-      "warn_low": 1.0,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
       "crit_low": null,
-      "max_step": 3.0
+      "max_step": 30
      },
      "recent_readings": [],
      "policy": {
@@ -1515,17 +1483,17 @@
     "reason": "Measure image quality before trusting any reading.",
     "result": {
      "image": "original",
-     "sharpness": 1059.5,
-     "brightness": 159.6,
-     "contrast": 201.0,
-     "noise": 1.46,
-     "glare_fraction": 0.0122,
+     "sharpness": 748.7,
+     "brightness": 132.5,
+     "contrast": 179.0,
+     "noise": 1.25,
+     "glare_fraction": 0.0156,
      "issues": [
       "glare"
      ],
      "scope": "frame"
     },
-    "ms": 3.9
+    "ms": 4.3
    },
    {
     "step": 3,
@@ -1538,15 +1506,15 @@
      "image": "original",
      "method": "contour",
      "found": true,
-     "candidates": 3,
+     "candidates": 1,
      "score": 0.995,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 7.2
+    "ms": 6.7
    },
    {
     "step": 4,
@@ -1559,33 +1527,35 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 7.7079,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.4459,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
       "locate": 0.995,
-      "scale": 1.0,
-      "needle": 1.0
+      "scale": 0.85,
+      "needle": 0.0
      },
-     "acceptable": true,
-     "limit_status": "warn_high"
+     "acceptable": false,
+     "limit_status": "normal"
     },
-    "ms": 23.6
+    "ms": 129.2
    },
    {
     "step": 5,
     "tool": "enhance_image",
     "args": {
-     "op": "denoise"
+     "op": "deglare"
     },
-    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "reason": "Quality check reported 'glare', so apply deglare and look again.",
     "result": {
-     "image": "v1:denoise",
+     "image": "v1:deglare",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 490.3
+    "ms": 27.4
    },
    {
     "step": 6,
@@ -1595,18 +1565,18 @@
     },
     "reason": "Find the dial rim on the current image.",
     "result": {
-     "image": "v1:denoise",
+     "image": "v1:deglare",
      "method": "contour",
      "found": true,
-     "candidates": 3,
-     "score": 0.996,
+     "candidates": 2,
+     "score": 0.995,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 8.3
+    "ms": 5.3
    },
    {
     "step": 7,
@@ -1617,52 +1587,186 @@
     "reason": "Dial located; read it.",
     "result": {
      "reading_id": "r2",
-     "image": "v1:denoise",
+     "image": "v1:deglare",
      "method": "contour#0",
-     "value": 7.7075,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5248,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
-      "locate": 0.996,
-      "scale": 1.0,
-      "needle": 1.0
+      "locate": 0.995,
+      "scale": 0.85,
+      "needle": 0.0
      },
-     "acceptable": true,
-     "limit_status": "warn_high"
+     "acceptable": false,
+     "limit_status": "normal"
     },
-    "ms": 27.0
+    "ms": 126.1
    },
    {
     "step": 8,
-    "tool": "record_reading",
+    "tool": "read_gauge",
     "args": {
-     "reading_id": "r1"
+     "candidate": 1
     },
-    "reason": "A second, independent reading agrees.",
+    "reason": "Try the second rim candidate; the first may be the bezel or a reflection.",
     "result": {
-     "recorded": true,
-     "value": 7.7079,
-     "units": "bar",
-     "limit_status": "warn_high",
-     "verified_by": "r2",
-     "next": "raise_alert"
+     "reading_id": "r3",
+     "image": "v1:deglare",
+     "method": "contour#1",
+     "value": 82.6782,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "pivot_not_found",
+      "scale_not_found"
+     ],
+     "components": {
+      "locate": 0.516,
+      "scale": 0.3,
+      "needle": 0.0
+     },
+     "acceptable": false,
+     "limit_status": "warn_high"
     },
-    "ms": 0.0
+    "ms": 74.2
    },
    {
     "step": 9,
-    "tool": "raise_alert",
+    "tool": "enhance_image",
     "args": {
-     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
+     "op": "denoise"
     },
-    "reason": "Recorded value is outside its limits.",
+    "reason": "No specific defect explains the low confidence; try denoise and look again.",
     "result": {
-     "alert": "dispatched",
-     "severity": "warning",
-     "delivery": {
-      "delivered": "memory"
-     }
+     "image": "v2:denoise",
+     "derived_from": "v1:deglare",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 422.0
+   },
+   {
+    "step": 10,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v2:denoise",
+     "method": "contour",
+     "found": true,
+     "candidates": 1,
+     "score": 0.995,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.0
+   },
+   {
+    "step": 11,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r4",
+     "image": "v2:denoise",
+     "method": "contour#0",
+     "value": 34.9551,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_partially_hidden"
+     ],
+     "components": {
+      "locate": 0.995,
+      "scale": 0.85,
+      "needle": 0.0
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 121.3
+   },
+   {
+    "step": 12,
+    "tool": "enhance_image",
+    "args": {
+     "op": "sharpen"
+    },
+    "reason": "No specific defect explains the low confidence; try sharpen and look again.",
+    "result": {
+     "image": "v3:sharpen",
+     "derived_from": "v2:denoise",
+     "note": "now the current image; locate and read it again"
+    },
+    "ms": 2.0
+   },
+   {
+    "step": 13,
+    "tool": "locate_dial",
+    "args": {
+     "method": "contour"
+    },
+    "reason": "Find the dial rim on the current image.",
+    "result": {
+     "image": "v3:sharpen",
+     "method": "contour",
+     "found": true,
+     "candidates": 2,
+     "score": 0.995,
+     "centre": [
+      320,
+      257
+     ],
+     "axis_ratio": 1.0
+    },
+    "ms": 6.0
+   },
+   {
+    "step": 14,
+    "tool": "read_gauge",
+    "args": {
+     "candidate": 0
+    },
+    "reason": "Dial located; read it.",
+    "result": {
+     "reading_id": "r5",
+     "image": "v3:sharpen",
+     "method": "contour#0",
+     "value": 35.2773,
+     "units": "C",
+     "confidence": 0.0,
+     "flags": [
+      "scale_partially_hidden"
+     ],
+     "components": {
+      "locate": 0.995,
+      "scale": 0.85,
+      "needle": 0.0
+     },
+     "acceptable": false,
+     "limit_status": "normal"
+    },
+    "ms": 156.9
+   },
+   {
+    "step": 15,
+    "tool": "request_recapture",
+    "args": {
+     "reason": "Could not obtain a trustworthy reading (best confidence 0.00 is below the minimum).",
+     "guidance": "A reflection hides part of the dial. Step to one side or shade the glass, then retake."
+    },
+    "reason": "Remedies exhausted.",
+    "result": {
+     "ok": true
     },
     "ms": 0.0
    }
@@ -1681,9 +1785,9 @@
    "confidence": 0.714,
    "limit_status": "normal",
    "reading_id": "r2",
-   "verified_by": null,
-   "run_id": "1eb390f8883f",
-   "ts": 1791877548.5942733
+   "verified_by": "r1",
+   "run_id": "d9ac57682088",
+   "ts": 1792460224.0595727
   },
   "trace": [
    {
@@ -1750,7 +1854,7 @@
      ],
      "axis_ratio": 0.862
     },
-    "ms": 6.4
+    "ms": 5.1
    },
    {
     "step": 4,
@@ -1778,7 +1882,7 @@
      "acceptable": false,
      "limit_status": "normal"
     },
-    "ms": 21.4
+    "ms": 132.2
    },
    {
     "step": 5,
@@ -1799,7 +1903,7 @@
      ],
      "axis_ratio": 1.0
     },
-    "ms": 12.4
+    "ms": 11.5
    },
    {
     "step": 6,
@@ -1826,7 +1930,7 @@
      "acceptable": true,
      "limit_status": "normal"
     },
-    "ms": 23.7
+    "ms": 41.9
    },
    {
     "step": 7,
@@ -1834,13 +1938,13 @@
     "args": {
      "reading_id": "r2"
     },
-    "reason": "Confidence 0.71 meets the minimum and the value is in range.",
+    "reason": "A second, independent reading agrees.",
     "result": {
      "recorded": true,
      "value": 35.5319,
      "units": "C",
      "limit_status": "normal",
-     "verified_by": null,
+     "verified_by": "r1",
      "next": "finished"
     },
     "ms": 0.0
@@ -1848,22 +1952,21 @@
   ]
  },
  "jpeg": {
-  "seed": 5001,
-  "truth": 7.7137446928774285,
+  "seed": 5000,
+  "truth": 35.547339438481984,
   "outcome": {
-   "status": "alert_raised",
-   "severity": "warning"
+   "status": "recorded"
   },
   "recorded": {
-   "asset_id": "PG-101",
-   "value": 7.7088,
-   "units": "bar",
-   "confidence": 0.998,
-   "limit_status": "warn_high",
+   "asset_id": "TG-303",
+   "value": 35.5714,
+   "units": "C",
+   "confidence": 0.848,
+   "limit_status": "normal",
    "reading_id": "r1",
    "verified_by": "r2",
-   "run_id": "ad96b467e6fd",
-   "ts": 1791877582.6511865
+   "run_id": "39dd4012a914",
+   "ts": 1792460274.5829563
   },
   "trace": [
    {
@@ -1873,17 +1976,17 @@
     "reason": "Load the gauge range and alarm limits first.",
     "result": {
      "asset": {
-      "asset_id": "PG-101",
-      "name": "Compressor discharge pressure",
+      "asset_id": "TG-303",
+      "name": "Cooling water return temperature",
       "vmin": 0,
-      "vmax": 10,
-      "units": "bar",
+      "vmax": 100,
+      "units": "C",
       "sweep_deg": 270,
-      "warn_high": 7.5,
-      "crit_high": 9.0,
-      "warn_low": 1.0,
+      "warn_high": 70,
+      "crit_high": 85,
+      "warn_low": 5,
       "crit_low": null,
-      "max_step": 3.0
+      "max_step": 30
      },
      "recent_readings": [],
      "policy": {
@@ -1892,7 +1995,7 @@
       "critical_alerts_need_human_approval": true
      }
     },
-    "ms": 0.0
+    "ms": 0.1
    },
    {
     "step": 2,
@@ -1901,15 +2004,15 @@
     "reason": "Measure image quality before trusting any reading.",
     "result": {
      "image": "original",
-     "sharpness": 1031.3,
-     "brightness": 159.5,
-     "contrast": 201.0,
-     "noise": 1.19,
-     "glare_fraction": 0.0007,
+     "sharpness": 782.1,
+     "brightness": 131.4,
+     "contrast": 181.0,
+     "noise": 0.9,
+     "glare_fraction": 0.0003,
      "issues": [],
      "scope": "frame"
     },
-    "ms": 3.5
+    "ms": 3.7
    },
    {
     "step": 3,
@@ -1922,15 +2025,15 @@
      "image": "original",
      "method": "contour",
      "found": true,
-     "candidates": 3,
+     "candidates": 1,
      "score": 0.995,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 6.5
+    "ms": 6.3
    },
    {
     "step": 4,
@@ -1943,19 +2046,21 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 7.7088,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5714,
+     "units": "C",
+     "confidence": 0.848,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
       "locate": 0.995,
-      "scale": 1.0,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 22.2
+    "ms": 48.6
    },
    {
     "step": 5,
@@ -1963,13 +2068,13 @@
     "args": {
      "op": "denoise"
     },
-    "reason": "The value is in the warn_high band. Before acting on that, take an independent second reading from a re-processed image.",
+    "reason": "The reader relied on a fallback (scale_partially_hidden). Before acting on that, take an independent second reading from a re-processed image.",
     "result": {
      "image": "v1:denoise",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 524.6
+    "ms": 397.8
    },
    {
     "step": 6,
@@ -1982,15 +2087,15 @@
      "image": "v1:denoise",
      "method": "contour",
      "found": true,
-     "candidates": 3,
+     "candidates": 1,
      "score": 0.995,
      "centre": [
-      391,
-      243
+      320,
+      257
      ],
      "axis_ratio": 1.0
     },
-    "ms": 7.8
+    "ms": 5.7
    },
    {
     "step": 7,
@@ -2003,19 +2108,21 @@
      "reading_id": "r2",
      "image": "v1:denoise",
      "method": "contour#0",
-     "value": 7.7088,
-     "units": "bar",
-     "confidence": 0.998,
-     "flags": [],
+     "value": 35.5643,
+     "units": "C",
+     "confidence": 0.848,
+     "flags": [
+      "scale_partially_hidden"
+     ],
      "components": {
       "locate": 0.995,
-      "scale": 1.0,
+      "scale": 0.85,
       "needle": 1.0
      },
      "acceptable": true,
-     "limit_status": "warn_high"
+     "limit_status": "normal"
     },
-    "ms": 26.3
+    "ms": 45.8
    },
    {
     "step": 8,
@@ -2026,27 +2133,11 @@
     "reason": "A second, independent reading agrees.",
     "result": {
      "recorded": true,
-     "value": 7.7088,
-     "units": "bar",
-     "limit_status": "warn_high",
+     "value": 35.5714,
+     "units": "C",
+     "limit_status": "normal",
      "verified_by": "r2",
-     "next": "raise_alert"
-    },
-    "ms": 0.0
-   },
-   {
-    "step": 9,
-    "tool": "raise_alert",
-    "args": {
-     "message": "Compressor discharge pressure read 7.71 bar (warn_high), confirmed by two independent readings."
-    },
-    "reason": "Recorded value is outside its limits.",
-    "result": {
-     "alert": "dispatched",
-     "severity": "warning",
-     "delivery": {
-      "delivered": "memory"
-     }
+     "next": "finished"
     },
     "ms": 0.0
    }
@@ -2062,12 +2153,12 @@
    "asset_id": "TG-303",
    "value": 35.4966,
    "units": "C",
-   "confidence": 0.974,
+   "confidence": 0.995,
    "limit_status": "normal",
    "reading_id": "r2",
    "verified_by": null,
-   "run_id": "5de966d11e52",
-   "ts": 1791877609.5373433
+   "run_id": "38a4e6f28712",
+   "ts": 1792460304.2793887
   },
   "trace": [
    {
@@ -2116,7 +2207,7 @@
      ],
      "scope": "frame"
     },
-    "ms": 5.2
+    "ms": 4.0
    },
    {
     "step": 3,
@@ -2137,7 +2228,7 @@
      ],
      "axis_ratio": 0.945
     },
-    "ms": 6.0
+    "ms": 4.8
    },
    {
     "step": 4,
@@ -2150,21 +2241,21 @@
      "reading_id": "r1",
      "image": "original",
      "method": "contour#0",
-     "value": 35.9257,
+     "value": 35.2704,
      "units": "C",
-     "confidence": 0.0,
+     "confidence": 0.981,
      "flags": [
-      "scale_sweep_mismatch"
+      "scale_from_tick_segments"
      ],
      "components": {
       "locate": 0.993,
-      "scale": 0.0,
-      "needle": 0.821
+      "scale": 1.0,
+      "needle": 0.984
      },
-     "acceptable": false,
+     "acceptable": true,
      "limit_status": "normal"
     },
-    "ms": 28.8
+    "ms": 135.3
    },
    {
     "step": 5,
@@ -2172,13 +2263,13 @@
     "args": {
      "op": "denoise"
     },
-    "reason": "Quality check reported 'dark', so apply denoise and look again.",
+    "reason": "The reader relied on a fallback (scale_from_tick_segments). Before acting on that, take an independent second reading from a re-processed image.",
     "result": {
      "image": "v1:denoise",
      "derived_from": "original",
      "note": "now the current image; locate and read it again"
     },
-    "ms": 483.3
+    "ms": 408.7
    },
    {
     "step": 6,
@@ -2199,7 +2290,7 @@
      ],
      "axis_ratio": 0.945
     },
-    "ms": 6.3
+    "ms": 5.1
    },
    {
     "step": 7,
@@ -2214,17 +2305,17 @@
      "method": "contour#0",
      "value": 35.4966,
      "units": "C",
-     "confidence": 0.974,
+     "confidence": 0.995,
      "flags": [],
      "components": {
       "locate": 0.994,
       "scale": 1.0,
-      "needle": 0.977
+      "needle": 0.998
      },
      "acceptable": true,
      "limit_status": "normal"
     },
-    "ms": 27.3
+    "ms": 43.8
    },
    {
     "step": 8,
@@ -2232,7 +2323,7 @@
     "args": {
      "reading_id": "r2"
     },
-    "reason": "Confidence 0.97 meets the minimum and the value is in range.",
+    "reason": "Confidence 0.99 meets the minimum and the value is in range.",
     "result": {
      "recorded": true,
      "value": 35.4966,
@@ -2241,7 +2332,7 @@
      "verified_by": null,
      "next": "finished"
     },
-    "ms": 0.1
+    "ms": 0.0
    }
   ]
  }

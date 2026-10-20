@@ -56,12 +56,33 @@ closed-form projective map of the disc onto itself that moves the pivot to the c
 once with `warpPerspective`, whose accuracy and speed were revised in OpenCV 5. A plausibility check rejects
 a pivot that is inconsistent with the rim's eccentricity (for example when glare covers the hub).
 
+**Fallbacks for real dials.** On real photos the rim found is often a bezel or case edge that is not
+concentric with the scale (a dial face recessed behind its glass, seen at an angle). Three fallbacks run only
+when the standard pass is unsure (confidence below 0.6):
+- *Tick-line voting for the pivot.* `createLineSegmentDetector` finds line segments; tick marks are radial,
+  and a projective map keeps lines concurrent, so the segments that point roughly at the centre vote for the
+  point their lines pass through (refined to a quarter pixel). This finds the pivot even when the hub is a
+  brass screw or hidden by glare.
+- *Rectification from the tick ring.* The outer ends of the tick segments in the densest ring are mapped back
+  to the photo, `fitEllipse` (with outlier rejection) gives the true dial ellipse, and rectification restarts
+  from it.
+- *Scale ends from tick segments.* Segments aimed at the pivot give the angular extent of the printed scale
+  directly; isolated segments (screws, digits) and stray marks that make the span longer than the registry's
+  nominal sweep are dropped.
+
+If the standard and fallback passes both give a value and disagree, the better one is kept with its confidence
+halved and a `reader_paths_disagree` flag.
+
 **Scale and needle.** A black-hat style transform (morphological closing minus the image, normalised by the
 local background) isolates thin dark structures independent of lighting. `warpPolar` unrolls the dial. The
 tick ring is the outermost radial band with high angular high-frequency energy; the largest gap in it is the
 unprinted part of the scale, which fixes the leftover rotation, so camera roll needs no assumption. The
-needle is the angle with consistently high ink along a radial band inside the digits. The value is linear
-interpolation between the first and last tick.
+needle is the angle with consistently high ink along a radial band inside the digits, weighted by how far ink
+runs unbroken outward from the hub: real needles have long counterweight tails, and only the pointer reaches
+into the tick ring, while printed digits are not attached to the hub. The opposite end of the same needle is
+not counted as a rival direction; it only raises the question of which end is the pointer, which that reach
+answers. A needle resting on its zero stop just below the first mark reads as the minimum. The value is
+linear interpolation between the first and last tick.
 
 **Confidence.** The product of three terms: how well the rim fits an ellipse, how closely the measured scale
 sweep matches the asset's nominal sweep, and how strongly the needle peak stands out from the next best
@@ -99,6 +120,8 @@ that tries to record an unverified high value and is refused:
 |---|---|
 | A reading below the minimum confidence (0.6) cannot be recorded | `record_reading` |
 | An out-of-limit value, or a jump larger than the asset's `max_step`, needs an agreeing second reading from a different image version or locate method | `record_reading` |
+| A reading that disagrees with another reading of the same photo in this run, or that relied on a reader fallback (section 3), needs an agreeing second reading | `record_reading` |
+| A reading whose needle points at the opposite end from another reading in the run (pointer and tail confused) cannot be recorded | `record_reading` |
 | A needle outside the printed scale cannot be recorded | `record_reading` |
 | Alert severity is computed from the asset limits, not chosen by the planner | `raise_alert` |
 | A critical alert is held until a named operator approves it | `raise_alert`, `decide_alert` |
@@ -154,65 +177,87 @@ unseen seeds from 5000. Reproduce with `python eval/run_eval.py --n 60`.
 
 | | Value reported | Correct | Wrong value reported | Mean error of reported values | Alert recall | False alerts |
 |---|---|---|---|---|---|---|
-| Single pass | 96.5% | 91.5% | 5.0% | 0.70% FS | 93.6% | 4 |
-| Gated | 81.1% | 80.5% | 0.6% | 0.14% FS | 80.5% | 1 |
-| **Agent** | 93.2% | **92.6%** | **0.6%** | 0.14% FS | 89.5% | 1 |
+| Single pass | 96.4% | 92.9% | 3.5% | 0.58% FS | 93.6% | 5 |
+| Gated | 87.9% | 87.1% | 0.8% | 0.16% FS | 86.8% | 1 |
+| **Agent** | 91.1% | **90.6%** | **0.5%** | 0.13% FS | 89.1% | 1 |
 
 What this shows:
 
-- Always reporting gives a wrong value on 5.0% of images (33 of 660). Gating on confidence removes almost
-  all of them but also withholds 11% of images that single pass had read correctly.
-- The agent recovers most of that loss: it reports a correct value on 92.6% of images while keeping wrong
-  values at 0.6% (4 images). The gain is concentrated where enhancement helps: low light goes from 45% to
-  100% correct relative to gating, noise from 87% to 100%, combined degradations from 75% to 87%.
-- On clean, rolled, tilted, blurred and compressed images all three systems are 100% correct, with a mean
-  error of about 0.05% of full scale.
-- Alert recall is lower for the agent (89.5%) than for single pass (93.6%), because the agent declines to
-  alert on values it could not confirm; single pass raised 4 false alerts against the agent's 1.
+- Always reporting gives a wrong value on 3.5% of images (23 of 660). Gating on confidence removes most of
+  them but also withholds 6% of images that single pass had read correctly.
+- The agent keeps wrong values at 0.5% (3 images) and reports a correct value on 90.6%. The gain over
+  gating is where enhancement helps: low light goes from 82% correct (gated) to 100% (agent).
+- On clean, rolled, tilted, blurred, low-light, noisy and compressed images the agent is 100% correct, with a
+  mean error of 0.04% to 0.10% of full scale.
+- The agent is deliberately conservative where readings of one photo disagree: glare (60% reported) and
+  occlusion (67%) end in recapture requests or escalations instead of a value.
+- Alert recall is lower for the agent (89.1%) than for single pass (93.6%), because the agent declines to
+  alert on values it could not confirm; single pass raised 5 false alerts against the agent's 1.
 
-Per-condition tables are in `eval/results/results.md`. Outcomes over the 660 runs: 417 recorded, 122
-warnings sent, 76 critical alerts held for approval, 43 recapture requests, 2 escalations. Mean cost per
-image on a laptop CPU: 7.1 tool calls and 0.30 s (95th percentile 0.77 s).
+Per-condition tables are in `eval/results/results.md`. Outcomes over the 660 runs: 404 recorded, 122
+warnings sent, 75 critical alerts held for approval, 45 recapture requests, 14 escalations. Mean cost per
+image on a laptop CPU: 7.5 tool calls and 0.39 s (95th percentile 1.05 s).
+
+**Change from the first version.** Adding the real-photo fallbacks and the new guardrails (section 4) moved
+the agent from 92.6% correct and 0.6% wrong to 90.6% correct and 0.5% wrong on this set: slightly safer,
+slightly less coverage, almost all of it on glare and occlusion.
 
 **Failure cases.** `eval/results/agent_failures.jpg` shows the images where the agent recorded a wrong value:
-3 occlusion images and 1 combined image (glare plus blur on a tilted dial), with errors of 2.3% to 3.6% of
-full scale. In the occlusion cases a bar crosses the lower part of the dial near the ends of the scale, so
+3 occlusion images, with errors of 2.3% to 3.6% of full scale. In the occlusion cases a bar crosses the lower part of the dial near the ends of the scale, so
 the rim and scale ends are estimated from what is left; the result is slightly off but still looks
 self-consistent, and the confirming second reading repeats the mistake because it comes from the same
 photo. The exact mechanism has not been analysed further. Glare remains the weakest condition
-for coverage (70% reported): when a reflection covers the needle no processing recovers it, and the agent
-correctly asks for a new photo.
+for coverage (60% reported): when a reflection covers the needle no processing recovers it, and the agent
+asks for a new photo.
 
 ### 6.1 Real photographs
 
-**Data.** 14 openly licensed photographs from Wikimedia Commons (licences and authors in
-`eval/real/SOURCES.md`). Nine show a dial a person can read; we read their values by eye (approximate,
-tolerance stated per photo in `eval/real/labels.json`). Five cannot be read by a person: four gauges are
-small or distant in the frame, and one antique gauge has a symmetric needle whose pointer end is ambiguous.
-For those, the only correct outcome is to withhold a value. Reproduce with `python eval/run_real.py`.
+**Data.** Two sets of openly licensed photographs (CC0, CC BY, CC BY-SA; every file credited in
+`eval/real/SOURCES.md`), with values read by eye and a tolerance stated per photo:
 
-| | Readable photos (9): correct | Readable photos: wrong value reported | Unreadable photos (5): value reported anyway |
+- *Tuning set* (`eval/real/labels.json`): 14 photos from Wikimedia Commons, 9 readable and 5 that a person
+  cannot read (gauge small or distant, or a symmetric needle whose pointer end is ambiguous). These photos
+  were studied while improving the reader, so results on them are optimistic.
+- *Held-out test set* (`eval/real/test_labels.json`): 23 photos found by a crawler (`eval/real/crawl.py`,
+  Wikimedia Commons categories and Openverse, licence-filtered), filtered with the dial locator only and
+  labelled before the improved reader was run on them: 21 readable (10 with a non-zero value) and 2
+  ambiguous. One label was corrected after the reader had run, when its rectified view showed that the
+  thick spade on a depth gauge is the counterweight (300 changed to 0); the label file says so.
+
+For unreadable photos the only correct outcome is to withhold. Reproduce with
+`python eval/run_real.py --set tuning` and `--set test`.
+
+| Held-out test set | Readable (21): correct | Readable: wrong value | Unreadable (2): value reported |
 |---|---|---|---|
-| Single pass | 4 | **5** | 4 |
-| **Agent** | 0 | **0** | **0** |
+| Single pass | 10 | 11 | 2 |
+| **Agent** | **8** | **1** | **0** |
+| Agent with the first version of the reader | 0 | 0 | 0 |
+
+| Tuning set | Readable (9): correct | Readable: wrong value | Unreadable (5): value reported |
+|---|---|---|---|
+| Single pass | 5 | 4 | 4 |
+| **Agent** | 1 | 0 | 0 |
 
 What this shows:
 
-- **The reader does not yet transfer to real gauges.** A dial is located on 13 of 14 photos, but the
-  confidence of every reading on a readable photo is below 0.1. The reasons are visible in the confidence
-  components: the pivot check fails on 8 of 9 readable photos (real hubs, screws and needle bases look
-  different from the synthetic ones); the tick-ring search fails on 7 of 9, including every dual-scale dial
-  (bar and psi, kPa and psi), giving a sweep that does not match the asset; and real needles have counterweight tails, which the reader sometimes
-  follows (pool gauge: 2.2 bar read for 0).
-- **The safety design holds.** Because confidence is honest, the agent recorded nothing it could not
-  trust: no wrong values and no values on unreadable photos. Every run ended in a recapture request.
-  Single pass, which always reports, gave a wrong value on 5 of the 9 readable photos (errors up to 73% of
-  full scale) and a value on 4 of the 5 unreadable ones.
-- The four photos single pass read correctly (errors 0.2 to 1.4% of full scale) show that the geometry
-  pipeline works on real dials when the scale is a single ring; the confidence terms are the part that
-  needs real-data calibration.
+- **The first version did not transfer to real gauges.** It found the dial but the hub check, the tick ring
+  and the needle all failed on real photos, so confidence was near zero and the agent recorded nothing.
+  The causes were a rim that is not concentric with the scale, dual-scale dials, and long counterweight
+  tails; the fallbacks and the needle reach in section 3 address them.
+- **The improved reader is usable on part of the real set.** On the held-out photos the agent recorded 9 of
+  21 readable gauges: 8 within 2% of full scale (including 0.87 for a true 1.0 MPa, 5.38 for 5.8 kg/cm2 and
+  9.17 for 9.7 psi) and 1 wrong (0.128 MPa for a true 0 on a 0 to 4 MPa gauge, 3.2% of full scale). It asked
+  for a new photo or escalated on the other 12, and withheld on both ambiguous ones.
+- **The guardrails were needed.** An earlier version of the improved reader, run before the conflict and
+  pointer-end rules existed, let the agent record 4 wrong values on these photos (scored with the corrected
+  label) and a value on one ambiguous photo, including 99 for a true 0 where a denoised image made the
+  reader follow the counterweight. Those rules, and running the standard pass before the fallbacks, now
+  refuse such readings.
+- **Coverage is still low:** 43% of readable test photos get a value. Single pass is wrong on about half of
+  the real photos, which is why the agent must keep withholding.
 
-`eval/results/real_overlays.jpg` shows each photo with the detected rim, pivot, needle and scale ends.
+`eval/results/real_test_overlays.jpg` and `real_tuning_overlays.jpg` show each photo with the detected
+rim, pivot, needle and scale ends.
 
 ### 6.2 Model planners
 
@@ -237,10 +282,10 @@ significant.
 
 ## 7. Limitations
 
-- **The reader is not yet reliable on real photographs** (section 6.1). On 14 real photos the agent
-  withheld every value; the accuracy figures in section 6 apply to synthetic images only. Real gauges have
-  printed logos, dual scales, coloured arcs, counterweighted needles, worn faces, curved glass and shadows
-  that the renderer does not model, and the confidence thresholds were calibrated on synthetic images.
+- **Limited reliability on real photographs** (section 6.1). On 21 held-out real photos the agent
+  recorded a value for 9 (8 correct, 1 wrong by 3.2% of full scale) and withheld on the rest. The test set is
+  small, its labels were read by eye, and most real photos available under open licences show museum
+  gauges at zero. The confidence threshold was calibrated on synthetic images.
 - **Small model-planner evaluation.** The 660-image numbers use the rule planner. The model planners were
   compared live on 14 gauges, one run each (section 6.2); GLM-5 takes about 15 to 20 s per run against
   0.3 s for the rules.
@@ -249,7 +294,8 @@ significant.
 - **Range comes from a registry.** The digits are not read; the asset record supplies minimum, maximum and
   nominal sweep. Selecting the wrong asset gives a wrong value with high confidence.
 - **The second reading is not independent evidence.** It re-processes the same photo, so it catches
-  unstable readings, not a photo that is misleading in itself (the occlusion failures above).
+  unstable readings, not a photo that is misleading in itself (the occlusion failures above, and a real
+  gauge where two image versions both followed the counterweight).
 - **Linear scales only**, and the first and last ticks are assumed to be the scale's minimum and maximum.
 - **The COOL path has not been attempted.**
 
@@ -272,7 +318,6 @@ significant.
 
 ## 9. Next steps
 
-Make the reader work on real photographs: a pivot model that accepts real hubs, tick-ring selection that
-handles dual scales, telling the pointer from the counterweight tail, and confidence calibrated on a real
-labelled set larger than 14 photos. Run the model planners on the full 660-image set and the real photos; read the scale digits to remove the
+Improve coverage on real photographs: confidence calibrated on a larger real labelled set (the crawler and
+candidate filter are in `eval/real/`), reading the scale digits, and a true second photo for verification. Run the model planners on the full 660-image set and the real photos; read the scale digits to remove the
 registry dependency; take a true second photo for verification when a camera can be re-triggered.

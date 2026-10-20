@@ -99,6 +99,29 @@ def test_guardrail_refuses_alert_for_in_range_value(store, gauge):
     assert "within limits" in call_tool(s, "raise_alert", {"message": "panic"})["error"]
 
 
+def test_conflicting_readings_of_one_photo_need_an_agreeing_second_reading(store, gauge):
+    s, r = _session(store, gauge("PG-101", 4.0)[0])
+    s.readings.insert(0, {**s.readings[0], "reading_id": "r0", "value": 6.5, "raw": {}})  # an earlier, different reading
+    out = call_tool(s, "record_reading", {"reading_id": r["reading_id"]})
+    assert "verification required" in out["error"] and "disagrees" in out["error"] and s.recorded is None
+
+
+def test_reading_from_a_reader_fallback_needs_an_agreeing_second_reading(store, gauge):
+    s, r = _session(store, gauge("PG-101", 4.0)[0])
+    s.readings[0]["flags"] = ["scale_from_tick_segments"]
+    out = call_tool(s, "record_reading", {"reading_id": r["reading_id"]})
+    assert "verification required" in out["error"] and "fallback" in out["error"]
+
+
+def test_pointer_and_tail_confusion_blocks_recording(store, gauge):
+    s, r = _session(store, gauge("PG-101", 4.0)[0])
+    flipped = (s.readings[0]["raw"]["needle_deg"] + 180.0) % 360.0
+    s.readings.append({**s.readings[0], "reading_id": "r9", "raw": {"needle_deg": flipped}})
+    out = call_tool(s, "record_reading", {"reading_id": r["reading_id"]})
+    assert "opposite end of the needle" in out["error"] and s.recorded is None
+    assert not s.acceptable(s.readings[0])
+
+
 def test_bad_tool_calls_return_errors_not_exceptions(store, gauge):
     s, _ = _session(store, gauge("PG-101", 4.0)[0])
     assert "error" in call_tool(s, "no_such_tool", {})

@@ -8,3 +8,4 @@ __pycache__/
 eval/eval_stdout.txt
 infra/build/
 infra/packaged.yaml
+eval/results/debug/

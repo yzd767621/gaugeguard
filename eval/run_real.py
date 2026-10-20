@@ -41,12 +41,16 @@ def err_pct(value, label):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=os.path.join(HERE, "results"))
+    ap.add_argument("--set", choices=["tuning", "test"], default="test",
+                    help="tuning: photos used while improving the reader; test: held-out photos, labelled before the "
+                         "improved reader was run on them")
     args = ap.parse_args()
-    labels = json.load(open(os.path.join(HERE, "real", "labels.json"), encoding="utf-8"))
+    label_file, image_dir = {"tuning": ("labels.json", "images"), "test": ("test_labels.json", "test_images")}[args.set]
+    labels = json.load(open(os.path.join(HERE, "real", label_file), encoding="utf-8"))
 
     rows, tiles = [], []
     for label in labels:
-        img = fit_image(cv2.imread(os.path.join(HERE, "real", "images", label["file"])))
+        img = fit_image(cv2.imread(os.path.join(HERE, "real", image_dir, label["file"])))
         asset = asset_for(label)
 
         loc = locate_dial(img)
@@ -91,12 +95,12 @@ def main():
     print(json.dumps(summary, indent=1))
 
     os.makedirs(args.out, exist_ok=True)
-    with open(os.path.join(args.out, "real_results.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(args.out, f"real_{args.set}_results.json"), "w", encoding="utf-8") as f:
         json.dump({"summary": summary, "rows": rows}, f, indent=1, ensure_ascii=False)
     while len(tiles) % 4:
         tiles.append(np.full_like(tiles[0], 255))
     sheet = np.vstack([np.hstack(tiles[i:i + 4]) for i in range(0, len(tiles), 4)])
-    cv2.imwrite(os.path.join(args.out, "real_overlays.jpg"), sheet, [cv2.IMWRITE_JPEG_QUALITY, 85])
+    cv2.imwrite(os.path.join(args.out, f"real_{args.set}_overlays.jpg"), sheet, [cv2.IMWRITE_JPEG_QUALITY, 85])
 
 
 if __name__ == "__main__":
